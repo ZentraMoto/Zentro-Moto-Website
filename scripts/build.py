@@ -643,33 +643,6 @@ def build_product(bike):
       </div>
     </section>
 
-    <!-- Section 8: Product FAQ -->
-    <section class="section section--grey">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="h2">Questions about the {bike['name']}.</h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item" open>
-            <summary>Is this bike currently available?<span class="faq-icon"></span></summary>
-            <div class="faq-body">The {bike['name']} is currently <strong>{bike['availability_label']}</strong>. See <a href="support.html">Support</a> for what each availability status means.</div>
-          </details>
-          <details class="faq-item">
-            <summary>What comes with the bike?<span class="faq-icon"></span></summary>
-            <div class="faq-body">The bike, battery, charger and documentation are included. See What&rsquo;s Included above, or visit <a href="support.html">Support</a> for details.</div>
-          </details>
-          <details class="faq-item">
-            <summary>What warranty is included?<span class="faq-icon"></span></summary>
-            <div class="faq-body">A 12-month factory warranty covers the battery, controller, motor and frame, subject to warranty terms. See <a href="warranty.html">Warranty &amp; Returns</a>.</div>
-          </details>
-          <details class="faq-item">
-            <summary>Can I get replacement parts / delivery?<span class="faq-icon"></span></summary>
-            <div class="faq-body">Yes. Genuine OEM parts are available and delivery can be arranged Australia-wide. See <a href="shipping.html">Shipping &amp; Collection</a>.</div>
-          </details>
-        </div>
-      </div>
-    </section>
-
     <!-- Cross-links to other bikes -->
     <section class="section container">
       <div class="section-head">
