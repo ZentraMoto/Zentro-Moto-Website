@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" width="1000" height="1250" role="img" aria-label="Ultra Bee placeholder image, Motor">
+  <rect width="1000" height="1250" fill="#EEEDE9"/>
+  <rect x="0.75" y="0.75" width="998.5" height="1248.5" fill="none" stroke="#D8D6CF" stroke-width="1.5"/>
+  <g transform="translate(136.12903225806457,166.12903225806457) scale(1.6129032258064515)">
+    <path d="
+M120,300
+m-58,0 a58,58 0 1,0 116,0 a58,58 0 1,0 -116,0
+M470,300
+m-58,0 a58,58 0 1,0 116,0 a58,58 0 1,0 -116,0
+M120,300 L230,190 L340,190
+M230,190 L300,300
+M300,300 L470,300
+M300,300 L250,150
+M250,150 L340,150
+L365,110 L430,110
+M340,190 L400,120
+M120,300 L170,255
+M170,255 L230,255
+" fill="none" stroke="#B9B7AE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="80.0" y="34" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="2" fill="#8A8880">PLACEHOLDER IMAGE</text>
+  <line x1="80.0" y1="44" x2="230.0" y2="44" stroke="#D8D6CF" stroke-width="1"/>
+  <text x="80.0" y="1172" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="22" letter-spacing="1" fill="#1A1A18">ULTRA BEE</text>
+  <text x="80.0" y="1204" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="2" fill="#8A8880">MOTOR</text>
+</svg>
