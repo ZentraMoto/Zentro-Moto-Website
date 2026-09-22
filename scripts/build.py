@@ -74,11 +74,11 @@ BIKES = [
         "one_liner": "The full-size flagship, built for riders who want maximum performance.",
         "intro": "Ultra Bee is the largest and most capable bike in the Zentro Moto range — a full-size electric motorcycle built for riders who want the most performance Surron offers. It’s the flagship choice for serious everyday and off-road riding.",
         "features": [
-            ("Full-size chassis", "A larger frame built to suit taller riders and more demanding riding conditions."),
-            ("Higher-output powertrain", "A higher-output electric powertrain built for stronger, sustained performance."),
-            ("Larger battery", "A larger battery designed to support the bike’s increased performance and use."),
-            ("Advanced suspension", "A more advanced suspension setup built to handle demanding terrain."),
-            ("Stronger braking", "A stronger braking package matched to the bike’s size and performance."),
+            ("24.5 kW Next-Generation Power", "The latest Hairpin motor system delivers up to 24.5 kW of peak power and 520 Nm of torque for strong, responsive acceleration."),
+            ("74V / 60Ah High-Performance Battery", "The removable 4.44 kWh lithium-ion battery provides manufacturer-claimed range of up to 115 km at 50 km/h, with approximately 2.5-hour charging from 20–80%."),
+            ("Advanced Riding Modes & Traction Control", "Eco, Daily, Sports, Reverse, Turbo and Crawl modes are supported by adjustable traction control, regenerative braking and throttle response."),
+            ("Performance Suspension & Brakes", "KKE suspension provides 240 mm of front and rear wheel travel, paired with four-piston hydraulic brakes and 240 mm wave discs."),
+            ("Connected Rider Technology", "Surron App connectivity supports bike status monitoring, GPS information, parameter adjustment and over-the-air software updates, alongside Surron Wheelie Control."),
         ],
     },
 ]
@@ -167,6 +167,46 @@ LIGHT_BEE_2_PERFORMANCE = [
     ("108 km", "Range @ 40 km/h"),
     ("65 kg", "Wet weight"),
     ("78.54V / 45Ah", "Battery"),
+]
+
+# Confirmed specification for the Ultra Bee only (see build_ultra_bee()).
+# Wheel/tyre configuration is genuinely unconfirmed (not invented) and is
+# rendered with the same .spec-placeholder muted style the generic
+# template uses for unconfirmed rows.
+ULTRA_BEE_SPECS = [
+    ("Motor", "Hairpin motor"),
+    ("Controller", "MTPA/MTPV FOC Sinewave Controller"),
+    ("Peak power", "24.5 kW"),
+    ("Maximum torque", "520 Nm"),
+    ("Transmission", "Belt and chain"),
+    ("Throttle", "Ride-by-wire, 3-level adjustable"),
+    ("Top speed", "95 km/h"),
+    ("Maximum range", "115 km @ 50 km/h"),
+    ("Riding modes", "Eco / Daily / Sports / Reverse / Turbo / Crawl"),
+    ("Battery", "74V / 60Ah, 4,440 Wh removable lithium-ion"),
+    ("Charging time", "Approx. 2.5 hours, 20&ndash;80%"),
+    ("Battery life", "Up to 1,500+ charge cycles"),
+    ("Display", "LCD multi-function display"),
+    ("Front brake", "4-piston hydraulic / 240 mm wave disc"),
+    ("Rear brake", "4-piston hydraulic / 240 mm wave disc"),
+    ("Front suspension", "37 mm KKE inverted fork / 240 mm travel"),
+    ("Rear suspension", "KKE rear shock / 240 mm wheel travel"),
+    ("Front wheel/tyre", '<span class="spec-placeholder">TO CONFIRM</span>'),
+    ("Rear wheel/tyre", '<span class="spec-placeholder">TO CONFIRM</span>'),
+    ("Dimensions", "2010 &times; 850 &times; 1180 mm"),
+    ("Wet weight", "Approx. 91&ndash;93 kg, variant dependent"),
+    ("Carrying capacity", "100 kg"),
+    ("Wheelbase", "1380 mm"),
+    ("Seat height", "910 mm"),
+    ("Ground clearance", "318 mm"),
+]
+
+ULTRA_BEE_PERFORMANCE = [
+    ("24.5 kW", "Peak power"),
+    ("95 km/h", "Top speed"),
+    ("115 km", "Range @ 50 km/h"),
+    ("520 Nm", "Max torque"),
+    ("74V / 60Ah", "Removable battery"),
 ]
 
 
@@ -1020,6 +1060,19 @@ def build_light_bee_2():
     )
 
 
+def build_ultra_bee():
+    bike = next(b for b in BIKES if b["id"] == "ultra-bee")
+    build_master_product(
+        bike,
+        category_label="Full-Size",
+        short_description="Full-size electric performance with serious power, suspension and rider technology.",
+        performance=ULTRA_BEE_PERFORMANCE,
+        intro_heading="Full-size power. Precise control.",
+        intro_body="The Ultra Bee brings Surron's electric performance into a larger, more capable off-road platform. With up to 24.5 kW of peak power, 520 Nm of torque and advanced rider-control technology, it is built for riders wanting stronger performance, greater stability and serious off-road capability.",
+        specs=ULTRA_BEE_SPECS,
+    )
+
+
 # --------------------------------------------------------------------------
 # 4. About page
 # --------------------------------------------------------------------------
@@ -1567,13 +1620,9 @@ def build_legal_reservation():
 if __name__ == "__main__":
     build_home()
     build_bikes()
-    for b in BIKES:
-        if b["id"] == "hyper-bee":
-            build_hyper_bee()
-        elif b["id"] == "light-bee-2":
-            build_light_bee_2()
-        else:
-            build_product(b)
+    build_hyper_bee()
+    build_light_bee_2()
+    build_ultra_bee()
     build_about()
     build_support()
     build_shipping()
