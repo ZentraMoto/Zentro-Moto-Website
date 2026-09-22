@@ -548,18 +548,6 @@ summary:focus-visible {
   line-height: 1.55;
 }
 
-/* Reasons (About page "Why Zentro Moto" — plain 3-col typography) */
-.reason h3 {
-  font-size: 1.0625rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-.reason p {
-  font-size: 0.9375rem;
-  color: var(--grey-800);
-  line-height: 1.55;
-}
-
 /* Reasons (homepage "A simpler way to buy" — restrained panel/card treatment) */
 .reasons {
   display: grid;
@@ -1099,22 +1087,50 @@ summary:focus-visible {
   margin: 0 auto;
 }
 
-/* About page layout — Why Zentro Moto (3 col), What We Do / Independent
-   Retailer (2 text col), Business Details (compact label/value grid) */
-.about-columns {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-.about-split-text {
+/* About page layout — hero, combined What We Do / Why Zentro Moto,
+   disclosure strip, delivery split ratio and Business Details panel */
+.about-hero-section { padding: 52px 0; }
+.about-hero-media { aspect-ratio: 16 / 10; }
+
+.about-combined {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px;
 }
+.about-benefits {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.about-benefit + .about-benefit {
+  padding-top: 18px;
+  border-top: var(--border);
+}
+.about-benefit h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.about-benefit p {
+  font-size: 0.9375rem;
+  color: var(--grey-800);
+  line-height: 1.55;
+}
+
+.about-disclosure { border-top: var(--border); }
+
+.about-delivery-split { grid-template-columns: 0.85fr 1.15fr; }
+
+.detail-panel {
+  background: var(--grey-100);
+  border: var(--border);
+  padding: 32px;
+}
 .detail-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 40px;
 }
 .detail-item-label {
   font-size: 0.75rem;
@@ -1332,9 +1348,9 @@ summary:focus-visible {
   .timeline::before { display: none; }
   .timeline-num-wrap { margin-bottom: 12px; }
   .reasons { grid-template-columns: 1fr; gap: 28px; }
-  .about-columns { grid-template-columns: 1fr; gap: 28px; }
-  .about-split-text { grid-template-columns: 1fr; gap: 28px; }
-  .detail-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 32px; }
+  .about-combined { grid-template-columns: 1fr; gap: 32px; }
+  .about-hero-section { padding: 48px 0; }
+  .detail-panel { padding: 24px 20px; }
   .hero-media { aspect-ratio: 4 / 3; }
   .split { grid-template-columns: 1fr; gap: 28px; }
   .info-cols { grid-template-columns: 1fr; gap: 28px; }
@@ -1388,5 +1404,5 @@ summary:focus-visible {
   .perf-item:nth-child(2n+1) { border-left: none; }
   .perf-item:nth-child(n+3) { border-top: var(--border); }
   .perf-figure { font-size: 1.5rem; }
-  .detail-grid { grid-template-columns: 1fr; gap: 20px; }
+  .detail-grid { gap: 20px 20px; }
 }
