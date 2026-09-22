@@ -209,6 +209,16 @@ ULTRA_BEE_PERFORMANCE = [
     ("74V / 60Ah", "Removable battery"),
 ]
 
+# Swatch colours for the paint colour selector on all three product pages.
+PAINT_COLOUR_HEX = {
+    "Blue": "#2C4A78",
+    "Yellow": "#E7B928",
+    "Green": "#3E6B4A",
+    "Brown": "#6B4A34",
+    "Black": "#141414",
+    "White": "#FFFFFF",
+}
+
 
 def img(name):
     return f"assets/img/placeholders/{name}.svg"
@@ -818,9 +828,14 @@ def build_master_product(bike, *, category_label, short_description, performance
     other_bikes = [b for b in BIKES if b["id"] != bike["id"]]
 
     default_colour = paint_colours[0]
+
+    def swatch_chip(colour):
+        return f'<span class="swatch-chip" style="background:{PAINT_COLOUR_HEX[colour]};"></span>'
+
     if len(paint_colours) > 1:
         swatches_html = "\n".join(
-            f'              <button type="button" class="swatch" aria-pressed="{"true" if i == 0 else "false"}">{colour}</button>'
+            f'              <button type="button" class="swatch" aria-pressed="{"true" if i == 0 else "false"}">'
+            f'{swatch_chip(colour)}<span class="swatch-name">{colour}</span></button>'
             for i, colour in enumerate(paint_colours)
         )
         paint_colour_html = f"""          <div class="variant-block" data-variant-group>
@@ -832,7 +847,9 @@ def build_master_product(bike, *, category_label, short_description, performance
     else:
         paint_colour_html = f"""          <div class="variant-block">
             <span class="variant-label">Paint colour</span>
-            <p class="text-sm" style="font-weight:600;">{default_colour}</p>
+            <div class="swatch-row">
+              <span class="swatch is-selected">{swatch_chip(default_colour)}<span class="swatch-name">{default_colour}</span></span>
+            </div>
           </div>"""
 
     thumbs = []
