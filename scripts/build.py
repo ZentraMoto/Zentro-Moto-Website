@@ -34,11 +34,11 @@ BIKES = [
         "one_liner": "The compact, playful entry point into the Surron electric line-up.",
         "intro": "Hyper Bee is the smallest bike in the Zentro Moto range — a compact, electric-powered ride built for fun, easy handling and everyday accessibility. It’s the natural starting point for riders who want genuine Surron engineering in the most approachable size.",
         "features": [
-            ("Compact chassis", "A smaller frame designed for easy handling and confident control in tight spaces."),
-            ("Electric power", "Fully electric powertrain with the direct, responsive power delivery Surron is known for."),
-            ("Removable battery", "Battery designed for removal, making charging and storage straightforward."),
-            ("Suspension", "Suspension set up for a comfortable, controlled ride across everyday terrain."),
-            ("Lightweight handling", "A light, manageable package that’s easy to ride, load and move around."),
+            ("8 kW Electric Performance", "Up to 8 kW of peak power and 185 Nm of torque at the wheel for responsive acceleration."),
+            ("Three Adjustable Riding Modes", "Three riding modes plus reverse allow the bike's response to be adjusted to the rider and conditions."),
+            ("Removable 58V Battery", "The 58V/22Ah lithium-ion battery is removable, with an approximate 20–80% charging time of 2.5 hours."),
+            ("Adjustable Suspension", "35 mm inverted front suspension with 170 mm travel and adjustable rebound and compression damping."),
+            ("Rider Safety & Remote Control", "Remote power control, magnetic emergency shut-off and tilt protection provide additional rider-management features."),
         ],
     },
     {
@@ -97,6 +97,39 @@ SPEC_ROWS = [
     "Peak power", "Rated power", "Battery", "Top speed", "Claimed range",
     "Weight", "Seat height", "Front suspension", "Rear suspension",
     "Front brake", "Rear brake", "Wheel size", "Charging time", "Dimensions",
+]
+
+# Confirmed specification for the Hyper Bee only (see build_hyper_bee()).
+# Rows follow the supplied spec sheet; no row is invented — anything not
+# supplied (e.g. rear suspension) is simply omitted rather than shown as
+# an unconfirmed placeholder.
+HYPER_BEE_SPECS = [
+    ("Motor", "Permanent Magnet Synchronous Motor"),
+    ("Peak power", "8 kW"),
+    ("Rated power", "4 kW"),
+    ("Maximum torque", "185 Nm at wheel"),
+    ("Top speed", "65 km/h"),
+    ("Claimed range", "56 km at 40 km/h"),
+    ("Battery", "Removable 58V / 22Ah lithium-ion"),
+    ("Charging time", "Approx. 2.5 hours, 20–80%"),
+    ("Riding modes", "1 / 2 / 3 / Reverse"),
+    ("Weight", "39 kg"),
+    ("Seat height", "Adjustable 665–705 mm"),
+    ("Ground clearance", "240–260 mm"),
+    ("Wheel size", "14&Prime; front / 12&Prime; rear"),
+    ("Front suspension", "35 mm inverted fork, adjustable rebound &amp; compression, 170 mm travel"),
+    ("Front brake", "Hydraulic disc"),
+    ("Rear brake", "Hydraulic disc"),
+    ("Dimensions", "1500 &times; 680 &times; 885 mm"),
+    ("Carrying capacity", "65 kg"),
+]
+
+HYPER_BEE_PERFORMANCE = [
+    ("8 kW", "Peak power"),
+    ("65 km/h", "Top speed"),
+    ("56 km", "Range @ 40 km/h"),
+    ("39 kg", "Weight"),
+    ("58V / 22Ah", "Removable battery"),
 ]
 
 
@@ -699,6 +732,229 @@ def build_product(bike):
     ))
 
 
+def build_hyper_bee():
+    """Hyper Bee product page only — a dedicated builder (not build_product())
+    so this page's confirmed-spec content, performance strip and reworked
+    delivery copy never touch Light Bee 2.0 or Ultra Bee, which still go
+    through the shared build_product() template unchanged."""
+    bike = next(b for b in BIKES if b["id"] == "hyper-bee")
+    other_bikes = [b for b in BIKES if b["id"] != bike["id"]]
+
+    thumbs = []
+    for i, (key, label) in enumerate(SHOTS):
+        current = "true" if i == 0 else "false"
+        thumbs.append(
+            f'          <button type="button" data-gallery-thumb data-full="{img(bike["slug"] + "-" + key)}" '
+            f'data-label="{bike["name"]} — {label} (placeholder image)" aria-current="{current}">'
+            f'<img src="{img(bike["slug"] + "-" + key)}" alt="{bike["name"]} — {label} (placeholder image) thumbnail" loading="lazy" /></button>'
+        )
+    thumbs_html = "\n".join(thumbs)
+
+    features_html = "\n".join(
+        f"""          <div class="feature-item">
+            <div class="feature-num">0{i+1}</div>
+            <div>
+              <h3>{name}</h3>
+              <p>{desc}</p>
+            </div>
+          </div>"""
+        for i, (name, desc) in enumerate(bike["features"])
+    )
+
+    perf_html = "\n".join(
+        f"""          <div class="perf-item">
+            <div class="perf-figure">{figure}</div>
+            <div class="perf-label">{label}</div>
+          </div>"""
+        for figure, label in HYPER_BEE_PERFORMANCE
+    )
+
+    spec_rows_html = "\n".join(
+        f"""            <tr><th scope="row">{label}</th><td>{value}</td></tr>"""
+        for label, value in HYPER_BEE_SPECS
+    )
+
+    body = f"""    <section class="container">
+      <div class="product-top">
+        <div class="product-gallery">
+          <div class="gallery-main">
+            <img data-gallery-main src="{img(bike['slug'] + '-profile')}" alt="{bike['name']} — Full Profile (placeholder image)" />
+          </div>
+          <div class="gallery-thumbs" role="group" aria-label="{bike['name']} image gallery">
+{thumbs_html}
+          </div>
+        </div>
+
+        <div class="buy-panel">
+          <span class="eyebrow">{bike['size']} &middot; Zentro Moto</span>
+          <h1 class="h2">{bike['name']}</h1>
+          {badge(bike)}
+          <div class="buy-price">{PRICE_PLACEHOLDER}</div>
+          <p class="buy-desc">{bike['one_liner']}</p>
+          <p class="text-sm" style="font-weight:700; margin-bottom:24px;">Off-road use only &middot; Not street legal</p>
+
+          <div class="variant-block" data-variant-group>
+            <span class="variant-label">Colour / Variant</span>
+            <div class="swatch-row">
+              <button type="button" class="swatch" aria-pressed="true">Standard &mdash; colour to confirm</button>
+            </div>
+          </div>
+
+          <div class="buy-actions">
+            <button type="button" class="btn btn-primary btn-lg btn-block"
+              data-action="add-to-cart"
+              data-product-id="{bike['id']}"
+              data-product-name="{bike['name']}"
+              data-price="{PRICE_PLACEHOLDER}"
+              data-image="{img(bike['slug'] + '-card')}"
+              data-variant="Standard">
+              {bike['primary_action']}
+            </button>
+          </div>
+
+          <ul class="trust-notes">
+            <li><span class="dot"></span> Genuine Surron</li>
+            <li><span class="dot"></span> 12-month factory warranty on core components</li>
+            <li><span class="dot"></span> OEM parts support</li>
+            <li><span class="dot"></span> Australia-wide crated delivery</li>
+            <li><span class="dot"></span> Assembly required</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mobile sticky buy bar -->
+    <div class="mobile-buy-bar" aria-hidden="false">
+      <div class="mobile-buy-bar-info">
+        <div class="mobile-buy-bar-name">{bike['name']}</div>
+        <div class="mobile-buy-bar-price">{PRICE_PLACEHOLDER} &middot; {bike['availability_label']}</div>
+      </div>
+      <button type="button" class="btn btn-primary" data-action="add-to-cart">{bike['primary_action']}</button>
+    </div>
+
+    <!-- Performance strip -->
+    <section class="container" style="padding:0;">
+      <div class="perf-strip">
+{perf_html}
+      </div>
+    </section>
+
+    <!-- Section 2: Short introduction -->
+    <section class="section container" style="padding-bottom:0;">
+      <p class="lede"><strong>Compact size. Serious performance.</strong></p>
+      <p class="text-body" style="margin-top:12px;">The Hyper Bee is Surron's compact off-road electric motorcycle, combining a lightweight 39 kg chassis with up to 8 kW of peak power. Adjustable riding modes, a removable battery and rider-assistance features make it suited to younger riders progressing from their first motorcycle through to more experienced off-road riding.</p>
+    </section>
+
+    <!-- Section 3: Key features -->
+    <section class="section container">
+      <div class="section-head">
+        <span class="eyebrow">Key features</span>
+        <h2 class="h2">What makes it different.</h2>
+      </div>
+      <div class="feature-list">
+{features_html}
+      </div>
+    </section>
+
+    <!-- Section 4: Specifications -->
+    <section class="section section--grey">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Specifications</span>
+          <h2 class="h2">{bike['name']} specifications</h2>
+        </div>
+        <table class="spec-table">
+          <caption class="visually-hidden">{bike['name']} technical specifications</caption>
+          <tbody>
+{spec_rows_html}
+          </tbody>
+        </table>
+        <p class="spec-note">Range, speed and charging figures are manufacturer-stated figures and can vary with rider weight, terrain, conditions and riding style.</p>
+      </div>
+    </section>
+
+    <!-- Section 5: Warranty & parts support -->
+    <section class="section container">
+      <div class="section-head">
+        <h2 class="h2">Support after your purchase.</h2>
+      </div>
+      <div class="info-cols">
+        <div class="info-col">
+          <h3>{WARRANTY_HEADLINE}</h3>
+          <p>{WARRANTY_BODY}</p>
+        </div>
+        <div class="info-col">
+          <h3>{PARTS_HEADLINE}</h3>
+          <p>{PARTS_BODY}</p>
+        </div>
+        <div class="info-col">
+          <h3>{ACL_HEADLINE}</h3>
+          <p>{ACL_BODY}</p>
+        </div>
+      </div>
+      <div style="margin-top:32px;">
+        <a class="btn-link" href="warranty.html">VIEW WARRANTY &amp; RETURNS &rarr;</a>
+      </div>
+    </section>
+
+    <!-- Section 6: What's included -->
+    <section class="section section--grey">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="h2">What&rsquo;s included.</h2>
+        </div>
+        <ul class="included-list">
+          <li><span class="dot"></span> {bike['name']}</li>
+          <li><span class="dot"></span> Battery</li>
+          <li><span class="dot"></span> Charger</li>
+          <li><span class="dot"></span> Documentation</li>
+          <li><span class="dot"></span> Included factory accessories</li>
+          <li><span class="dot"></span> Delivered crated &mdash; assembly required</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section 7: Delivery & support -->
+    <section class="section container">
+      <div class="section-head">
+        <h2 class="h2">Delivery &amp; support.</h2>
+      </div>
+      <div class="info-cols">
+        <div class="info-col">
+          <h3>Australia-wide crated delivery</h3>
+          <p>Your Hyper Bee is shipped securely in a crate to eligible locations across Australia.</p>
+        </div>
+        <div class="info-col">
+          <h3>Assembly required</h3>
+          <p>Bikes are supplied crated and require assembly before use.</p>
+        </div>
+        <div class="info-col">
+          <h3>Support</h3>
+          <p>Questions after purchase are handled directly through Zentro Moto.</p>
+        </div>
+      </div>
+      <div style="margin-top:32px; display:flex; gap:28px; flex-wrap:wrap;">
+        <a class="btn-link" href="shipping.html">SHIPPING INFORMATION</a>
+        <a class="btn-link" href="warranty.html">WARRANTY &amp; RETURNS</a>
+      </div>
+    </section>
+
+    <!-- Cross-links to other bikes -->
+    <section class="section container">
+      <div class="section-head">
+        <h2 class="h3">Explore the range.</h2>
+      </div>
+      <div class="bike-grid">
+{chr(10).join(bike_card(b) for b in other_bikes)}
+      </div>
+    </section>"""
+    write(bike["url"], page(
+        bike["name"],
+        f"{bike['name']} — genuine Surron electric motorcycle. {bike['one_liner']}",
+        "bikes", body,
+    ))
+
+
 # --------------------------------------------------------------------------
 # 4. About page
 # --------------------------------------------------------------------------
@@ -1247,7 +1503,10 @@ if __name__ == "__main__":
     build_home()
     build_bikes()
     for b in BIKES:
-        build_product(b)
+        if b["id"] == "hyper-bee":
+            build_hyper_bee()
+        else:
+            build_product(b)
     build_about()
     build_support()
     build_shipping()

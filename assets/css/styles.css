@@ -853,6 +853,32 @@ summary:focus-visible {
 }
 .mobile-buy-bar .btn { flex: none; }
 
+/* Performance strip — Hyper Bee product page only */
+.perf-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: var(--border);
+  border-bottom: var(--border);
+}
+.perf-item {
+  padding: 28px 16px;
+  text-align: center;
+  border-left: var(--border);
+}
+.perf-item:first-child { border-left: none; }
+.perf-figure {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+.perf-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--grey-600);
+}
+
 /* Feature list */
 .feature-list {
   display: grid;
@@ -1208,6 +1234,9 @@ summary:focus-visible {
   .included-list { grid-template-columns: 1fr; }
   .mobile-buy-bar { display: flex; }
   .section { padding: 56px 0; }
+  .perf-strip { grid-template-columns: repeat(3, 1fr); }
+  .perf-item:nth-child(3n+1) { border-left: none; }
+  .perf-item:nth-child(n+4) { border-top: var(--border); }
 }
 
 @media (max-width: 900px) {
@@ -1246,4 +1275,9 @@ summary:focus-visible {
   .footer-top { grid-template-columns: 1fr; }
   .hero-ctas .btn { width: 100%; }
   .hero-ctas { flex-direction: column; }
+  .perf-strip { grid-template-columns: repeat(2, 1fr); }
+  .perf-item:nth-child(3n+1) { border-left: var(--border); }
+  .perf-item:nth-child(2n+1) { border-left: none; }
+  .perf-item:nth-child(n+3) { border-top: var(--border); }
+  .perf-figure { font-size: 1.5rem; }
 }
