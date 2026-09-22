@@ -44,7 +44,7 @@ def svg(model, shot, w, h, big=False, watermark_size=42, id_suffix="", border=Tr
   <text x="{tx}" y="{ty_label}" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="2" fill="#8A8880">{shot.upper()}</text>
 </svg>'''
 
-MODELS = ["Hyper Bee", "Light Bee 2.0", "Ultra Bee"]
+MODELS = ["Hyper Bee", "Light Bee X", "Light Bee 2.0", "Ultra Bee"]
 SHOTS = [
     ("profile", "Full Profile"),
     ("front-3-4", "Front 3/4"),
@@ -58,6 +58,7 @@ SHOTS = [
 # Must match the "slug" field for each bike in scripts/build.py's BIKES list.
 MODEL_SLUGS = {
     "Hyper Bee": "hyper-bee",
+    "Light Bee X": "light-bee-x",
     "Light Bee 2.0": "light-bee-2",
     "Ultra Bee": "ultra-bee",
 }

@@ -42,6 +42,26 @@ BIKES = [
         ],
     },
     {
+        "id": "light-bee-x",
+        "slug": "light-bee-x",
+        "name": "Light Bee X",
+        "url": "product-light-bee-x.html",
+        "size": "Lightweight",
+        "availability": "unconfirmed",
+        "availability_label": "AVAILABILITY TO CONFIRM",
+        "primary_action": "ENQUIRE NOW",
+        "action_kind": "enquire",
+        "one_liner": "Lightweight off-road performance with 10 kW of peak power and an agile 59 kg chassis.",
+        "intro": "The MY26 Light Bee X builds on Surron's lightweight off-road platform with stronger performance and updated rider technology. A 10 kW power system, 295 Nm of rear-wheel torque and a 59 kg ready-to-ride weight keep it fast, agile and easy to control across off-road terrain.",
+        "features": [
+            ("10 kW Power System", "The latest electric powertrain delivers up to 10 kW of peak power and 295 Nm of rear-wheel torque for stronger, more responsive acceleration."),
+            ("Lightweight 59 kg Chassis", "At just 59 kg ready to ride, the Light Bee X retains the lightweight, agile handling that has defined the platform."),
+            ("72V Removable Battery", "The removable 72V / 35Ah lithium-ion battery provides up to 75 km of manufacturer-claimed range at 40 km/h, with approximately two-hour charging from 20–80%."),
+            ("Adjustable Off-Road Suspension", "Fully adjustable KKE suspension provides 200 mm of front travel and 210 mm of rear wheel travel for controlled off-road performance."),
+            ("Advanced Rider Technology", "Surron Wheelie Control, app connectivity, adjustable throttle response, regenerative braking and electronic rider-assistance features add greater control and customisation."),
+        ],
+    },
+    {
         "id": "light-bee-2",
         "slug": "light-bee-2",
         "name": "Light Bee 2.0",
@@ -132,6 +152,42 @@ HYPER_BEE_PERFORMANCE = [
     ("58V / 22Ah", "Removable battery"),
 ]
 
+# Confirmed specification for the Light Bee X only (see build_light_bee_x()).
+LIGHT_BEE_X_SPECS = [
+    ("Motor", "Permanent Magnet Synchronous Motor (PMSM)"),
+    ("Controller", "MTPA/MTPV FOC Sinewave Controller"),
+    ("Peak power", "10 kW"),
+    ("Maximum torque", "295 Nm"),
+    ("Transmission", "Belt and chain, 1:7.6 ratio"),
+    ("Throttle", "Ride-by-wire, 3-level adjustable"),
+    ("Top speed", "80 km/h"),
+    ("Maximum range", "75 km @ 40 km/h"),
+    ("Riding modes", "Eco / Sport"),
+    ("Battery", "72V / 35Ah removable lithium-ion, approx. 2.5 kWh"),
+    ("Charging time", "Approx. 2 hours, 20&ndash;80%"),
+    ("Display", "LCD multi-function display"),
+    ("Front brake", "4-piston hydraulic / 203 mm vented disc"),
+    ("Rear brake", "4-piston hydraulic / 203 mm vented disc"),
+    ("Front suspension", "KKE inverted fork / 200 mm travel"),
+    ("Rear suspension", "KKE rear shock / 210 mm wheel travel"),
+    ("Front wheel/tyre", "70/100-19 CST off-road"),
+    ("Rear wheel/tyre", "3.00-18 CST off-road"),
+    ("Dimensions", "1850 &times; 780 &times; 1080 mm"),
+    ("Wet weight", "59 kg"),
+    ("Carrying capacity", "100 kg"),
+    ("Wheelbase", "1255 mm"),
+    ("Seat height", "830 mm"),
+    ("Ground clearance", "270 mm"),
+]
+
+LIGHT_BEE_X_PERFORMANCE = [
+    ("10 kW", "Peak power"),
+    ("80 km/h", "Top speed"),
+    ("75 km", "Range @ 40 km/h"),
+    ("59 kg", "Wet weight"),
+    ("72V / 35Ah", "Removable battery"),
+]
+
 # Confirmed specification for the Light Bee 2.0 only (see build_light_bee_2()).
 LIGHT_BEE_2_SPECS = [
     ("Motor", "Hairpin motor"),
@@ -209,7 +265,7 @@ ULTRA_BEE_PERFORMANCE = [
     ("74V / 60Ah", "Removable battery"),
 ]
 
-# Swatch colours for the paint colour selector on all three product pages.
+# Swatch colours for the paint colour selector on the product pages.
 PAINT_COLOUR_HEX = {
     "Blue": "#2C4A78",
     "Yellow": "#E7B928",
@@ -283,6 +339,7 @@ def footer_html(shipping_label="Shipping &amp; Collection", location_label="Newc
           <h4>Bikes</h4>
           <ul>
             <li><a href="product-hyper-bee.html">Hyper Bee</a></li>
+            <li><a href="product-light-bee-x.html">Light Bee X</a></li>
             <li><a href="product-light-bee-2.html">Light Bee 2.0</a></li>
             <li><a href="product-ultra-bee.html">Ultra Bee</a></li>
           </ul>
@@ -403,12 +460,14 @@ def trust_strip_html():
 # descriptions here are homepage-specific per request.
 HOME_SIZE_LABELS = {
     "hyper-bee": "Compact",
+    "light-bee-x": "Lightweight",
     "light-bee-2": "Lightweight",
     "ultra-bee": "Full-Size",
 }
 
 HOME_ONE_LINERS = {
     "hyper-bee": "The compact, playful way into electric riding.",
+    "light-bee-x": "Lightweight off-road performance with 10 kW of peak power and an agile 59 kg chassis.",
     "light-bee-2": "The versatile all-rounder for everyday riding.",
     "ultra-bee": "The full-size flagship for maximum performance.",
 }
@@ -458,13 +517,13 @@ def build_home():
     <!-- 04 Trust strip -->
 {trust_strip_html()}
 
-    <!-- 05 The three bikes -->
+    <!-- 05 The four bikes -->
     <section class="section container" id="bikes">
       <div class="section-head section-head--center">
         <h2 class="h2">Choose your Surron</h2>
-        <p class="lede" style="margin:16px auto 0;">Three bikes. From compact electric fun to full-size performance.</p>
+        <p class="lede" style="margin:16px auto 0;">Four bikes. From compact electric fun to full-size performance.</p>
       </div>
-      <div class="bike-grid">
+      <div class="bike-grid bike-grid--4up">
 {bikes_grid}
       </div>
     </section>
@@ -583,13 +642,13 @@ def build_home():
     <section class="section section--grey">
       <div class="container section-head--center">
         <h2 class="h2">Find your Surron.</h2>
-        <p class="lede" style="margin:16px auto 32px;">Explore the Hyper Bee, Light Bee 2.0 and Ultra Bee.</p>
+        <p class="lede" style="margin:16px auto 32px;">Explore the Hyper Bee, Light Bee X, Light Bee 2.0 and Ultra Bee.</p>
         <a class="btn btn-primary btn-lg" href="bikes.html">SHOP BIKES</a>
       </div>
     </section>"""
     write("index.html", page(
         "Home",
-        "Genuine Surron electric motorcycles, independently sourced and supplied in Australia. Hyper Bee, Light Bee 2.0 and Ultra Bee — Newcastle, NSW.",
+        "Genuine Surron electric motorcycles, independently sourced and supplied in Australia. Hyper Bee, Light Bee X, Light Bee 2.0 and Ultra Bee — Newcastle, NSW.",
         "home", body,
     ))
 
@@ -603,22 +662,22 @@ def build_bikes():
     body = f"""    <section class="page-hero container">
       <span class="eyebrow">The range</span>
       <h1 class="h1">Find your Surron.</h1>
-      <p class="lede" style="margin-top:16px;">Three bikes. Three sizes. Choose the one that suits you.</p>
+      <p class="lede" style="margin-top:16px;">Four bikes. Four sizes. Choose the one that suits you.</p>
     </section>
     <section class="section container">
-      <div class="bike-grid">
+      <div class="bike-grid bike-grid--4up">
 {bikes_grid}
       </div>
     </section>"""
     write("bikes.html", page(
         "Bikes",
-        "Hyper Bee, Light Bee 2.0 and Ultra Bee — the complete Zentro Moto range of genuine Surron electric motorcycles.",
+        "Hyper Bee, Light Bee X, Light Bee 2.0 and Ultra Bee — the complete Zentro Moto range of genuine Surron electric motorcycles.",
         "bikes", body,
     ))
 
 
 # --------------------------------------------------------------------------
-# 3. Product page template (used for all three bikes)
+# 3. Product page template (used for all four bikes)
 # --------------------------------------------------------------------------
 
 def build_product(bike):
@@ -828,33 +887,41 @@ def build_product(bike):
     ))
 
 
-def build_master_product(bike, *, category_label, short_description, performance, intro_heading, intro_body, specs, paint_colours):
-    """Shared master template used by all three product pages (Hyper Bee,
-    Light Bee 2.0, Ultra Bee). Keeping this as one function — rather than
-    separate hand-written builders per bike — is what guarantees the pages
-    share the exact same width, section order, spacing and components;
-    only the values passed in differ."""
+def build_master_product(bike, *, category_label, short_description, performance, intro_heading, intro_body, specs, paint_colours,
+                          assembly_body="Bikes are supplied crated and require assembly before use."):
+    """Shared master template used by all four product pages (Hyper Bee,
+    Light Bee X, Light Bee 2.0, Ultra Bee). Keeping this as one function —
+    rather than separate hand-written builders per bike — is what
+    guarantees the pages share the exact same width, section order,
+    spacing and components; only the values passed in differ."""
     other_bikes = [b for b in BIKES if b["id"] != bike["id"]]
-
-    default_colour = paint_colours[0]
 
     def swatch_chip(colour):
         return f'<span class="swatch-chip" style="background:{PAINT_COLOUR_HEX[colour]};"></span>'
 
-    if len(paint_colours) > 1:
-        swatches_html = "\n".join(
-            f'              <button type="button" class="swatch" aria-pressed="{"true" if i == 0 else "false"}">'
-            f'{swatch_chip(colour)}<span class="swatch-name">{colour}</span></button>'
-            for i, colour in enumerate(paint_colours)
-        )
-        paint_colour_html = f"""          <div class="variant-block" data-variant-group>
+    if not paint_colours:
+        # Colour range not yet confirmed by the supplier — show a plain
+        # "to confirm" label instead of inventing swatches.
+        default_colour = "To confirm"
+        paint_colour_html = """          <div class="variant-block">
+            <span class="variant-label">Paint colour &mdash; <span class="spec-placeholder">to confirm</span></span>
+          </div>"""
+    else:
+        default_colour = paint_colours[0]
+        if len(paint_colours) > 1:
+            swatches_html = "\n".join(
+                f'              <button type="button" class="swatch" aria-pressed="{"true" if i == 0 else "false"}">'
+                f'{swatch_chip(colour)}<span class="swatch-name">{colour}</span></button>'
+                for i, colour in enumerate(paint_colours)
+            )
+            paint_colour_html = f"""          <div class="variant-block" data-variant-group>
             <span class="variant-label">Paint colour</span>
             <div class="swatch-row">
 {swatches_html}
             </div>
           </div>"""
-    else:
-        paint_colour_html = f"""          <div class="variant-block">
+        else:
+            paint_colour_html = f"""          <div class="variant-block">
             <span class="variant-label">Paint colour</span>
             <div class="swatch-row">
               <span class="swatch is-selected">{swatch_chip(default_colour)}<span class="swatch-name">{default_colour}</span></span>
@@ -1042,7 +1109,7 @@ def build_master_product(bike, *, category_label, short_description, performance
         </div>
         <div class="info-col">
           <h3>Assembly required</h3>
-          <p>Bikes are supplied crated and require assembly before use.</p>
+          <p>{assembly_body}</p>
         </div>
         <div class="info-col">
           <h3>Support</h3>
@@ -1082,6 +1149,21 @@ def build_hyper_bee():
         intro_body="The Hyper Bee is Surron's compact off-road electric motorcycle, combining a lightweight 39 kg chassis with up to 8 kW of peak power. Adjustable riding modes, a removable battery and rider-assistance features make it suited to younger riders progressing from their first motorcycle through to more experienced off-road riding.",
         specs=HYPER_BEE_SPECS,
         paint_colours=["Blue", "Yellow", "Green"],
+    )
+
+
+def build_light_bee_x():
+    bike = next(b for b in BIKES if b["id"] == "light-bee-x")
+    build_master_product(
+        bike,
+        category_label="Lightweight",
+        short_description="The iconic lightweight Surron, upgraded with stronger power, rider technology and off-road performance.",
+        performance=LIGHT_BEE_X_PERFORMANCE,
+        intro_heading="The Light Bee, evolved.",
+        intro_body="The MY26 Light Bee X builds on Surron's lightweight off-road platform with stronger performance and updated rider technology. A 10 kW power system, 295 Nm of rear-wheel torque and a 59 kg ready-to-ride weight keep it fast, agile and easy to control across off-road terrain.",
+        specs=LIGHT_BEE_X_SPECS,
+        paint_colours=None,
+        assembly_body="Bikes arrive approximately 90% assembled from Surron. Final assembly typically includes fitting the handlebars, attaching the front wheel and installing items such as the fender.",
     )
 
 
@@ -1139,7 +1221,7 @@ def build_about():
           <div>
             <h2 class="h3">What we do</h2>
             <p class="text-body" style="margin-top:16px;">Zentro Moto independently sources genuine Surron motorcycles through established international wholesale supply channels and supplies them to customers across Australia.</p>
-            <p class="text-body" style="margin-top:14px;">Our range is deliberately focused on the Hyper Bee, Light Bee 2.0 and Ultra Bee.</p>
+            <p class="text-body" style="margin-top:14px;">Our range is deliberately focused on the Hyper Bee, Light Bee X, Light Bee 2.0 and Ultra Bee.</p>
           </div>
           <div>
             <h2 class="h3">Why Zentro Moto</h2>
@@ -1150,7 +1232,7 @@ def build_about():
               </div>
               <div class="about-benefit">
                 <h3>Focused range</h3>
-                <p>Three Surron models. Clear availability, straightforward product knowledge and support.</p>
+                <p>Four Surron models. Clear availability, straightforward product knowledge and support.</p>
               </div>
               <div class="about-benefit">
                 <h3>Support after purchase</h3>
@@ -1252,7 +1334,7 @@ def build_support():
         faq("Do you deliver Australia-wide?", "Yes. Zentro Moto ships bikes securely in crates to eligible locations across Australia. Freight pricing and delivery details are provided during the ordering process.",
             link=("SHIPPING INFORMATION", "shipping.html")),
         faq("Does the bike arrive assembled?", "The bikes arrive approximately 90% assembled from Surron and are shipped securely in their crate. Final assembly is still required before riding, typically including fitting the handlebars, attaching the front wheel and installing items such as the front fender. Assembly requirements can vary slightly by model, so the bike should be correctly assembled and checked before use."),
-        faq("Are the bikes road legal?", "No. The Hyper Bee, Light Bee 2.0 and Ultra Bee sold by Zentro Moto are supplied for off-road use only and are not street legal."),
+        faq("Are the bikes road legal?", "No. The Hyper Bee, Light Bee X, Light Bee 2.0 and Ultra Bee sold by Zentro Moto are supplied for off-road use only and are not street legal."),
     ])
     warranty_support = "\n".join([
         faq("Are the bikes genuine Surron products?", "Yes. Zentro Moto sells genuine Surron motorcycles sourced through established international wholesale supply channels."),
@@ -1492,6 +1574,7 @@ def build_contact():
               <select id="topic" name="topic" required>
                 <option value="">Select a topic</option>
                 <option>Hyper Bee</option>
+                <option>Light Bee X</option>
                 <option>Light Bee 2.0</option>
                 <option>Ultra Bee</option>
                 <option>Parts</option>
@@ -1700,6 +1783,7 @@ if __name__ == "__main__":
     build_home()
     build_bikes()
     build_hyper_bee()
+    build_light_bee_x()
     build_light_bee_2()
     build_ultra_bee()
     build_about()

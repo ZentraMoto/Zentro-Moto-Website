@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Light Bee X placeholder image, Hero">
+  <rect width="1600" height="1000" fill="#EEEDE9"/>
+  <rect x="0.75" y="0.75" width="1598.5" height="998.5" fill="none" stroke="#D8D6CF" stroke-width="1.5"/>
+  <g transform="translate(508.12903225806457,36.12903225806457) scale(1.6129032258064515)">
+    <path d="
+M120,300
+m-58,0 a58,58 0 1,0 116,0 a58,58 0 1,0 -116,0
+M470,300
+m-58,0 a58,58 0 1,0 116,0 a58,58 0 1,0 -116,0
+M120,300 L230,190 L340,190
+M230,190 L300,300
+M300,300 L470,300
+M300,300 L250,150
+M250,150 L340,150
+L365,110 L430,110
+M340,190 L400,120
+M120,300 L170,255
+M170,255 L230,255
+" fill="none" stroke="#B9B7AE" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="128.0" y="34" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="2" fill="#8A8880">PLACEHOLDER IMAGE</text>
+  <line x1="128.0" y1="44" x2="278.0" y2="44" stroke="#D8D6CF" stroke-width="1"/>
+  <text x="128.0" y="922" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="28" letter-spacing="1" fill="#1A1A18">LIGHT BEE X</text>
+  <text x="128.0" y="954" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="2" fill="#8A8880">HERO</text>
+</svg>

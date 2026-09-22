@@ -269,6 +269,7 @@ summary:focus-visible {
 .badge--in-stock { color: var(--black); background: var(--white); border-color: var(--black); }
 .badge--incoming { color: var(--grey-800); background: var(--white); }
 .badge--order { color: var(--grey-800); background: var(--white); border-style: dashed; }
+.badge--unconfirmed { color: var(--grey-600); background: var(--white); border-style: dotted; }
 
 /* ------------------------------ Announcement ------------------------------ */
 .announce {
@@ -447,6 +448,10 @@ summary:focus-visible {
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 }
+/* Full four-bike listing (homepage + Bikes page) — the product cross-link
+   grids elsewhere always show exactly three "other" bikes and keep the
+   base .bike-grid 3-column layout untouched. */
+.bike-grid--4up { grid-template-columns: repeat(4, 1fr); }
 .bike-card {
   display: flex;
   flex-direction: column;
@@ -1334,6 +1339,7 @@ summary:focus-visible {
   .side-nav a { border-left: none; padding-left: 0; border-bottom: 2px solid transparent; }
   .side-nav a:hover, .side-nav a.is-active { border-left: none; border-bottom-color: var(--black); }
   .reasons { grid-template-columns: repeat(2, 1fr); }
+  .bike-grid--4up { grid-template-columns: repeat(2, 1fr); }
   .hero-media { aspect-ratio: 16 / 9; max-height: none; }
 }
 
