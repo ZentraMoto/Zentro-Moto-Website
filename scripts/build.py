@@ -262,18 +262,54 @@ def trust_strip_html():
       </div>
       <div class="trust-item">
         <h3>12-Month Warranty</h3>
-        <p>Factory warranty on battery, controller, motor and frame, subject to warranty terms.</p>
+        <p>Battery, controller, motor and frame.</p>
       </div>
       <div class="trust-item">
-        <h3>Parts Support</h3>
-        <p>Genuine OEM replacement parts, wear items and selected upgrades available.</p>
+        <h3>OEM Parts Support</h3>
+        <p>Genuine replacement and wear parts.</p>
       </div>
       <div class="trust-item">
         <h3>Australian Support</h3>
-        <p>Deal directly with Zentro Moto before and after purchase.</p>
+        <p>Deal directly with Zentro Moto.</p>
       </div>
     </div>
   </section>"""
+
+
+# Homepage-only bike card: a distinct, more editorial treatment than the
+# bordered grid card used on the Bikes page and product cross-links (kept
+# untouched via bike_card() above). Category labels and one-line
+# descriptions here are homepage-specific per request.
+HOME_SIZE_LABELS = {
+    "hyper-bee": "Compact",
+    "light-bee-2": "Lightweight",
+    "ultra-bee": "Full-Size",
+}
+
+HOME_ONE_LINERS = {
+    "hyper-bee": "The compact, playful way into electric riding.",
+    "light-bee-2": "The versatile all-rounder for everyday riding.",
+    "ultra-bee": "The full-size flagship for maximum performance.",
+}
+
+
+def home_bike_card(bike):
+    # Uses the -profile shot (already 4:5) rather than the square -card
+    # image, so object-fit: cover doesn't crop the baked-in placeholder
+    # label text against this taller frame.
+    return f"""        <article class="spotlight-card">
+          <a class="spotlight-media" href="{bike['url']}">
+            <img src="{img(bike['slug'] + '-profile')}" alt="{bike['name']} placeholder image" loading="lazy" />
+          </a>
+          <div class="spotlight-eyebrow">{HOME_SIZE_LABELS[bike['id']]}</div>
+          <h3 class="spotlight-name">{bike['name']}</h3>
+          <div class="spotlight-meta">
+            {badge(bike)}
+            <span class="spotlight-price">{PRICE_PLACEHOLDER}</span>
+          </div>
+          <p class="spotlight-desc">{HOME_ONE_LINERS[bike['id']]}</p>
+          <a class="btn-link" href="{bike['url']}">VIEW {bike['name'].upper()}</a>
+        </article>"""
 
 
 # --------------------------------------------------------------------------
@@ -281,10 +317,10 @@ def trust_strip_html():
 # --------------------------------------------------------------------------
 
 def build_home():
-    bikes_grid = "\n".join(bike_card(b) for b in BIKES)
+    bikes_grid = "\n".join(home_bike_card(b) for b in BIKES)
     body = f"""    <!-- 03 Hero -->
-    <section class="hero hero--home container">
-      <div class="hero-copy">
+    <section class="hero hero--home">
+      <div class="hero-copy container">
         <span class="eyebrow">Genuine Surron &middot; Newcastle, NSW</span>
         <h1 class="h1">Genuine Surron. Straightforward buying.</h1>
         <p class="lede">Genuine Surron electric motorcycles, independently sourced and supplied in Australia.</p>
@@ -294,7 +330,7 @@ def build_home():
         </div>
       </div>
       <div class="hero-media">
-        <img src="{img('home-hero')}" alt="Zentro Moto placeholder hero image" />
+        <img src="{img('home-hero-bleed')}" alt="Zentro Moto placeholder hero image" />
       </div>
     </section>
 
@@ -324,6 +360,10 @@ def build_home():
             <p>Genuine bikes sourced through established international wholesale supply channels.</p>
           </div>
           <div class="reason">
+            <h3>Better value</h3>
+            <p>A lean, low-overhead model lets us pass more of the savings directly on to you.</p>
+          </div>
+          <div class="reason">
             <h3>Clear availability</h3>
             <p>Know whether each bike is in stock, incoming or available to order.</p>
           </div>
@@ -343,7 +383,7 @@ def build_home():
       <div class="steps">
         <div class="step">
           <div class="step-num">01</div>
-          <h3>Choose</h3>
+          <h3>Choose your bike</h3>
           <p>Pick the model that suits you.</p>
         </div>
         <div class="step">
@@ -353,12 +393,12 @@ def build_home():
         </div>
         <div class="step">
           <div class="step-num">03</div>
-          <h3>We organise the rest</h3>
+          <h3>We handle the sourcing</h3>
           <p>Zentro Moto handles sourcing and keeps you updated.</p>
         </div>
         <div class="step">
           <div class="step-num">04</div>
-          <h3>Get your bike</h3>
+          <h3>Collect or receive your bike</h3>
           <p>Collect in Newcastle or arrange delivery.</p>
         </div>
       </div>
@@ -401,8 +441,8 @@ def build_home():
           <div class="faq-body">A 12-month factory warranty applies to the battery, controller, motor and frame, subject to the applicable warranty terms. Zentro Moto is your first point of contact.</div>
         </details>
         <details class="faq-item">
-          <summary>Can I get replacement parts?<span class="faq-icon"></span></summary>
-          <div class="faq-body">Yes. Zentro Moto supplies genuine OEM replacement parts, common wear items and selected performance upgrades.</div>
+          <summary>What does Available to Order mean?<span class="faq-icon"></span></summary>
+          <div class="faq-body">The bike can be ordered in ahead of arrival. Zentro Moto will confirm sourcing and an estimated lead time with you.</div>
         </details>
       </div>
       <div style="margin-top:28px;">

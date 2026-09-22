@@ -23,7 +23,7 @@ M120,300 L170,255
 M170,255 L230,255
 """
 
-def svg(model, shot, w, h, big=False, watermark_size=42, id_suffix=""):
+def svg(model, shot, w, h, big=False, watermark_size=42, id_suffix="", border=True):
     scale = min(w, h) / 620
     stroke = 2.4 if not big else 3.2
     cx, cy = w * 0.62, h * 0.52
@@ -31,9 +31,10 @@ def svg(model, shot, w, h, big=False, watermark_size=42, id_suffix=""):
     ty_label = h - 46
     ty_model = h - 78
     tag_y = 34
+    border_rect = f'<rect x="0.75" y="0.75" width="{w-1.5}" height="{h-1.5}" fill="none" stroke="#D8D6CF" stroke-width="1.5"/>' if border else ""
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-label="{model} placeholder image, {shot}">
   <rect width="{w}" height="{h}" fill="#EEEDE9"/>
-  <rect x="0.75" y="0.75" width="{w-1.5}" height="{h-1.5}" fill="none" stroke="#D8D6CF" stroke-width="1.5"/>
+  {border_rect}
   <g transform="translate({cx - 300*scale},{cy - 300*scale}) scale({scale})">
     <path d="{BIKE_PATH}" fill="none" stroke="#B9B7AE" stroke-width="{stroke}" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
@@ -54,8 +55,15 @@ SHOTS = [
     ("battery", "Battery"),
 ]
 
+# Must match the "slug" field for each bike in scripts/build.py's BIKES list.
+MODEL_SLUGS = {
+    "Hyper Bee": "hyper-bee",
+    "Light Bee 2.0": "light-bee-2",
+    "Ultra Bee": "ultra-bee",
+}
+
 def slug(m):
-    return m.lower().replace(" ", "-").replace(".", "")
+    return MODEL_SLUGS[m]
 
 for model in MODELS:
     s = slug(model)
@@ -73,6 +81,11 @@ for model in MODELS:
 # Homepage hero (generic - shows the lineup, not one specific bike)
 with open(f"{OUT}/home-hero.svg", "w") as f:
     f.write(svg("Zentro Moto", "Homepage Hero", 1920, 1200, big=True))
+
+# Homepage hero, full-bleed variant: borderless and sized to cover both the
+# wide desktop crop and the taller mobile crop via object-fit: cover.
+with open(f"{OUT}/home-hero-bleed.svg", "w") as f:
+    f.write(svg("Zentro Moto", "Homepage Hero", 2400, 1400, big=True, border=False))
 
 # Bikes page hero
 with open(f"{OUT}/bikes-hero.svg", "w") as f:
