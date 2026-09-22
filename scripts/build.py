@@ -809,15 +809,31 @@ def build_product(bike):
     ))
 
 
-def build_master_product(bike, *, category_label, short_description, performance, intro_heading, intro_body, specs):
-    """Shared master template for the "confirmed spec" product page style
-    (currently Hyper Bee and Light Bee 2.0). Keeping this as one function —
-    rather than separate hand-written builders per bike — is what guarantees
-    the two pages share the exact same width, section order, spacing and
-    components; only the values passed in differ. Ultra Bee still goes
-    through the older, generic build_product() until it gets the same
-    treatment."""
+def build_master_product(bike, *, category_label, short_description, performance, intro_heading, intro_body, specs, paint_colours):
+    """Shared master template used by all three product pages (Hyper Bee,
+    Light Bee 2.0, Ultra Bee). Keeping this as one function — rather than
+    separate hand-written builders per bike — is what guarantees the pages
+    share the exact same width, section order, spacing and components;
+    only the values passed in differ."""
     other_bikes = [b for b in BIKES if b["id"] != bike["id"]]
+
+    default_colour = paint_colours[0]
+    if len(paint_colours) > 1:
+        swatches_html = "\n".join(
+            f'              <button type="button" class="swatch" aria-pressed="{"true" if i == 0 else "false"}">{colour}</button>'
+            for i, colour in enumerate(paint_colours)
+        )
+        paint_colour_html = f"""          <div class="variant-block" data-variant-group>
+            <span class="variant-label">Paint colour</span>
+            <div class="swatch-row">
+{swatches_html}
+            </div>
+          </div>"""
+    else:
+        paint_colour_html = f"""          <div class="variant-block">
+            <span class="variant-label">Paint colour</span>
+            <p class="text-sm" style="font-weight:600;">{default_colour}</p>
+          </div>"""
 
     thumbs = []
     for i, (key, label) in enumerate(SHOTS):
@@ -872,12 +888,7 @@ def build_master_product(bike, *, category_label, short_description, performance
           <p class="buy-desc">{short_description}</p>
           <p class="text-sm" style="font-weight:700; margin-bottom:24px;">Off-road use only &middot; Not street legal</p>
 
-          <div class="variant-block" data-variant-group>
-            <span class="variant-label">Colour / Variant</span>
-            <div class="swatch-row">
-              <button type="button" class="swatch" aria-pressed="true">Standard &mdash; colour to confirm</button>
-            </div>
-          </div>
+{paint_colour_html}
 
           <div class="buy-actions">
             <button type="button" class="btn btn-primary btn-lg btn-block"
@@ -886,7 +897,7 @@ def build_master_product(bike, *, category_label, short_description, performance
               data-product-name="{bike['name']}"
               data-price="{PRICE_PLACEHOLDER}"
               data-image="{img(bike['slug'] + '-card')}"
-              data-variant="Standard">
+              data-variant="{default_colour}">
               {bike['primary_action']}
             </button>
           </div>
@@ -1044,6 +1055,7 @@ def build_hyper_bee():
         intro_heading="Compact size. Serious performance.",
         intro_body="The Hyper Bee is Surron's compact off-road electric motorcycle, combining a lightweight 39 kg chassis with up to 8 kW of peak power. Adjustable riding modes, a removable battery and rider-assistance features make it suited to younger riders progressing from their first motorcycle through to more experienced off-road riding.",
         specs=HYPER_BEE_SPECS,
+        paint_colours=["Blue", "Yellow", "Green"],
     )
 
 
@@ -1057,6 +1069,7 @@ def build_light_bee_2():
         intro_heading="Lightweight. Rebuilt for serious performance.",
         intro_body="The Light Bee 2.0 is a ground-up reinvention of Surron's lightweight off-road platform. With up to 24 kW of peak power, 410 Nm of wheel torque and a 65 kg chassis, it combines serious electric performance with the agile character the Light Bee is known for.",
         specs=LIGHT_BEE_2_SPECS,
+        paint_colours=["Brown", "Black", "White", "Green"],
     )
 
 
@@ -1070,6 +1083,7 @@ def build_ultra_bee():
         intro_heading="Full-size power. Precise control.",
         intro_body="The Ultra Bee brings Surron's electric performance into a larger, more capable off-road platform. With up to 24.5 kW of peak power, 520 Nm of torque and advanced rider-control technology, it is built for riders wanting stronger performance, greater stability and serious off-road capability.",
         specs=ULTRA_BEE_SPECS,
+        paint_colours=["Black"],
     )
 
 
