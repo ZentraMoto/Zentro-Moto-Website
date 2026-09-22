@@ -54,11 +54,11 @@ BIKES = [
         "one_liner": "The mid-size all-rounder, built for riders who want more from every ride.",
         "intro": "Light Bee 2.0 sits in the middle of the Zentro Moto range — a lightweight, electric-powered motorcycle built to go further and do more than the Hyper Bee, without stepping up to full size. It suits riders who want a capable, versatile everyday bike.",
         "features": [
-            ("Lightweight chassis", "A light frame that keeps the bike manageable without giving up capability."),
-            ("Electric powertrain", "A responsive electric powertrain suited to everyday and recreational riding."),
-            ("Battery system", "A battery system designed for real-world range and dependable performance."),
-            ("Suspension", "Suspension tuned for a controlled, comfortable ride across varied terrain."),
-            ("Braking system", "A braking system built to match the bike’s performance and everyday use."),
+            ("24 kW EVO-2 Power System", "The EVO-2 powertrain delivers up to 24 kW of peak power and 410 Nm of wheel torque for strong, responsive acceleration."),
+            ("Semi-Solid-State Battery", "A 78.54V / 45Ah, 3.53 kWh battery delivers up to 108 km of manufacturer-claimed range at 40 km/h and approximately two-hour charging from 20–80%."),
+            ("Seven Riding Modes", "E, D, S, M, T, R and L modes give the rider a wide range of control, including a customisable M mode."),
+            ("Performance Suspension", "KKE suspension provides 240 mm of front and rear wheel travel for greater control across demanding off-road terrain."),
+            ("Advanced Rider Control", "Surron Wheelie Control, Auto Hold, traction control and adjustable regenerative braking provide additional control across different riding conditions."),
         ],
     },
     {
@@ -130,6 +130,43 @@ HYPER_BEE_PERFORMANCE = [
     ("56 km", "Range @ 40 km/h"),
     ("39 kg", "Weight"),
     ("58V / 22Ah", "Removable battery"),
+]
+
+# Confirmed specification for the Light Bee 2.0 only (see build_light_bee_2()).
+LIGHT_BEE_2_SPECS = [
+    ("Motor", "Hairpin motor"),
+    ("Controller", "PMSM + MTPA/MTPV FOC Controller"),
+    ("Peak power", "24 kW"),
+    ("Maximum torque", "410 Nm"),
+    ("Transmission", "Two-stage gear drive"),
+    ("Throttle", "Ride-by-wire, 3-level adjustable"),
+    ("Top speed", "90 km/h"),
+    ("Maximum range", "160 km @ 25 km/h / 108 km @ 40 km/h"),
+    ("Riding modes", "E / D / S / M / T / R / L"),
+    ("Battery", "78.54V / 45Ah (3.53 kWh)"),
+    ("Charging time", "Approx. 2 hours, 20&ndash;80%"),
+    ("Battery life", "Up to 1,200+ charge cycles"),
+    ("Display", "2.86-inch fully laminated TFT"),
+    ("Front brake", "Opposed four-piston caliper / 220 mm disc"),
+    ("Rear brake", "Opposed four-piston caliper / 203 mm disc"),
+    ("Front suspension", "37 mm KKE inverted fork / 240 mm travel"),
+    ("Rear suspension", "KKE rear shock / 240 mm wheel travel"),
+    ("Front wheel/tyre", "70/100-19 CST off-road"),
+    ("Rear wheel/tyre", "3.00-18 CST off-road"),
+    ("Dimensions", "1900 &times; 790 &times; 1080 mm"),
+    ("Wet weight", "65 kg"),
+    ("Carrying capacity", "100 kg"),
+    ("Wheelbase", "1280 mm"),
+    ("Seat height", "830 mm"),
+    ("Ground clearance", "280 mm"),
+]
+
+LIGHT_BEE_2_PERFORMANCE = [
+    ("24 kW", "Peak power"),
+    ("90 km/h", "Top speed"),
+    ("108 km", "Range @ 40 km/h"),
+    ("65 kg", "Wet weight"),
+    ("78.54V / 45Ah", "Battery"),
 ]
 
 
@@ -732,12 +769,14 @@ def build_product(bike):
     ))
 
 
-def build_hyper_bee():
-    """Hyper Bee product page only — a dedicated builder (not build_product())
-    so this page's confirmed-spec content, performance strip and reworked
-    delivery copy never touch Light Bee 2.0 or Ultra Bee, which still go
-    through the shared build_product() template unchanged."""
-    bike = next(b for b in BIKES if b["id"] == "hyper-bee")
+def build_master_product(bike, *, category_label, short_description, performance, intro_heading, intro_body, specs):
+    """Shared master template for the "confirmed spec" product page style
+    (currently Hyper Bee and Light Bee 2.0). Keeping this as one function —
+    rather than separate hand-written builders per bike — is what guarantees
+    the two pages share the exact same width, section order, spacing and
+    components; only the values passed in differ. Ultra Bee still goes
+    through the older, generic build_product() until it gets the same
+    treatment."""
     other_bikes = [b for b in BIKES if b["id"] != bike["id"]]
 
     thumbs = []
@@ -766,12 +805,12 @@ def build_hyper_bee():
             <div class="perf-figure">{figure}</div>
             <div class="perf-label">{label}</div>
           </div>"""
-        for figure, label in HYPER_BEE_PERFORMANCE
+        for figure, label in performance
     )
 
     spec_rows_html = "\n".join(
         f"""            <tr><th scope="row">{label}</th><td>{value}</td></tr>"""
-        for label, value in HYPER_BEE_SPECS
+        for label, value in specs
     )
 
     body = f"""    <section class="container">
@@ -786,11 +825,11 @@ def build_hyper_bee():
         </div>
 
         <div class="buy-panel">
-          <span class="eyebrow">{bike['size']} &middot; Zentro Moto</span>
+          <span class="eyebrow">{category_label} &middot; Zentro Moto</span>
           <h1 class="h2">{bike['name']}</h1>
           {badge(bike)}
           <div class="buy-price">{PRICE_PLACEHOLDER}</div>
-          <p class="buy-desc">{bike['one_liner']}</p>
+          <p class="buy-desc">{short_description}</p>
           <p class="text-sm" style="font-weight:700; margin-bottom:24px;">Off-road use only &middot; Not street legal</p>
 
           <div class="variant-block" data-variant-group>
@@ -841,8 +880,8 @@ def build_hyper_bee():
 
     <!-- Section 2: Short introduction -->
     <section class="section container" style="padding-bottom:0;">
-      <p class="lede"><strong>Compact size. Serious performance.</strong></p>
-      <p class="text-body" style="margin-top:12px;">The Hyper Bee is Surron's compact off-road electric motorcycle, combining a lightweight 39 kg chassis with up to 8 kW of peak power. Adjustable riding modes, a removable battery and rider-assistance features make it suited to younger riders progressing from their first motorcycle through to more experienced off-road riding.</p>
+      <p class="lede"><strong>{intro_heading}</strong></p>
+      <p class="text-body" style="margin-top:12px;">{intro_body}</p>
     </section>
 
     <!-- Section 3: Key features -->
@@ -922,7 +961,7 @@ def build_hyper_bee():
       <div class="info-cols">
         <div class="info-col">
           <h3>Australia-wide crated delivery</h3>
-          <p>Your Hyper Bee is shipped securely in a crate to eligible locations across Australia.</p>
+          <p>Your {bike['name']} is shipped securely in a crate to eligible locations across Australia.</p>
         </div>
         <div class="info-col">
           <h3>Assembly required</h3>
@@ -953,6 +992,32 @@ def build_hyper_bee():
         f"{bike['name']} — genuine Surron electric motorcycle. {bike['one_liner']}",
         "bikes", body,
     ))
+
+
+def build_hyper_bee():
+    bike = next(b for b in BIKES if b["id"] == "hyper-bee")
+    build_master_product(
+        bike,
+        category_label=bike["size"],
+        short_description=bike["one_liner"],
+        performance=HYPER_BEE_PERFORMANCE,
+        intro_heading="Compact size. Serious performance.",
+        intro_body="The Hyper Bee is Surron's compact off-road electric motorcycle, combining a lightweight 39 kg chassis with up to 8 kW of peak power. Adjustable riding modes, a removable battery and rider-assistance features make it suited to younger riders progressing from their first motorcycle through to more experienced off-road riding.",
+        specs=HYPER_BEE_SPECS,
+    )
+
+
+def build_light_bee_2():
+    bike = next(b for b in BIKES if b["id"] == "light-bee-2")
+    build_master_product(
+        bike,
+        category_label="Lightweight",
+        short_description="Next-generation lightweight electric performance, built for serious off-road riding.",
+        performance=LIGHT_BEE_2_PERFORMANCE,
+        intro_heading="Lightweight. Rebuilt for serious performance.",
+        intro_body="The Light Bee 2.0 is a ground-up reinvention of Surron's lightweight off-road platform. With up to 24 kW of peak power, 410 Nm of wheel torque and a 65 kg chassis, it combines serious electric performance with the agile character the Light Bee is known for.",
+        specs=LIGHT_BEE_2_SPECS,
+    )
 
 
 # --------------------------------------------------------------------------
@@ -1505,6 +1570,8 @@ if __name__ == "__main__":
     for b in BIKES:
         if b["id"] == "hyper-bee":
             build_hyper_bee()
+        elif b["id"] == "light-bee-2":
+            build_light_bee_2()
         else:
             build_product(b)
     build_about()
