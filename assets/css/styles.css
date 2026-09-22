@@ -1045,15 +1045,34 @@ summary:focus-visible {
   background: var(--black);
 }
 
-/* Centered content layout — About page only */
-.about-content {
-  max-width: 760px;
-  margin: 0 auto;
-}
+/* About page layout — Why Zentro Moto (3 col), What We Do / Independent
+   Retailer (2 text col), Business Details (compact label/value grid) */
 .about-columns {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
+}
+.about-split-text {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.detail-item-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grey-600);
+  margin-bottom: 8px;
+}
+.detail-item-value {
+  font-size: 0.9375rem;
+  font-weight: 600;
 }
 
 .callout {
@@ -1258,6 +1277,8 @@ summary:focus-visible {
   .steps { grid-template-columns: repeat(2, 1fr); }
   .reasons { grid-template-columns: 1fr; gap: 28px; }
   .about-columns { grid-template-columns: 1fr; gap: 28px; }
+  .about-split-text { grid-template-columns: 1fr; gap: 28px; }
+  .detail-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 32px; }
   .hero-media { aspect-ratio: 4 / 3; }
   .split { grid-template-columns: 1fr; gap: 28px; }
   .info-cols { grid-template-columns: 1fr; gap: 28px; }
@@ -1311,4 +1332,5 @@ summary:focus-visible {
   .perf-item:nth-child(2n+1) { border-left: none; }
   .perf-item:nth-child(n+3) { border-top: var(--border); }
   .perf-figure { font-size: 1.5rem; }
+  .detail-grid { grid-template-columns: 1fr; gap: 20px; }
 }

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Zentro Moto placeholder image, About Hero">
+  <rect width="1200" height="900" fill="#EEEDE9"/>
+  <rect x="0.75" y="0.75" width="1198.5" height="898.5" fill="none" stroke="#D8D6CF" stroke-width="1.5"/>
+  <g transform="translate(308.51612903225805,32.51612903225805) scale(1.4516129032258065)">
+    <path d="
+M120,300
+m-58,0 a58,58 0 1,0 116,0 a58,58 0 1,0 -116,0
+M470,300
+m-58,0 a58,58 0 1,0 116,0 a58,58 0 1,0 -116,0
+M120,300 L230,190 L340,190
+M230,190 L300,300
+M300,300 L470,300
+M300,300 L250,150
+M250,150 L340,150
+L365,110 L430,110
+M340,190 L400,120
+M120,300 L170,255
+M170,255 L230,255
+" fill="none" stroke="#B9B7AE" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="96.0" y="34" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="2" fill="#8A8880">PLACEHOLDER IMAGE</text>
+  <line x1="96.0" y1="44" x2="246.0" y2="44" stroke="#D8D6CF" stroke-width="1"/>
+  <text x="96.0" y="822" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="28" letter-spacing="1" fill="#1A1A18">ZENTRO MOTO</text>
+  <text x="96.0" y="854" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="2" fill="#8A8880">ABOUT HERO</text>
+</svg>

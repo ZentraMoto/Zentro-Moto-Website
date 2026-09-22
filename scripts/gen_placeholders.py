@@ -91,4 +91,12 @@ with open(f"{OUT}/home-hero-bleed.svg", "w") as f:
 with open(f"{OUT}/bikes-hero.svg", "w") as f:
     f.write(svg("Zentro Moto", "Bikes Hero", 1920, 900, big=True))
 
+# About page hero (right column, 4:3 to match .split-media exactly)
+with open(f"{OUT}/about-hero.svg", "w") as f:
+    f.write(svg("Zentro Moto", "About Hero", 1200, 900, big=True))
+
+# About page delivery section (right column, 4:3 to match .split-media exactly)
+with open(f"{OUT}/about-delivery.svg", "w") as f:
+    f.write(svg("Zentro Moto", "Delivery", 1200, 900, big=True))
+
 print("done", len(os.listdir(OUT)), "files")
