@@ -532,7 +532,7 @@ def build_home():
     <section class="section section--black">
       <div class="container split">
         <div>
-          <span class="eyebrow" style="color:rgba(255,255,255,0.6);">Delivery</span>
+          <span class="eyebrow" style="color:var(--accent-on-dark);">Delivery</span>
           <h2 class="h2">Australia-wide crated delivery.</h2>
           <p class="lede" style="color:rgba(255,255,255,0.75); margin:20px 0 28px;">Your bike is shipped securely in a crate to eligible locations across Australia.</p>
           <a class="btn btn-primary btn-on-black" href="shipping.html">SHIPPING INFORMATION</a>
@@ -1171,7 +1171,7 @@ def build_about():
     <section class="section section--black">
       <div class="container split">
         <div>
-          <span class="eyebrow" style="color:rgba(255,255,255,0.6);">Delivery</span>
+          <span class="eyebrow" style="color:var(--accent-on-dark);">Delivery</span>
           <h2 class="h2">Australia-wide crated delivery.</h2>
           <p class="lede" style="color:rgba(255,255,255,0.75); margin:20px 0 28px;">Every bike is shipped securely in a crate to eligible locations across Australia. Bikes are supplied crated and require assembly before use.</p>
           <a class="btn btn-primary btn-on-black" href="shipping.html">SHIPPING INFORMATION</a>
@@ -1279,13 +1279,15 @@ def build_support():
           <div class="faq-list">{warranty_support}
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="section-head section-head--center" style="margin-top:56px; padding-top:48px; border-top:var(--border);">
-          <h2 class="h3">Still have a question?</h2>
-          <p class="text-body" style="margin:12px auto 0;">Contact Zentro Moto and we&rsquo;ll help with your bike, order or support enquiry.</p>
-          <div style="margin-top:24px;">
-            <a class="btn btn-primary" href="contact.html">CONTACT ZENTRO MOTO</a>
-          </div>
+    <section class="section section--grey">
+      <div class="container section-head--center">
+        <h2 class="h3">Still have a question?</h2>
+        <p class="text-body" style="margin:12px auto 0;">Contact Zentro Moto and we&rsquo;ll help with your bike, order or support enquiry.</p>
+        <div style="margin-top:24px;">
+          <a class="btn btn-primary" href="contact.html">CONTACT ZENTRO MOTO</a>
         </div>
       </div>
     </section>"""
