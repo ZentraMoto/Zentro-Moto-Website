@@ -269,8 +269,8 @@ def trust_strip_html():
         <p>Genuine replacement and wear parts.</p>
       </div>
       <div class="trust-item">
-        <h3>Australian Support</h3>
-        <p>Deal directly with Zentro Moto.</p>
+        <h3>Australia-wide Delivery</h3>
+        <p>Crated delivery available nationwide.</p>
       </div>
     </div>
   </section>"""
@@ -398,8 +398,8 @@ def build_home():
         </div>
         <div class="step">
           <div class="step-num">04</div>
-          <h3>Collect or receive your bike</h3>
-          <p>Collect in Newcastle or arrange delivery.</p>
+          <h3>Receive your bike</h3>
+          <p>Your bike is delivered to your door.</p>
         </div>
       </div>
       <div style="margin-top:40px;">
@@ -407,17 +407,17 @@ def build_home():
       </div>
     </section>
 
-    <!-- 08 Newcastle / delivery -->
+    <!-- 08 Delivery -->
     <section class="section section--black">
       <div class="container split">
         <div>
           <span class="eyebrow" style="color:rgba(255,255,255,0.6);">Delivery</span>
-          <h2 class="h2">Newcastle pickup or delivery.</h2>
-          <p class="lede" style="color:rgba(255,255,255,0.75); margin:20px 0 28px;">Collect from Zentro Moto in Newcastle, NSW, or arrange delivery to eligible locations.</p>
-          <a class="btn btn-primary btn-on-black" href="shipping.html">SHIPPING &amp; COLLECTION &rarr;</a>
+          <h2 class="h2">Australia-wide crated delivery.</h2>
+          <p class="lede" style="color:rgba(255,255,255,0.75); margin:20px 0 28px;">Your bike is shipped securely in a crate to eligible locations across Australia.</p>
+          <a class="btn btn-primary btn-on-black" href="shipping.html">SHIPPING INFORMATION</a>
         </div>
         <div class="split-media">
-          <img src="{img('bikes-hero')}" alt="Newcastle collection placeholder image" />
+          <img src="{img('bikes-hero')}" alt="Australia-wide delivery placeholder image" />
         </div>
       </div>
     </section>
