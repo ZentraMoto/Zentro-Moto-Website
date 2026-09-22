@@ -1221,95 +1221,73 @@ def build_about():
 # 5. Support / FAQ page
 # --------------------------------------------------------------------------
 
-def faq(q, a):
+def faq(q, a, link=None):
+    link_html = (
+        f'<div style="margin-top:12px;"><a class="btn-link" href="{link[1]}">{link[0]}</a></div>'
+        if link else ""
+    )
     return f"""        <details class="faq-item">
           <summary>{q}<span class="faq-icon"></span></summary>
-          <div class="faq-body">{a}</div>
+          <div class="faq-body">{a}{link_html}</div>
         </details>"""
 
 
 def build_support():
     ordering = "\n".join([
-        faq("What does IN STOCK mean?", "The bike is physically available at Zentro Moto in Newcastle and ready to purchase now."),
-        faq("What does INCOMING mean?", "The bike is confirmed and on its way to Zentro Moto. You can reserve one ahead of arrival."),
-        faq("What does AVAILABLE TO ORDER mean?", "The bike can be ordered in. Zentro Moto will confirm sourcing and an estimated lead time with you."),
-        faq("How do reservations work?", "A reservation secures your bike ahead of arrival. See <a href=\"legal-reservation-terms.html\">Reservation / Order Terms</a> for deposit, refund and lead-time details."),
+        faq("What does “Incoming” mean?", "Incoming means the bike is part of a batch that has already been ordered from our supplier and is on its way to Zentro Moto. Where available, an estimated arrival timeframe will be shown on the product page."),
+        faq("What does “Available to Order” mean?", "Available to Order means the bike is not currently held in stock or already incoming, but Zentro Moto can source it through our international wholesale supply network. Once your order is placed, we arrange sourcing and keep you updated throughout the process."),
+        faq("How do reservations work?", "Some incoming or order-in bikes may be available to reserve with a deposit rather than full payment upfront. The deposit amount, remaining balance and relevant reservation terms will be clearly shown before you place the order.",
+            link=("VIEW RESERVATION TERMS", "legal-reservation-terms.html")),
     ])
     delivery = "\n".join([
-        faq("Newcastle collection", "Collect your bike directly from Zentro Moto in Newcastle, NSW. See <a href=\"shipping.html\">Shipping &amp; Collection</a> for details."),
-        faq("Delivery areas", "Freight can be arranged to eligible Australian locations. See <a href=\"shipping.html\">Shipping &amp; Collection</a>."),
-        faq("Delivery timing", "Timing depends on the bike’s availability status and your location. Zentro Moto will confirm an estimate with you directly."),
+        faq("Do you deliver Australia-wide?", "Yes. Zentro Moto ships bikes securely in crates to eligible locations across Australia. Freight pricing and delivery details are provided during the ordering process.",
+            link=("SHIPPING INFORMATION", "shipping.html")),
+        faq("Does the bike arrive assembled?", "The bikes arrive approximately 90% assembled from Surron and are shipped securely in their crate. Final assembly is still required before riding, typically including fitting the handlebars, attaching the front wheel and installing items such as the front fender. Assembly requirements can vary slightly by model, so the bike should be correctly assembled and checked before use."),
+        faq("Are the bikes road legal?", "No. The Hyper Bee, Light Bee 2.0 and Ultra Bee sold by Zentro Moto are supplied for off-road use only and are not street legal."),
     ])
-    your_bike = "\n".join([
-        faq("What is included?", "Each bike is supplied with its battery, charger and documentation, plus any included factory accessories for that model."),
-        faq("Setup / assembly", "Whether assembly is required is noted on each bike’s product page."),
-        faq("Documentation", "Documentation is included with every bike."),
-    ])
-    warranty_parts = "\n".join([
-        faq(WARRANTY_HEADLINE.title(), WARRANTY_BODY),
-        faq("How to make a warranty claim", "See <a href=\"warranty.html\">Warranty &amp; Returns</a> for the full claims process, including what information to provide."),
-        faq("Genuine OEM replacement parts", "Zentro Moto supplies genuine OEM replacement parts for supported models."),
-        faq("Wear-and-tear items", "Common wear-and-tear items are available through Zentro Moto."),
-        faq("Selected performance upgrades", "A selection of performance upgrades is available &mdash; contact Zentro Moto for current options."),
-        faq("Australian Consumer Law rights", ACL_BODY),
-    ])
-    returns = "\n".join([
-        faq("Faulty products", "Contact Zentro Moto as soon as possible if you believe your bike has a fault. See <a href=\"warranty.html\">Warranty &amp; Returns</a>."),
-        faq("Returns / cancellations", "See <a href=\"warranty.html\">Warranty &amp; Returns</a> for the current returns and cancellation process."),
-        faq("Change-of-mind policy", "Any change-of-mind policy offered by Zentro Moto is set out in <a href=\"warranty.html\">Warranty &amp; Returns</a>."),
+    warranty_support = "\n".join([
+        faq("Are the bikes genuine Surron products?", "Yes. Zentro Moto sells genuine Surron motorcycles sourced through established international wholesale supply channels."),
+        faq("What warranty is included?", "Bikes are supplied with a 12-month factory warranty covering core components including the battery, controller, motor and frame, subject to the applicable warranty terms and exclusions. Your rights under Australian Consumer Law also continue to apply where applicable.",
+            link=("WARRANTY & RETURNS", "warranty.html")),
+        faq("Can I get spare parts and support after purchase?", "Yes. Zentro Moto supplies genuine OEM replacement parts, common wear-and-tear items and selected performance upgrades. If you need assistance after purchase, contact Zentro Moto directly."),
     ])
 
     body = f"""    <section class="page-hero container">
       <span class="eyebrow">Help centre</span>
       <h1 class="h1">Support &amp; FAQ</h1>
-      <p class="lede" style="margin-top:16px;">Everything you need to know about ordering, delivery, your bike and warranty &mdash; in one place.</p>
+      <p class="lede" style="margin-top:16px;">Answers to the most common questions about ordering, delivery, warranty and owning your Zentro Moto bike.</p>
     </section>
 
     <section class="section container">
-      <div class="content-grid">
-        <nav class="side-nav" aria-label="FAQ categories">
-          <a href="#ordering">Ordering</a>
-          <a href="#delivery">Delivery &amp; Collection</a>
-          <a href="#your-bike">Your Bike</a>
-          <a href="#warranty-parts">Warranty &amp; Parts</a>
-          <a href="#returns">Returns</a>
-        </nav>
-        <div>
-          <div class="faq-category" id="ordering">
-            <h3>Ordering</h3>
-            <div class="faq-list">{ordering}
-            </div>
+      <div class="narrow-content">
+        <div class="faq-category">
+          <h3>Ordering</h3>
+          <div class="faq-list">{ordering}
           </div>
-          <div class="faq-category" id="delivery">
-            <h3>Delivery &amp; Collection</h3>
-            <div class="faq-list">{delivery}
-            </div>
+        </div>
+        <div class="faq-category">
+          <h3>Delivery &amp; Your Bike</h3>
+          <div class="faq-list">{delivery}
           </div>
-          <div class="faq-category" id="your-bike">
-            <h3>Your Bike</h3>
-            <div class="faq-list">{your_bike}
-            </div>
+        </div>
+        <div class="faq-category">
+          <h3>Warranty &amp; Support</h3>
+          <div class="faq-list">{warranty_support}
           </div>
-          <div class="faq-category" id="warranty-parts">
-            <h3>Warranty &amp; Parts</h3>
-            <div class="faq-list">{warranty_parts}
-            </div>
-          </div>
-          <div class="faq-category" id="returns">
-            <h3>Returns</h3>
-            <div class="faq-list">{returns}
-            </div>
-          </div>
-          <div class="content-block">
-            <p>Still need help?</p>
-            <a class="btn btn-primary" href="contact.html" style="margin-top:16px;">CONTACT ZENTRO MOTO</a>
+        </div>
+
+        <div class="section-head section-head--center" style="margin-top:56px; padding-top:48px; border-top:var(--border);">
+          <h2 class="h3">Still have a question?</h2>
+          <p class="text-body" style="margin:12px auto 0;">Contact Zentro Moto and we&rsquo;ll help with your bike, order or support enquiry.</p>
+          <div style="margin-top:24px;">
+            <a class="btn btn-primary" href="contact.html">CONTACT ZENTRO MOTO</a>
           </div>
         </div>
       </div>
     </section>"""
     write("support.html", page(
         "Support & FAQ",
-        "Answers to common questions about ordering, delivery, your bike, warranty and returns at Zentro Moto.",
+        "Answers to the most common questions about ordering, delivery, warranty and owning your Zentro Moto bike.",
         "support", body,
     ))
 

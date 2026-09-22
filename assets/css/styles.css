@@ -1045,6 +1045,13 @@ summary:focus-visible {
   background: var(--black);
 }
 
+/* Centered reading column — for pages that are fundamentally a linear
+   list (e.g. Support/FAQ) rather than a wide, multi-column layout. */
+.narrow-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
 /* About page layout — Why Zentro Moto (3 col), What We Do / Independent
    Retailer (2 text col), Business Details (compact label/value grid) */
 .about-columns {
