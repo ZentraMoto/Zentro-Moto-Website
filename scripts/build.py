@@ -476,19 +476,23 @@ def build_home():
           <h2 class="h2">A simpler way to buy.</h2>
         </div>
         <div class="reasons">
-          <div class="reason">
+          <div class="reason-card">
+            <span class="reason-num">01</span>
             <h3>Genuine Surron</h3>
             <p>Genuine bikes sourced through established international wholesale supply channels.</p>
           </div>
-          <div class="reason">
+          <div class="reason-card">
+            <span class="reason-num">02</span>
             <h3>Better value</h3>
             <p>A lean, low-overhead model lets us pass more of the savings directly on to you.</p>
           </div>
-          <div class="reason">
+          <div class="reason-card">
+            <span class="reason-num">03</span>
             <h3>Clear availability</h3>
             <p>Know whether each bike is in stock, incoming or available to order.</p>
           </div>
-          <div class="reason">
+          <div class="reason-card">
+            <span class="reason-num">04</span>
             <h3>Support after purchase</h3>
             <p>Local contact, 12-month factory warranty on core components, and access to genuine OEM parts.</p>
           </div>
@@ -501,26 +505,26 @@ def build_home():
       <div class="section-head">
         <h2 class="h2">Simple from order to ride.</h2>
       </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">01</div>
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="timeline-num-wrap"><span class="timeline-num">01</span></div>
           <h3>Choose your bike</h3>
-          <p>Pick the model that suits you.</p>
+          <p>Pick the model and paint colour that suits you.</p>
         </div>
-        <div class="step">
-          <div class="step-num">02</div>
+        <div class="timeline-step">
+          <div class="timeline-num-wrap"><span class="timeline-num">02</span></div>
           <h3>Buy or reserve</h3>
           <p>Purchase an available bike or reserve an incoming / order-in bike.</p>
         </div>
-        <div class="step">
-          <div class="step-num">03</div>
+        <div class="timeline-step">
+          <div class="timeline-num-wrap"><span class="timeline-num">03</span></div>
           <h3>We handle the sourcing</h3>
-          <p>Zentro Moto handles sourcing and keeps you updated.</p>
+          <p>We arrange sourcing and keep you updated.</p>
         </div>
-        <div class="step">
-          <div class="step-num">04</div>
+        <div class="timeline-step">
+          <div class="timeline-num-wrap"><span class="timeline-num">04</span></div>
           <h3>Receive your bike</h3>
-          <p>Your bike is delivered to your door.</p>
+          <p>Your bike is delivered Australia-wide in its crate.</p>
         </div>
       </div>
       <div style="margin-top:40px;">

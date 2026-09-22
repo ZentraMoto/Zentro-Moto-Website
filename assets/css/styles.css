@@ -502,42 +502,89 @@ summary:focus-visible {
 }
 .bike-card-cta { margin-top: 4px; }
 
-/* --------------------------------- Numbered steps ---------------------------- */
-.steps {
+/* -------------------------- Timeline (How buying works) ---------------------- */
+.timeline {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
+  margin-top: 8px;
 }
-.step-num {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--grey-400);
-  margin-bottom: 14px;
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--grey-200);
 }
-.step h3 {
+.timeline-step { position: relative; }
+.timeline-num-wrap {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.timeline-num {
+  position: relative;
+  z-index: 1;
+  background: var(--white);
+  padding-right: 14px;
+  font-size: 2.125rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--black);
+}
+.timeline-step h3 {
   font-size: 1.0625rem;
   font-weight: 700;
   margin-bottom: 8px;
 }
-.step p {
+.timeline-step p {
   font-size: 0.9375rem;
   color: var(--grey-800);
   line-height: 1.55;
 }
 
-/* Reasons (Why Zentro) */
-.reasons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-}
+/* Reasons (About page "Why Zentro Moto" — plain 3-col typography) */
 .reason h3 {
   font-size: 1.0625rem;
   font-weight: 700;
   margin-bottom: 10px;
 }
 .reason p {
+  font-size: 0.9375rem;
+  color: var(--grey-800);
+  line-height: 1.55;
+}
+
+/* Reasons (homepage "A simpler way to buy" — restrained panel/card treatment) */
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.reason-card {
+  background: var(--white);
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  padding: 32px 24px;
+}
+.reason-num {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--grey-400);
+  margin-bottom: 18px;
+}
+.reason-card h3 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.reason-card p {
   font-size: 0.9375rem;
   color: var(--grey-800);
   line-height: 1.55;
@@ -1281,7 +1328,9 @@ summary:focus-visible {
   .footer-brand { grid-column: 1 / -1; }
   .trust-grid { grid-template-columns: repeat(2, 1fr); }
   .bike-grid { grid-template-columns: 1fr; gap: 24px; }
-  .steps { grid-template-columns: repeat(2, 1fr); }
+  .timeline { grid-template-columns: 1fr; gap: 32px; }
+  .timeline::before { display: none; }
+  .timeline-num-wrap { margin-bottom: 12px; }
   .reasons { grid-template-columns: 1fr; gap: 28px; }
   .about-columns { grid-template-columns: 1fr; gap: 28px; }
   .about-split-text { grid-template-columns: 1fr; gap: 28px; }
