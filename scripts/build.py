@@ -662,7 +662,7 @@ def build_bikes():
     body = f"""    <section class="page-hero container">
       <span class="eyebrow">The range</span>
       <h1 class="h1">Find your Surron.</h1>
-      <p class="lede" style="margin-top:16px;">Four bikes. Four sizes. Choose the one that suits you.</p>
+      <p class="lede" style="margin-top:16px;">Four bikes. From compact electric fun to full-size performance.</p>
     </section>
     <section class="section container">
       <div class="bike-grid bike-grid--4up">
