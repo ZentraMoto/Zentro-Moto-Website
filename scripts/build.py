@@ -271,7 +271,7 @@ def header_html(active=""):
   </header>"""
 
 
-def footer_html():
+def footer_html(shipping_label="Shipping &amp; Collection", location_label="Newcastle, NSW"):
     return f"""  <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
@@ -291,7 +291,7 @@ def footer_html():
           <h4>Support</h4>
           <ul>
             <li><a href="support.html">Support</a></li>
-            <li><a href="shipping.html">Shipping &amp; Collection</a></li>
+            <li><a href="shipping.html">{shipping_label}</a></li>
             <li><a href="warranty.html">Warranty &amp; Returns</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
@@ -300,7 +300,7 @@ def footer_html():
           <h4>Company</h4>
           <ul>
             <li><a href="about.html">About Zentro Moto</a></li>
-            <li><a href="about.html#location">Newcastle, NSW</a></li>
+            <li><a href="about.html#location">{location_label}</a></li>
             <li><a href="about.html#business-details">ABN</a></li>
           </ul>
         </div>
@@ -321,8 +321,9 @@ def footer_html():
   </footer>"""
 
 
-def page(title, description, active, body, body_class=""):
+def page(title, description, active, body, body_class="", footer=None):
     cls = f' class="{body_class}"' if body_class else ""
+    footer_block = footer if footer is not None else footer_html()
     return f"""<!DOCTYPE html>
 <html lang="en-AU">
 <head>
@@ -334,7 +335,7 @@ def page(title, description, active, body, body_class=""):
   <main id="main">
 {body}
   </main>
-{footer_html()}
+{footer_block}
   <script src="assets/js/main.js"></script>
 </body>
 </html>
@@ -1112,49 +1113,71 @@ def build_about():
     body = f"""    <section class="page-hero container">
       <span class="eyebrow">About</span>
       <h1 class="h1">Zentro Moto</h1>
-      <p class="lede" style="margin-top:16px;">A focused Australian retailer specialising in genuine Surron electric motorcycles.</p>
+      <p class="lede" style="margin-top:16px;">A focused Australian retailer supplying genuine Surron electric motorcycles Australia-wide.</p>
     </section>
 
     <section class="section container">
-      <div class="content-grid">
-        <nav class="side-nav" aria-label="On this page">
-          <a href="#what-we-do">What we do</a>
-          <a href="#focused-range">Why the focused range</a>
-          <a href="#independent">Independent retailer</a>
-          <a href="#business-details" id="business-details-link">Business details</a>
-        </nav>
-        <div>
-          <div class="content-block" id="what-we-do">
-            <h2 class="h3">What we do</h2>
-            <p>Zentro Moto independently sources genuine Surron motorcycles through established international wholesale supply channels. The range is deliberately limited to the Hyper Bee, Light Bee 2.0 and Ultra Bee.</p>
-          </div>
+      <div class="about-content">
+        <div class="content-block">
+          <h2 class="h3">What we do</h2>
+          <p>Zentro Moto independently sources genuine Surron motorcycles through established international wholesale supply channels and supplies them to customers across Australia.</p>
+          <p>Our range is deliberately focused on three models: the Hyper Bee, Light Bee 2.0 and Ultra Bee.</p>
+        </div>
 
-          <div class="content-block" id="focused-range">
-            <h2 class="h3">Why the focused range</h2>
-            <p>Three bikes. Clear availability. Direct support. Keeping the range focused means every model is well understood, well supported and easy to compare &mdash; rather than a large catalogue that’s hard to trust.</p>
+        <div class="content-block">
+          <h2 class="h3">Why Zentro Moto</h2>
+          <div class="about-columns" style="margin-top:20px;">
+            <div class="reason">
+              <h3>Better value</h3>
+              <p>A lean, low-overhead business model allows us to pass more of the savings directly on to our customers.</p>
+            </div>
+            <div class="reason">
+              <h3>Focused range</h3>
+              <p>By specialising in just three Surron models, we keep product knowledge, availability and support straightforward.</p>
+            </div>
+            <div class="reason">
+              <h3>Support after purchase</h3>
+              <p>Customers have access to a 12-month factory warranty on core components, genuine OEM parts and direct support through Zentro Moto.</p>
+            </div>
           </div>
+        </div>
 
-          <div class="content-block" id="independent">
-            <h2 class="h3">Independent retailer statement</h2>
-            <p>Zentro Moto is independently owned and operated and is not an authorised distributor or representative of Surron.</p>
+        <div class="content-block">
+          <h2 class="h3">Independent Australian retailer</h2>
+          <p>Zentro Moto is independently owned and operated and is not an authorised distributor or representative of Surron. We source genuine Surron motorcycles through international wholesale supply channels.</p>
+        </div>
+
+        <div class="content-block">
+          <h2 class="h3">Australia-wide delivery</h2>
+          <p>All bikes are shipped securely in crates to eligible locations across Australia. Bikes are supplied crated and require assembly before use.</p>
+          <div style="margin-top:16px;">
+            <a class="btn-link" href="shipping.html">SHIPPING INFORMATION</a>
           </div>
+        </div>
 
-          <div class="content-block" id="business-details">
-            <h2 class="h3">Business details</h2>
-            <ul class="bullet">
-              <li id="location">Newcastle, NSW</li>
-              <li>Business name: Zentro Moto &mdash; BUSINESS NAME TO CONFIRM</li>
-              <li>ABN: ABN TO CONFIRM</li>
-              <li>Contact: see <a href="contact.html">Contact Zentro Moto</a> for phone and email details</li>
-            </ul>
+        <div class="content-block" id="business-details">
+          <h2 class="h3">Business details</h2>
+          <ul class="bullet">
+            <li id="location">Based in: Newcastle, NSW</li>
+            <li>Delivery: Australia-wide crated delivery</li>
+            <li>Business name: Zentro Moto &mdash; BUSINESS NAME TO CONFIRM</li>
+            <li>ABN: ABN TO CONFIRM</li>
+          </ul>
+          <div style="margin-top:20px;">
+            <a class="btn btn-primary" href="contact.html">CONTACT ZENTRO MOTO</a>
           </div>
         </div>
       </div>
     </section>"""
+    about_footer = footer_html(
+        shipping_label="Shipping Information",
+        location_label="Based in Newcastle, NSW &middot; Australia-wide delivery",
+    )
     write("about.html", page(
         "About",
-        "Zentro Moto is a focused Australian retailer specialising in genuine Surron electric motorcycles, based in Newcastle, NSW.",
+        "Zentro Moto is a focused Australian retailer supplying genuine Surron electric motorcycles Australia-wide.",
         "about", body,
+        footer=about_footer,
     ))
 
 
