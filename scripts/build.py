@@ -414,19 +414,28 @@ def badge(bike):
     return f'<span class="badge badge--{bike["availability"]}">{bike["availability_label"]}</span>'
 
 
-def bike_card(bike, ctx="home"):
-    return f"""        <article class="bike-card">
-          <a class="bike-card-media" href="{bike['url']}">
-            <img src="{img(bike['slug'] + '-card')}" alt="{bike['name']} placeholder image" loading="lazy" />
-          </a>
-          <div class="bike-card-body">
-            <div class="bike-card-top">
+def bike_card(bike, ctx="home", show_badge=True):
+    card_class = "bike-card" if show_badge else "bike-card bike-card--tight"
+    top_html = (
+        f"""            <div class="bike-card-top">
               <div>
                 <div class="bike-card-size">{bike['size']}</div>
                 <div class="bike-card-name">{bike['name']}</div>
               </div>
               {badge(bike)}
-            </div>
+            </div>"""
+        if show_badge else
+        f"""            <div>
+              <div class="bike-card-size">{bike['size']}</div>
+              <div class="bike-card-name">{bike['name']}</div>
+            </div>"""
+    )
+    return f"""        <article class="{card_class}">
+          <a class="bike-card-media" href="{bike['url']}">
+            <img src="{img(bike['slug'] + '-card')}" alt="{bike['name']} placeholder image" loading="lazy" />
+          </a>
+          <div class="bike-card-body">
+{top_html}
             <div class="bike-card-price">{PRICE_PLACEHOLDER}</div>
             <p class="bike-card-desc">{bike['one_liner']}</p>
             <div class="bike-card-cta"><a class="btn btn-secondary" href="{bike['url']}">VIEW {bike['name'].upper()}</a></div>
@@ -666,7 +675,7 @@ def build_home():
 # --------------------------------------------------------------------------
 
 def build_bikes():
-    bikes_grid = "\n".join(bike_card(b) for b in BIKES)
+    bikes_grid = "\n".join(bike_card(b, show_badge=False) for b in BIKES)
     body = f"""    <section class="page-hero container">
       <span class="eyebrow">The range</span>
       <h1 class="h1">Find your Surron.</h1>

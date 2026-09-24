@@ -478,6 +478,7 @@ summary:focus-visible {
   gap: 14px;
   flex: 1;
 }
+.bike-card--tight .bike-card-body { gap: 12px; padding: 22px 24px; }
 .bike-card-top {
   display: flex;
   align-items: flex-start;
