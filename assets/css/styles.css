@@ -270,6 +270,7 @@ summary:focus-visible {
 .badge--incoming { color: var(--grey-800); background: var(--white); }
 .badge--order { color: var(--grey-800); background: var(--white); border-style: dashed; }
 .badge--unconfirmed { color: var(--grey-600); background: var(--white); border-style: dotted; }
+.badge--batch { color: var(--black); background: var(--white); border-color: var(--black); }
 
 /* ------------------------------ Announcement ------------------------------ */
 .announce {
