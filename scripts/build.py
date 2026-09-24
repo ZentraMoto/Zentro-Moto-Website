@@ -550,11 +550,16 @@ def build_home():
           </div>
           <div class="reason-card">
             <span class="reason-num">03</span>
+            <h3>More choice</h3>
+            <p>Choose the model and paint colour you actually want, rather than being limited to local showroom stock.</p>
+          </div>
+          <div class="reason-card">
+            <span class="reason-num">04</span>
             <h3>Clear availability</h3>
             <p>Know whether each bike is in stock, incoming or available to order.</p>
           </div>
           <div class="reason-card">
-            <span class="reason-num">04</span>
+            <span class="reason-num">05</span>
             <h3>Support after purchase</h3>
             <p>Local contact, 12-month factory warranty on core components, and access to genuine OEM parts.</p>
           </div>

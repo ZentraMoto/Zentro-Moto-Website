@@ -556,8 +556,8 @@ summary:focus-visible {
 /* Reasons (homepage "A simpler way to buy" — restrained panel/card treatment) */
 .reasons {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
 }
 .reason-card {
   background: var(--white);
