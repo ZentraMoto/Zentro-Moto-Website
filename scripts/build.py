@@ -273,6 +273,7 @@ PAINT_COLOUR_HEX = {
     "Brown": "#6B4A34",
     "Black": "#141414",
     "White": "#FFFFFF",
+    "Purple": "#5B3F6B",
 }
 
 
@@ -1176,7 +1177,7 @@ def build_light_bee_x():
         intro_heading="The Light Bee, evolved.",
         intro_body="The MY26 Light Bee X builds on Surron's lightweight off-road platform with stronger performance and updated rider technology. A 10 kW power system, 295 Nm of rear-wheel torque and a 59 kg ready-to-ride weight keep it fast, agile and easy to control across off-road terrain.",
         specs=LIGHT_BEE_X_SPECS,
-        paint_colours=None,
+        paint_colours=["White", "Purple", "Black", "Green"],
         assembly_body="Bikes arrive approximately 90% assembled from Surron. Final assembly typically includes fitting the handlebars, attaching the front wheel and installing items such as the fender.",
     )
 
