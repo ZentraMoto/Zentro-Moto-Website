@@ -511,17 +511,17 @@ def build_home():
     bikes_grid = "\n".join(home_bike_card(b) for b in BIKES)
     body = f"""    <!-- 03 Hero -->
     <section class="hero hero--home">
-      <div class="hero-copy container">
-        <span class="eyebrow">Genuine Surron &middot; Newcastle, NSW</span>
-        <h1 class="h1">Genuine Surron. Straightforward buying.</h1>
-        <p class="lede">Genuine Surron electric motorcycles, independently sourced and supplied in Australia.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-primary btn-lg" href="bikes.html">SHOP BIKES</a>
-          <a class="btn btn-secondary btn-lg" href="#how-it-works">HOW IT WORKS</a>
-        </div>
-      </div>
       <div class="hero-media">
         <img src="{img('home-hero-bleed')}" alt="Zentro Moto placeholder hero image" />
+      </div>
+      <div class="hero-copy container">
+        <span class="eyebrow eyebrow--on-black">Genuine Surron &middot; Newcastle, NSW</span>
+        <h1 class="h1 h1--on-black">Genuine Surron. Straightforward buying.</h1>
+        <p class="lede lede--on-black">Genuine Surron electric motorcycles, independently sourced and supplied in Australia.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-on-black btn-primary btn-lg" href="bikes.html">SHOP BIKES</a>
+          <a class="btn btn-on-black btn-secondary btn-lg" href="#how-it-works">HOW IT WORKS</a>
+        </div>
       </div>
     </section>
 

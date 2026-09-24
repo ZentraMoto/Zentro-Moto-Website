@@ -382,37 +382,53 @@ summary:focus-visible {
 .menu-toggle[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ---------------------------------- Hero ----------------------------------- */
+/* Immersive full-bleed hero: the image fills the section edge-to-edge and
+   the copy sits directly on top of it (bottom-left), with a dark scrim
+   under the text for contrast, rather than stacking text above a boxed
+   image. */
 .hero {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding-top: 56px;
-}
-.hero-copy {
-  max-width: 44em;
-}
-.hero-copy .h1 { margin-bottom: 20px; }
-.hero-copy .lede { margin-bottom: 32px; }
-.hero-ctas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-/* Full-bleed hero image — runs edge-to-edge rather than sitting boxed
-   inside the container, so real photography reads as an immersive shot
-   rather than an inserted graphic. */
-.hero-media {
+  align-items: flex-end;
   width: 100%;
-  aspect-ratio: 21 / 9;
-  max-height: 640px;
+  aspect-ratio: 16 / 9;
+  max-height: 760px;
+  min-height: 420px;
   overflow: hidden;
   background: var(--grey-100);
+}
+.hero-media {
+  position: absolute;
+  inset: 0;
 }
 .hero-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(18,15,12,0.78) 0%, rgba(18,15,12,0.32) 46%, rgba(18,15,12,0) 72%);
+}
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 44em;
+  padding-top: 96px;
+  padding-bottom: 56px;
+}
+.hero-copy .h1 { margin-bottom: 20px; }
+.hero-copy .lede { margin-bottom: 32px; }
+.eyebrow--on-black { color: rgba(255,255,255,0.72); }
+.h1--on-black { color: var(--white); }
+.lede--on-black { color: rgba(255,255,255,0.86); }
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 /* ------------------------------- Trust strip -------------------------------- */
@@ -1369,7 +1385,7 @@ summary:focus-visible {
   .side-nav a:hover, .side-nav a.is-active { border-left: none; border-bottom-color: var(--black); }
   .reasons { grid-template-columns: repeat(2, 1fr); }
   .bike-grid--4up { grid-template-columns: repeat(2, 1fr); }
-  .hero-media { aspect-ratio: 16 / 9; max-height: none; }
+  .hero { max-height: none; }
 }
 
 @media (max-width: 900px) {
@@ -1386,7 +1402,8 @@ summary:focus-visible {
   .about-combined { grid-template-columns: 1fr; gap: 32px; }
   .about-hero-section { padding: 48px 0; }
   .detail-panel { padding: 24px 20px; }
-  .hero-media { aspect-ratio: 4 / 3; }
+  .hero { aspect-ratio: 4 / 3; min-height: 620px; }
+  .hero-copy { padding-top: 40px; padding-bottom: 36px; }
   .split { grid-template-columns: 1fr; gap: 28px; }
   .info-cols { grid-template-columns: 1fr; gap: 28px; }
   .feature-list { grid-template-columns: 1fr; }
