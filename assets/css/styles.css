@@ -898,6 +898,12 @@ summary:focus-visible {
   margin-top: 7px;
   flex: none;
 }
+.trust-subline {
+  font-size: 0.75rem;
+  color: var(--grey-600);
+  line-height: 1.5;
+  margin-top: 10px;
+}
 
 /* Sticky mobile buy bar */
 .mobile-buy-bar {

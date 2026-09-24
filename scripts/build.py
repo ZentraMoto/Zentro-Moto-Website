@@ -540,8 +540,8 @@ def build_home():
         <div class="reasons">
           <div class="reason-card">
             <span class="reason-num">01</span>
-            <h3>Genuine Surron</h3>
-            <p>Genuine bikes sourced through established international wholesale supply channels.</p>
+            <h3>Genuine. Traceable. Properly sourced.</h3>
+            <p>Genuine Surron motorcycles sourced directly from Surron in Shenzhen, with VIN identification, documented specifications, battery/DG paperwork and access to genuine OEM parts.</p>
           </div>
           <div class="reason-card">
             <span class="reason-num">02</span>
@@ -622,7 +622,7 @@ def build_home():
       <div class="faq-list">
         <details class="faq-item" open>
           <summary>Are the bikes genuine Surrons?<span class="faq-icon"></span></summary>
-          <div class="faq-body">Yes. Zentro Moto sells genuine Surron motorcycles sourced through established international wholesale supply channels.</div>
+          <div class="faq-body">Yes. Zentro Moto supplies genuine Surron motorcycles sourced directly from Surron in Shenzhen. Bikes have VIN identification, documented specifications and the required battery/DG documentation, giving customers clear traceability of what they are buying.</div>
         </details>
         <details class="faq-item">
           <summary>What warranty and support is included?<span class="faq-icon"></span></summary>
@@ -1019,12 +1019,13 @@ def build_master_product(bike, *, category_label, short_description, performance
 {batch_notice_html()}
 
           <ul class="trust-notes">
-            <li><span class="dot"></span> Genuine Surron</li>
+            <li><span class="dot"></span> Genuine Surron &middot; Direct Shenzhen supply</li>
             <li><span class="dot"></span> 12-month factory warranty on core components</li>
             <li><span class="dot"></span> OEM parts support</li>
             <li><span class="dot"></span> Australia-wide crated delivery</li>
             <li><span class="dot"></span> Assembly required</li>
           </ul>
+          <p class="trust-subline">VIN identified &middot; Documented specifications &middot; UN38.3 / battery documentation</p>
         </div>
       </div>
     </section>
@@ -1251,15 +1252,19 @@ def build_about():
             <div class="about-benefits">
               <div class="about-benefit">
                 <h3>Better value</h3>
-                <p>A lean, low-overhead model lets us pass more of the savings directly on to you.</p>
+                <p>A lean, low-overhead batch-order model lets us pass more of the savings directly on to customers.</p>
               </div>
               <div class="about-benefit">
-                <h3>Focused range</h3>
-                <p>Four Surron models. Clear availability, straightforward product knowledge and support.</p>
+                <h3>Direct, traceable supply</h3>
+                <p>Genuine Surron motorcycles sourced directly from Surron in Shenzhen, with VIN identification, documented specifications and battery/DG documentation.</p>
+              </div>
+              <div class="about-benefit">
+                <h3>More choice</h3>
+                <p>Choose the model and paint colour you actually want rather than being limited to local showroom stock.</p>
               </div>
               <div class="about-benefit">
                 <h3>Support after purchase</h3>
-                <p>12-month factory warranty on core components, genuine OEM parts and direct Zentro Moto support.</p>
+                <p>12-month factory warranty on core components, genuine OEM parts access and direct Zentro Moto support.</p>
               </div>
             </div>
           </div>
