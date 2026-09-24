@@ -11,9 +11,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WARRANTY_HEADLINE = "12-MONTH FACTORY WARRANTY"
 WARRANTY_BODY = "The bike is supplied with a 12-month factory warranty covering core powertrain components: battery, controller, motor and frame, subject to the applicable warranty terms and exclusions."
 WARRANTY_BODY_LONG = "The bike is supplied with a 12-month factory warranty on core powertrain components: battery, controller, motor and frame, subject to the applicable factory warranty terms, exclusions and claim requirements."
-PARTS_HEADLINE = "SPARE PARTS & SUPPORT"
-PARTS_BODY = "Zentro Moto supplies genuine OEM replacement parts, common wear-and-tear items and selected performance upgrades, helping customers keep their bikes supported and minimise downtime."
-PARTS_BODY_ALT = "Zentro Moto supplies genuine OEM replacement parts, common wear-and-tear items and selected performance upgrades. This helps customers obtain the parts they need without relying solely on third-party sourcing."
+PARTS_HEADLINE = "AFTER-SALES SUPPORT"
+PARTS_BODY = "Zentro Moto provides direct after-sales support and can assist with sourcing genuine replacement parts where required. Availability and lead times may vary depending on the part."
+PARTS_BODY_ALT = "Zentro Moto provides direct after-sales support and can assist with sourcing genuine replacement parts where required. Parts are sourced as needed rather than held as local stock, so availability and lead times can vary depending on the component."
 ACL_HEADLINE = "AUSTRALIAN CONSUMER LAW"
 ACL_BODY = "Any factory warranty is in addition to rights that may apply under the Australian Consumer Law. Zentro Moto remains the customer’s first point of contact for products purchased from Zentro Moto."
 INDEPENDENT_STATEMENT = "Zentro Moto is an independent Australian retailer and is not an authorised Australian Surron distributor or representative."
@@ -455,8 +455,8 @@ def trust_strip_html():
         <p>Battery, controller, motor and frame.</p>
       </div>
       <div class="trust-item">
-        <h3>OEM Parts Support</h3>
-        <p>Genuine replacement and wear parts.</p>
+        <h3>After-Sales Support</h3>
+        <p>Direct support after your purchase.</p>
       </div>
       <div class="trust-item">
         <h3>Australia-wide Delivery</h3>
@@ -549,7 +549,7 @@ def build_home():
           <div class="reason-card">
             <span class="reason-num">01</span>
             <h3>Genuine. Traceable. Properly sourced.</h3>
-            <p>Genuine Surron motorcycles sourced directly from Surron in Chongqing, China, with VIN identification, documented specifications, battery/DG paperwork and access to genuine OEM parts.</p>
+            <p>Genuine Surron motorcycles sourced directly from Surron in Chongqing, China, with VIN identification, documented specifications, battery/DG paperwork and direct after-sales support.</p>
           </div>
           <div class="reason-card">
             <span class="reason-num">02</span>
@@ -569,7 +569,7 @@ def build_home():
           <div class="reason-card">
             <span class="reason-num">05</span>
             <h3>Support after purchase</h3>
-            <p>Local contact, 12-month factory warranty on core components, and access to genuine OEM parts.</p>
+            <p>Local contact, 12-month factory warranty on core components, and direct after-sales support.</p>
           </div>
         </div>
       </div>
@@ -634,7 +634,7 @@ def build_home():
         </details>
         <details class="faq-item">
           <summary>What warranty and support is included?<span class="faq-icon"></span></summary>
-          <div class="faq-body">Bikes are supplied with a 12-month factory warranty covering core components including the battery, controller, motor and frame, subject to the applicable warranty terms and exclusions. Zentro Moto also provides access to genuine OEM replacement parts, common wear items and direct after-sales support.</div>
+          <div class="faq-body">Bikes are supplied with a 12-month factory warranty covering core components including the battery, controller, motor and frame, subject to the applicable warranty terms and exclusions. Zentro Moto provides direct after-sales support and can assist with sourcing genuine replacement parts where required.</div>
         </details>
         <details class="faq-item">
           <summary>Do you deliver Australia-wide?<span class="faq-icon"></span></summary>
@@ -646,7 +646,7 @@ def build_home():
         </details>
         <details class="faq-item">
           <summary>How does Zentro Moto keep prices lower than traditional dealerships?<span class="faq-icon"></span></summary>
-          <div class="faq-body">Zentro Moto operates with a lean, low-overhead model. Rather than carrying large volumes of local stock and the cost base of a traditional dealership, customer orders are consolidated into supplier batches. This helps reduce overheads and allows us to pass more of the savings directly on to customers while still providing genuine Surron bikes, a 12-month factory warranty on core components, OEM parts support and Australia-wide delivery.</div>
+          <div class="faq-body">Zentro Moto operates with a lean, low-overhead model. Rather than carrying large volumes of local stock and the cost base of a traditional dealership, customer orders are consolidated into supplier batches. This helps reduce overheads and allows us to pass more of the savings directly on to customers while still providing genuine Surron bikes, a 12-month factory warranty on core components, after-sales support and Australia-wide delivery.</div>
         </details>
       </div>
       <div style="margin-top:28px;">
@@ -1028,7 +1028,7 @@ def build_master_product(bike, *, category_label, short_description, performance
           <ul class="trust-notes">
             <li><span class="dot"></span> Genuine Surron &middot; Direct Chongqing supply</li>
             <li><span class="dot"></span> 12-month factory warranty on core components</li>
-            <li><span class="dot"></span> OEM parts support</li>
+            <li><span class="dot"></span> After-sales support</li>
             <li><span class="dot"></span> Australia-wide crated delivery</li>
           </ul>
           <p class="trust-subline">VIN identified &middot; Documented specifications &middot; UN38.3 / battery documentation</p>
@@ -1270,7 +1270,7 @@ def build_about():
               </div>
               <div class="about-benefit">
                 <h3>Support after purchase</h3>
-                <p>12-month factory warranty on core components, genuine OEM parts access and direct Zentro Moto support.</p>
+                <p>12-month factory warranty on core components, direct Zentro Moto after-sales support and assistance sourcing genuine replacement parts where required.</p>
               </div>
             </div>
           </div>
@@ -1375,7 +1375,7 @@ def build_support():
         faq("Are the bikes genuine Surron products?", "Yes. Zentro Moto supplies genuine Surron motorcycles sourced directly from Surron in Chongqing, China, with VIN identification, documented specifications and the required battery/DG documentation."),
         faq("What warranty is included?", "Bikes are supplied with a 12-month factory warranty covering core components including the battery, controller, motor and frame, subject to the applicable warranty terms and exclusions. Your rights under Australian Consumer Law also continue to apply where applicable.",
             link=("WARRANTY & RETURNS", "warranty.html")),
-        faq("Can I get spare parts and support after purchase?", "Yes. Zentro Moto supplies genuine OEM replacement parts, common wear-and-tear items and selected performance upgrades. If you need assistance after purchase, contact Zentro Moto directly."),
+        faq("What after-sales support is available?", "Zentro Moto provides direct after-sales support and can assist with sourcing genuine replacement parts where required. Parts availability and lead times can vary depending on the component. Warranty and Australian Consumer Law claims are handled directly through Zentro Moto."),
     ])
 
     body = f"""    <section class="page-hero container">
@@ -1502,7 +1502,7 @@ def build_warranty():
       <div class="content-grid">
         <nav class="side-nav" aria-label="On this page">
           <a href="#warranty">12-month factory warranty</a>
-          <a href="#parts">Spare parts support</a>
+          <a href="#parts">After-sales support</a>
           <a href="#claims">Warranty claims</a>
           <a href="#acl">Australian Consumer Law</a>
           <a href="#returns">Returns</a>
@@ -1514,7 +1514,7 @@ def build_warranty():
           </div>
 
           <div class="content-block" id="parts">
-            <h2 class="h3">Spare parts support</h2>
+            <h2 class="h3">After-sales support</h2>
             <p>{PARTS_BODY_ALT}</p>
           </div>
 
@@ -1553,7 +1553,7 @@ def build_warranty():
     </section>"""
     write("warranty.html", page(
         "Warranty & Returns",
-        "Warranty, spare parts, claims and returns information for Zentro Moto electric motorcycles.",
+        "Warranty, after-sales support, claims and returns information for Zentro Moto electric motorcycles.",
         "", body,
     ))
 
