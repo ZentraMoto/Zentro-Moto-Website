@@ -513,9 +513,8 @@ def build_home():
     <section class="hero hero--home">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">Genuine Surron &middot; Direct Factory Supply &middot; Australia-wide</span>
           <h1 class="h1">Your Surron. Your colour.<br />A better price.</h1>
-          <p class="lede">A simpler way to get the right Surron at a better price, with more choice and less compromise.</p>
+          <p class="lede">A simpler way to get the right Surron at a better price, with direct factory supply and Australia-wide delivery.</p>
           <div class="hero-ctas">
             <a class="btn btn-primary btn-lg" href="bikes.html">CHOOSE YOUR BIKE</a>
             <a class="btn btn-secondary btn-lg" href="#how-it-works">HOW BATCH ORDERING WORKS</a>

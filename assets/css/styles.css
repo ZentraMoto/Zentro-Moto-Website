@@ -392,10 +392,11 @@ summary:focus-visible {
   display: grid;
   grid-template-columns: 45% 55%;
   gap: 56px;
-  align-items: center;
+  align-items: start;
 }
 .hero-copy {
   max-width: 46em;
+  padding-top: 40px;
 }
 .hero-copy .h1 { margin-bottom: 20px; }
 .hero-copy .lede { margin-bottom: 32px; }
@@ -1390,6 +1391,7 @@ summary:focus-visible {
   .detail-panel { padding: 24px 20px; }
   .hero { padding: 40px 0 48px; }
   .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-copy { padding-top: 0; }
   .hero-media { aspect-ratio: 16 / 9; }
   .split { grid-template-columns: 1fr; gap: 28px; }
   .info-cols { grid-template-columns: 1fr; gap: 28px; }
