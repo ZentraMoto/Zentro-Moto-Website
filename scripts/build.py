@@ -1244,7 +1244,7 @@ def build_about():
         <div class="about-combined">
           <div>
             <h2 class="h3">What we do</h2>
-            <p class="text-body" style="margin-top:16px;">Zentro Moto independently sources genuine Surron motorcycles through established international wholesale supply channels and supplies them to customers across Australia.</p>
+            <p class="text-body" style="margin-top:16px;">Zentro Moto independently supplies genuine Surron motorcycles sourced directly from Surron in Shenzhen, with VIN identification, documented specifications and the required battery/DG documentation.</p>
             <p class="text-body" style="margin-top:14px;">Our range is deliberately focused on the Hyper Bee, Light Bee X, Light Bee 2.0 and Ultra Bee.</p>
           </div>
           <div>
@@ -1256,7 +1256,7 @@ def build_about():
               </div>
               <div class="about-benefit">
                 <h3>Direct, traceable supply</h3>
-                <p>Genuine Surron motorcycles sourced directly from Surron in Shenzhen, with VIN identification, documented specifications and battery/DG documentation.</p>
+                <p>Genuine Surron motorcycles sourced directly from Surron in Shenzhen, with VIN identification, documented specifications and the required battery/DG documentation.</p>
               </div>
               <div class="about-benefit">
                 <h3>More choice</h3>
@@ -1366,7 +1366,7 @@ def build_support():
         faq("Are the bikes road legal?", "No. The Hyper Bee, Light Bee X, Light Bee 2.0 and Ultra Bee sold by Zentro Moto are supplied for off-road use only and are not street legal."),
     ])
     warranty_support = "\n".join([
-        faq("Are the bikes genuine Surron products?", "Yes. Zentro Moto sells genuine Surron motorcycles sourced through established international wholesale supply channels."),
+        faq("Are the bikes genuine Surron products?", "Yes. Zentro Moto supplies genuine Surron motorcycles sourced directly from Surron in Shenzhen, with VIN identification, documented specifications and the required battery/DG documentation."),
         faq("What warranty is included?", "Bikes are supplied with a 12-month factory warranty covering core components including the battery, controller, motor and frame, subject to the applicable warranty terms and exclusions. Your rights under Australian Consumer Law also continue to apply where applicable.",
             link=("WARRANTY & RETURNS", "warranty.html")),
         faq("Can I get spare parts and support after purchase?", "Yes. Zentro Moto supplies genuine OEM replacement parts, common wear-and-tear items and selected performance upgrades. If you need assistance after purchase, contact Zentro Moto directly."),
