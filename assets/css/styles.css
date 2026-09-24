@@ -860,7 +860,7 @@ summary:focus-visible {
 .batch-notice-title {
   font-size: 0.8125rem;
   font-weight: 700;
-  margin: 0 0 4px;
+  margin: 0;
 }
 .batch-notice-body {
   font-size: 0.8125rem;
@@ -868,6 +868,14 @@ summary:focus-visible {
   line-height: 1.5;
   margin: 0;
 }
+.batch-notice-delivery {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  margin: 0;
+}
+.batch-notice p + p { margin-top: 6px; }
+.countdown-badge { font-weight: 400; color: var(--grey-600); }
+.announce .countdown-badge { color: rgba(255, 255, 255, 0.75); }
 .trust-notes {
   display: flex;
   flex-direction: column;

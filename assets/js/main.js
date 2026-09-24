@@ -306,6 +306,27 @@
     });
   }
 
+  // Real countdown to the next weekly batch cut-off (Sunday, end of day, in
+  // the visitor's own local time) — computed live from the browser clock so
+  // it is always accurate for whoever is viewing the page, never a fixed or
+  // stale figure baked in at build time.
+  function initBatchCountdown() {
+    var els = document.querySelectorAll("[data-countdown]");
+    if (!els.length) return;
+    var daysUntilSunday = (7 - new Date().getDay()) % 7;
+    var text;
+    if (daysUntilSunday === 0) {
+      text = "Batch cut-off is today";
+    } else if (daysUntilSunday === 1) {
+      text = "1 day until next batch cut-off";
+    } else {
+      text = daysUntilSunday + " days until next batch cut-off";
+    }
+    els.forEach(function (el) {
+      el.textContent = " — " + text;
+    });
+  }
+
   /* ------------------------------------- Init ------------------------------------- */
   document.addEventListener("DOMContentLoaded", function () {
     initHeader();
@@ -317,6 +338,7 @@
     initCheckoutButton();
     renderConfirmation();
     initContactForm();
+    initBatchCountdown();
 
     var year = document.querySelector("[data-year]");
     if (year) year.textContent = String(new Date().getFullYear());

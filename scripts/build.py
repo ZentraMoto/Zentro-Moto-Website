@@ -546,7 +546,7 @@ def build_home():
           <div class="reason-card">
             <span class="reason-num">02</span>
             <h3>Better value</h3>
-            <p>A lean, low-overhead model lets us pass more of the savings directly on to you.</p>
+            <p>By consolidating customer orders into supplier batches instead of holding large volumes of local stock, Zentro Moto keeps overheads lower and passes more of the savings directly on to customers.</p>
           </div>
           <div class="reason-card">
             <span class="reason-num">03</span>
@@ -633,7 +633,7 @@ def build_home():
         </details>
         <details class="faq-item">
           <summary>How does Zentro Moto keep prices lower than traditional dealerships?<span class="faq-icon"></span></summary>
-          <div class="faq-body">Zentro Moto operates with a lean, low-overhead model compared with a traditional dealership. With fewer overhead costs, we can pass more of the savings directly on to our customers while still providing genuine Surron bikes, a 12-month factory warranty on core components, OEM parts support and Australia-wide delivery.</div>
+          <div class="faq-body">Zentro Moto operates with a lean, low-overhead model. Rather than carrying large volumes of local stock and the cost base of a traditional dealership, customer orders are consolidated into supplier batches. This helps reduce overheads and allows us to pass more of the savings directly on to customers while still providing genuine Surron bikes, a 12-month factory warranty on core components, OEM parts support and Australia-wide delivery.</div>
         </details>
       </div>
       <div style="margin-top:28px;">
@@ -653,7 +653,7 @@ def build_home():
         "Home",
         "Genuine Surron electric motorcycles, independently sourced and supplied in Australia. Hyper Bee, Light Bee X, Light Bee 2.0 and Ultra Bee — Newcastle, NSW.",
         "home", body,
-        header=header_html("home", announce="Next supplier batch closes Sunday &mdash; order in time for this week&rsquo;s allocation."),
+        header=header_html("home", announce='Order before Sunday to secure your place in the next consolidated batch.<span class="countdown-badge" data-countdown></span>'),
     ))
 
 
@@ -892,11 +892,14 @@ def build_product(bike):
 
 
 def batch_notice_html():
-    """Shared weekly supplier batch notice — used near the buy button on
+    """Shared weekly consolidated batch notice — used near the buy button on
     every product page so the wording and layout stay in sync."""
     return """          <div class="batch-notice">
-            <p class="batch-notice-title">Next supplier batch closes Sunday</p>
-            <p class="batch-notice-body">Orders are consolidated and submitted to our supplier once per week. Order before Sunday&rsquo;s cut-off to be included in the next supplier batch.</p>
+            <p class="batch-notice-title">Next order cut-off: Sunday<span class="countdown-badge" data-countdown></span></p>
+            <p class="batch-notice-body">Orders placed before Sunday are allocated to the next available consolidated supplier batch. Orders placed after the cut-off move into the following batch cycle.</p>
+            <p class="batch-notice-body">Secure your place in the next batch before Sunday.</p>
+            <p class="batch-notice-body">This low-overhead batch model helps Zentro Moto keep bike prices lower than a traditional dealership model.</p>
+            <p class="batch-notice-delivery">Estimated delivery: 4&ndash;6 weeks.</p>
           </div>"""
 
 
@@ -1344,7 +1347,7 @@ def build_support():
         faq("What does “Available to Order” mean?", "Available to Order means the bike is not currently held in stock or already incoming, but Zentro Moto can source it through our international wholesale supply network. Once your order is placed, we arrange sourcing and keep you updated throughout the process."),
         faq("How do reservations work?", "Some incoming or order-in bikes may be available to reserve with a deposit rather than full payment upfront. The deposit amount, remaining balance and relevant reservation terms will be clearly shown before you place the order.",
             link=("VIEW RESERVATION TERMS", "legal-reservation-terms.html")),
-        faq("When will my order be placed with the supplier?", "Zentro Moto consolidates customer orders into weekly supplier batches. Orders placed before Sunday&rsquo;s cut-off are included in the next supplier order. Orders placed after the cut-off move into the following week&rsquo;s batch."),
+        faq("How does the weekly batch system work?", "Zentro Moto consolidates customer orders into supplier batches rather than holding large volumes of local stock. Orders placed before Sunday are allocated to the next available batch, while orders placed after the cut-off move into the following batch cycle. This leaner model helps reduce overheads and allows us to pass more of the savings directly on to customers. We&rsquo;ll keep you updated throughout the process, with the estimated delivery timeframe shown at the time of purchase."),
     ])
     delivery = "\n".join([
         faq("Do you deliver Australia-wide?", "Yes. Zentro Moto ships bikes securely in crates to eligible locations across Australia. Freight pricing and delivery details are provided during the ordering process.",
