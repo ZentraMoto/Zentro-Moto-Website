@@ -513,9 +513,9 @@ def build_home():
     <section class="hero hero--home">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">Genuine Surron &middot; Direct from Chongqing &middot; Australia-wide</span>
+          <span class="eyebrow">Genuine Surron &middot; Direct Factory Supply &middot; Australia-wide</span>
           <h1 class="h1">Your Surron. Your colour.<br />A better price.</h1>
-          <p class="lede">Genuine Surrons sourced directly from Surron in Chongqing, China. Our consolidated batch-order model reduces inventory and dealership overhead, so you get more choice at a lower price.</p>
+          <p class="lede">A simpler way to get the right Surron at a better price, with more choice and less compromise.</p>
           <p class="trust-subline hero-proof">VIN identified &middot; 12-month factory warranty &middot; Australia-wide delivery</p>
           <div class="hero-ctas">
             <a class="btn btn-primary btn-lg" href="bikes.html">CHOOSE YOUR BIKE</a>
