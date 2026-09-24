@@ -806,10 +806,16 @@ summary:focus-visible {
   line-height: 1.6;
   margin-bottom: 24px;
 }
-.order-urgency { margin-bottom: 24px; }
+.order-urgency {
+  padding-top: 16px;
+  border-top: var(--border);
+  margin-bottom: 18px;
+}
 .order-urgency-title {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   margin: 0 0 4px;
 }
 .order-urgency-sub {
@@ -862,37 +868,20 @@ summary:focus-visible {
   color: var(--black);
   font-weight: 700;
 }
-.buy-actions { margin-bottom: 22px; }
-.batch-notice {
-  border: var(--border);
-  background: var(--grey-50);
-  padding: 14px 16px;
-  margin-bottom: 22px;
-}
-.batch-notice-title {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  margin: 0;
-}
-.batch-notice-body {
-  font-size: 0.8125rem;
+.buy-actions { margin-bottom: 10px; }
+.value-note {
+  font-size: 0.75rem;
   color: var(--grey-600);
   line-height: 1.5;
-  margin: 0;
+  margin-bottom: 22px;
 }
-.batch-notice-delivery {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  margin: 0;
-}
-.batch-notice p + p { margin-top: 6px; }
 .countdown-badge { font-weight: 400; color: var(--grey-600); }
 .announce .countdown-badge { color: rgba(255, 255, 255, 0.75); }
 .trust-notes {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding-top: 20px;
+  gap: 8px;
+  padding-top: 16px;
   border-top: var(--border);
 }
 .trust-notes li {

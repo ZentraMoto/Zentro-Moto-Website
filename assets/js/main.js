@@ -312,8 +312,8 @@
   // stale figure baked in at build time.
   function initBatchCountdown() {
     var longEls = document.querySelectorAll("[data-countdown]");
-    var shortEls = document.querySelectorAll("[data-countdown-short]");
-    if (!longEls.length && !shortEls.length) return;
+    var daysLeftEls = document.querySelectorAll("[data-countdown-days-left]");
+    if (!longEls.length && !daysLeftEls.length) return;
     var daysUntilSunday = (7 - new Date().getDay()) % 7;
 
     var longText;
@@ -328,16 +328,16 @@
       el.textContent = " — " + longText;
     });
 
-    var shortText;
+    var daysLeftText;
     if (daysUntilSunday === 0) {
-      shortText = "Cut-off is today";
+      daysLeftText = "cut-off today";
     } else if (daysUntilSunday === 1) {
-      shortText = "1 day until cut-off";
+      daysLeftText = "1 day left";
     } else {
-      shortText = daysUntilSunday + " days until cut-off";
+      daysLeftText = daysUntilSunday + " days left";
     }
-    shortEls.forEach(function (el) {
-      el.textContent = " · " + shortText;
+    daysLeftEls.forEach(function (el) {
+      el.textContent = " · " + daysLeftText;
     });
   }
 

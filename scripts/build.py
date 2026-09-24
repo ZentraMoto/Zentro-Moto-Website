@@ -29,8 +29,8 @@ BIKES = [
         "size": "Smallest",
         "availability": "batch",
         "availability_label": "AVAILABLE FOR NEXT BATCH",
-        "primary_action": "ADD TO CART",
-        "action_kind": "add-to-cart",
+        "primary_action": "PLACE ORDER",
+        "action_kind": "place-order",
         "one_liner": "The compact, playful entry point into the Surron electric line-up.",
         "intro": "Hyper Bee is the smallest bike in the Zentro Moto range — a compact, electric-powered ride built for fun, easy handling and everyday accessibility. It’s the natural starting point for riders who want genuine Surron engineering in the most approachable size.",
         "features": [
@@ -49,8 +49,8 @@ BIKES = [
         "size": "Lightweight",
         "availability": "batch",
         "availability_label": "AVAILABLE FOR NEXT BATCH",
-        "primary_action": "ENQUIRE NOW",
-        "action_kind": "enquire",
+        "primary_action": "PLACE ORDER",
+        "action_kind": "place-order",
         "one_liner": "Lightweight off-road performance with 10 kW of peak power and an agile 59 kg chassis.",
         "intro": "The MY26 Light Bee X builds on Surron's lightweight off-road platform with stronger performance and updated rider technology. A 10 kW power system, 295 Nm of rear-wheel torque and a 59 kg ready-to-ride weight keep it fast, agile and easy to control across off-road terrain.",
         "features": [
@@ -69,8 +69,8 @@ BIKES = [
         "size": "Mid-size",
         "availability": "batch",
         "availability_label": "AVAILABLE FOR NEXT BATCH",
-        "primary_action": "RESERVE BIKE",
-        "action_kind": "reserve",
+        "primary_action": "PLACE ORDER",
+        "action_kind": "place-order",
         "one_liner": "The mid-size all-rounder, built for riders who want more from every ride.",
         "intro": "Light Bee 2.0 sits in the middle of the Zentro Moto range — a lightweight, electric-powered motorcycle built to go further and do more than the Hyper Bee, without stepping up to full size. It suits riders who want a capable, versatile everyday bike.",
         "features": [
@@ -89,8 +89,8 @@ BIKES = [
         "size": "Largest",
         "availability": "batch",
         "availability_label": "AVAILABLE FOR NEXT BATCH",
-        "primary_action": "ORDER YOURS",
-        "action_kind": "order",
+        "primary_action": "PLACE ORDER",
+        "action_kind": "place-order",
         "one_liner": "The full-size flagship, built for riders who want maximum performance.",
         "intro": "Ultra Bee is the largest and most capable bike in the Zentro Moto range — a full-size electric motorcycle built for riders who want the most performance Surron offers. It’s the flagship choice for serious everyday and off-road riding.",
         "features": [
@@ -895,14 +895,14 @@ def build_product(bike):
     ))
 
 
-def batch_notice_html():
-    """Shared weekly consolidated batch notice — used near the buy button on
-    every product page so the wording and layout stay in sync."""
-    return """          <div class="batch-notice">
-            <p class="batch-notice-title">Next order cut-off: Sunday</p>
-            <p class="batch-notice-body">Orders placed before Sunday are allocated to the next available consolidated supplier batch. Orders placed after the cut-off move into the following batch cycle.</p>
-            <p class="batch-notice-body">Our batch-order model helps keep overheads lower and allows us to pass more of the savings directly on to customers.</p>
-            <p class="batch-notice-delivery">Estimated delivery: 4&ndash;6 weeks.</p>
+def order_urgency_html():
+    """Shared compact order-urgency strip — one clear message, directly
+    above the primary CTA on every product page. The days-left figure is
+    filled in client-side from the visitor's own clock (see
+    initBatchCountdown() in main.js), never a static/stale number."""
+    return """          <div class="order-urgency">
+            <p class="order-urgency-title">Order by Sunday<span data-countdown-days-left></span></p>
+            <p class="order-urgency-sub">Next consolidated batch &middot; Estimated delivery 4&ndash;6 weeks</p>
           </div>"""
 
 
@@ -999,12 +999,9 @@ def build_master_product(bike, *, category_label, short_description, performance
           <p class="buy-desc">{short_description}</p>
           <p class="text-sm" style="font-weight:700; margin-bottom:24px;">Off-road use only &middot; Not street legal</p>
 
-          <div class="order-urgency">
-            <p class="order-urgency-title">Order before Sunday</p>
-            <p class="order-urgency-sub">Secure your place in the next consolidated batch.<span class="countdown-badge" data-countdown-short></span></p>
-          </div>
-
 {paint_colour_html}
+
+{order_urgency_html()}
 
           <div class="buy-actions">
             <button type="button" class="btn btn-primary btn-lg btn-block"
@@ -1017,15 +1014,13 @@ def build_master_product(bike, *, category_label, short_description, performance
               {bike['primary_action']}
             </button>
           </div>
-
-{batch_notice_html()}
+          <p class="value-note">Batch ordering keeps our overheads lower, allowing us to pass more of the savings directly on to you.</p>
 
           <ul class="trust-notes">
             <li><span class="dot"></span> Genuine Surron &middot; Direct Chongqing supply</li>
             <li><span class="dot"></span> 12-month factory warranty on core components</li>
             <li><span class="dot"></span> OEM parts support</li>
             <li><span class="dot"></span> Australia-wide crated delivery</li>
-            <li><span class="dot"></span> Assembly required</li>
           </ul>
           <p class="trust-subline">VIN identified &middot; Documented specifications &middot; UN38.3 / battery documentation</p>
         </div>
