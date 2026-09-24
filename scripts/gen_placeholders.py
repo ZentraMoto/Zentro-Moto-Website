@@ -83,10 +83,12 @@ for model in MODELS:
 with open(f"{OUT}/home-hero.svg", "w") as f:
     f.write(svg("Zentro Moto", "Homepage Hero", 1920, 1200, big=True))
 
-# Homepage hero, full-bleed variant: borderless and sized to cover both the
-# wide desktop crop and the taller mobile crop via object-fit: cover.
-with open(f"{OUT}/home-hero-bleed.svg", "w") as f:
-    f.write(svg("Zentro Moto", "Homepage Hero", 2400, 1400, big=True, border=False))
+# Homepage hero, right-column action placeholder: portrait-ish crop sized
+# for the two-column hero's ~55% image side (desktop) down to a wide
+# mobile crop, both via object-fit: cover. Structured to be swapped for a
+# premium off-road action/lifestyle photo of a Surron being ridden.
+with open(f"{OUT}/home-hero-action.svg", "w") as f:
+    f.write(svg("Zentro Moto", "Homepage Hero — Action", 1200, 1500, big=True))
 
 # Bikes page hero
 with open(f"{OUT}/bikes-hero.svg", "w") as f:

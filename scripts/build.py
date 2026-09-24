@@ -511,16 +511,19 @@ def build_home():
     bikes_grid = "\n".join(home_bike_card(b) for b in BIKES)
     body = f"""    <!-- 03 Hero -->
     <section class="hero hero--home">
-      <div class="hero-media">
-        <img src="{img('home-hero-bleed')}" alt="Zentro Moto placeholder hero image" />
-      </div>
-      <div class="hero-copy container">
-        <span class="eyebrow eyebrow--on-black">Genuine Surron &middot; Newcastle, NSW</span>
-        <h1 class="h1 h1--on-black">Genuine Surron. Straightforward buying.</h1>
-        <p class="lede lede--on-black">Genuine Surron electric motorcycles, independently sourced and supplied in Australia.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-on-black btn-primary btn-lg" href="bikes.html">SHOP BIKES</a>
-          <a class="btn btn-on-black btn-secondary btn-lg" href="#how-it-works">HOW IT WORKS</a>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Genuine Surron &middot; Direct from Chongqing &middot; Australia-wide</span>
+          <h1 class="h1">Your Surron. Your colour.<br />A better price.</h1>
+          <p class="lede">Genuine Surrons sourced directly from Surron in Chongqing, China. Our consolidated batch-order model reduces inventory and dealership overhead, so you get more choice at a lower price.</p>
+          <p class="trust-subline hero-proof">VIN identified &middot; 12-month factory warranty &middot; Australia-wide delivery</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary btn-lg" href="bikes.html">CHOOSE YOUR BIKE</a>
+            <a class="btn btn-secondary btn-lg" href="#how-it-works">HOW BATCH ORDERING WORKS</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="{img('home-hero-action')}" alt="Surron electric motorcycle placeholder image" />
         </div>
       </div>
     </section>
