@@ -301,14 +301,15 @@ NAV_ITEMS = [
 ]
 
 
-def header_html(active=""):
+def header_html(active="", announce=None):
     links = []
     for label, url, key in NAV_ITEMS:
         current = ' aria-current="page"' if key == active else ""
         links.append(f'<a href="{url}"{current}>{label}</a>')
     nav = "\n        ".join(links)
     cart_current = ' aria-current="page"' if active == "cart" else ""
-    return f"""  <div class="announce">Light Bee 2.0 now available to reserve — <a href="bikes.html">View bikes</a></div>
+    announce_html = announce if announce is not None else 'Light Bee 2.0 now available to reserve — <a href="bikes.html">View bikes</a>'
+    return f"""  <div class="announce">{announce_html}</div>
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="wordmark">ZENTRO MOTO</a>
@@ -378,9 +379,10 @@ def footer_html(shipping_label="Shipping &amp; Collection", location_label="Newc
   </footer>"""
 
 
-def page(title, description, active, body, body_class="", footer=None):
+def page(title, description, active, body, body_class="", footer=None, header=None):
     cls = f' class="{body_class}"' if body_class else ""
     footer_block = footer if footer is not None else footer_html()
+    header_block = header if header is not None else header_html(active)
     return f"""<!DOCTYPE html>
 <html lang="en-AU">
 <head>
@@ -388,7 +390,7 @@ def page(title, description, active, body, body_class="", footer=None):
 </head>
 <body{cls}>
   <a class="skip-link" href="#main">Skip to content</a>
-{header_html(active)}
+{header_block}
   <main id="main">
 {body}
   </main>
@@ -650,6 +652,7 @@ def build_home():
         "Home",
         "Genuine Surron electric motorcycles, independently sourced and supplied in Australia. Hyper Bee, Light Bee X, Light Bee 2.0 and Ultra Bee — Newcastle, NSW.",
         "home", body,
+        header=header_html("home", announce="Next supplier batch closes Sunday &mdash; order in time for this week&rsquo;s allocation."),
     ))
 
 
@@ -887,6 +890,15 @@ def build_product(bike):
     ))
 
 
+def batch_notice_html():
+    """Shared weekly supplier batch notice — used near the buy button on
+    every product page so the wording and layout stay in sync."""
+    return """          <div class="batch-notice">
+            <p class="batch-notice-title">Next supplier batch closes Sunday</p>
+            <p class="batch-notice-body">Orders are consolidated and submitted to our supplier once per week. Order before Sunday&rsquo;s cut-off to be included in the next supplier batch.</p>
+          </div>"""
+
+
 def build_master_product(bike, *, category_label, short_description, performance, intro_heading, intro_body, specs, paint_colours,
                           assembly_body="Bikes are supplied crated and require assembly before use."):
     """Shared master template used by all four product pages (Hyper Bee,
@@ -994,6 +1006,8 @@ def build_master_product(bike, *, category_label, short_description, performance
               {bike['primary_action']}
             </button>
           </div>
+
+{batch_notice_html()}
 
           <ul class="trust-notes">
             <li><span class="dot"></span> Genuine Surron</li>
@@ -1329,6 +1343,7 @@ def build_support():
         faq("What does “Available to Order” mean?", "Available to Order means the bike is not currently held in stock or already incoming, but Zentro Moto can source it through our international wholesale supply network. Once your order is placed, we arrange sourcing and keep you updated throughout the process."),
         faq("How do reservations work?", "Some incoming or order-in bikes may be available to reserve with a deposit rather than full payment upfront. The deposit amount, remaining balance and relevant reservation terms will be clearly shown before you place the order.",
             link=("VIEW RESERVATION TERMS", "legal-reservation-terms.html")),
+        faq("When will my order be placed with the supplier?", "Zentro Moto consolidates customer orders into weekly supplier batches. Orders placed before Sunday&rsquo;s cut-off are included in the next supplier order. Orders placed after the cut-off move into the following week&rsquo;s batch."),
     ])
     delivery = "\n".join([
         faq("Do you deliver Australia-wide?", "Yes. Zentro Moto ships bikes securely in crates to eligible locations across Australia. Freight pricing and delivery details are provided during the ordering process.",
