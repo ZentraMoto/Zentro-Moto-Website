@@ -311,19 +311,33 @@
   // it is always accurate for whoever is viewing the page, never a fixed or
   // stale figure baked in at build time.
   function initBatchCountdown() {
-    var els = document.querySelectorAll("[data-countdown]");
-    if (!els.length) return;
+    var longEls = document.querySelectorAll("[data-countdown]");
+    var shortEls = document.querySelectorAll("[data-countdown-short]");
+    if (!longEls.length && !shortEls.length) return;
     var daysUntilSunday = (7 - new Date().getDay()) % 7;
-    var text;
+
+    var longText;
     if (daysUntilSunday === 0) {
-      text = "Batch cut-off is today";
+      longText = "Batch cut-off is today";
     } else if (daysUntilSunday === 1) {
-      text = "1 day until next batch cut-off";
+      longText = "1 day until next batch cut-off";
     } else {
-      text = daysUntilSunday + " days until next batch cut-off";
+      longText = daysUntilSunday + " days until next batch cut-off";
     }
-    els.forEach(function (el) {
-      el.textContent = " — " + text;
+    longEls.forEach(function (el) {
+      el.textContent = " — " + longText;
+    });
+
+    var shortText;
+    if (daysUntilSunday === 0) {
+      shortText = "Cut-off is today";
+    } else if (daysUntilSunday === 1) {
+      shortText = "1 day until cut-off";
+    } else {
+      shortText = daysUntilSunday + " days until cut-off";
+    }
+    shortEls.forEach(function (el) {
+      el.textContent = " · " + shortText;
     });
   }
 

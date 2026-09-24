@@ -795,7 +795,6 @@ summary:focus-visible {
 }
 .buy-panel .eyebrow { margin-bottom: 6px; }
 .buy-panel .h2 { margin-bottom: 14px; }
-.buy-panel .badge { margin-bottom: 18px; }
 .buy-price {
   font-size: 1.75rem;
   font-weight: 700;
@@ -806,6 +805,18 @@ summary:focus-visible {
   font-size: 0.9375rem;
   line-height: 1.6;
   margin-bottom: 24px;
+}
+.order-urgency { margin-bottom: 24px; }
+.order-urgency-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+.order-urgency-sub {
+  font-size: 0.8125rem;
+  color: var(--grey-600);
+  line-height: 1.5;
+  margin: 0;
 }
 .variant-block {
   margin-bottom: 24px;

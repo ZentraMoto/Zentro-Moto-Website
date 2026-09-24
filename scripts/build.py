@@ -487,7 +487,6 @@ def home_bike_card(bike):
           <div class="spotlight-eyebrow">{HOME_SIZE_LABELS[bike['id']]}</div>
           <h3 class="spotlight-name">{bike['name']}</h3>
           <div class="spotlight-meta">
-            {badge(bike)}
             <span class="spotlight-price">{PRICE_PLACEHOLDER}</span>
           </div>
           <p class="spotlight-desc">{HOME_ONE_LINERS[bike['id']]}</p>
@@ -776,7 +775,7 @@ def build_product(bike):
     <div class="mobile-buy-bar" aria-hidden="false">
       <div class="mobile-buy-bar-info">
         <div class="mobile-buy-bar-name">{bike['name']}</div>
-        <div class="mobile-buy-bar-price">{PRICE_PLACEHOLDER} &middot; {bike['availability_label']}</div>
+        <div class="mobile-buy-bar-price">{PRICE_PLACEHOLDER}</div>
       </div>
       <button type="button" class="btn btn-primary" data-action="add-to-cart">{bike['primary_action']}</button>
     </div>
@@ -900,10 +899,9 @@ def batch_notice_html():
     """Shared weekly consolidated batch notice — used near the buy button on
     every product page so the wording and layout stay in sync."""
     return """          <div class="batch-notice">
-            <p class="batch-notice-title">Next order cut-off: Sunday<span class="countdown-badge" data-countdown></span></p>
+            <p class="batch-notice-title">Next order cut-off: Sunday</p>
             <p class="batch-notice-body">Orders placed before Sunday are allocated to the next available consolidated supplier batch. Orders placed after the cut-off move into the following batch cycle.</p>
-            <p class="batch-notice-body">Secure your place in the next batch before Sunday.</p>
-            <p class="batch-notice-body">This low-overhead batch model helps Zentro Moto keep bike prices lower than a traditional dealership model.</p>
+            <p class="batch-notice-body">Our batch-order model helps keep overheads lower and allows us to pass more of the savings directly on to customers.</p>
             <p class="batch-notice-delivery">Estimated delivery: 4&ndash;6 weeks.</p>
           </div>"""
 
@@ -997,10 +995,14 @@ def build_master_product(bike, *, category_label, short_description, performance
         <div class="buy-panel">
           <span class="eyebrow">{category_label} &middot; Zentro Moto</span>
           <h1 class="h2">{bike['name']}</h1>
-          {badge(bike)}
           <div class="buy-price">{PRICE_PLACEHOLDER}</div>
           <p class="buy-desc">{short_description}</p>
           <p class="text-sm" style="font-weight:700; margin-bottom:24px;">Off-road use only &middot; Not street legal</p>
+
+          <div class="order-urgency">
+            <p class="order-urgency-title">Order before Sunday</p>
+            <p class="order-urgency-sub">Secure your place in the next consolidated batch.<span class="countdown-badge" data-countdown-short></span></p>
+          </div>
 
 {paint_colour_html}
 
@@ -1034,7 +1036,7 @@ def build_master_product(bike, *, category_label, short_description, performance
     <div class="mobile-buy-bar" aria-hidden="false">
       <div class="mobile-buy-bar-info">
         <div class="mobile-buy-bar-name">{bike['name']}</div>
-        <div class="mobile-buy-bar-price">{PRICE_PLACEHOLDER} &middot; {bike['availability_label']}</div>
+        <div class="mobile-buy-bar-price">{PRICE_PLACEHOLDER}</div>
       </div>
       <button type="button" class="btn btn-primary" data-action="add-to-cart">{bike['primary_action']}</button>
     </div>
