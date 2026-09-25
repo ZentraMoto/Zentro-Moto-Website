@@ -40,9 +40,17 @@ const SITE_CONFIG = {
 // Marketing team swimlanes, in display order. Only these count as team members.
 const TEAM = ["Jordan", "Ben", "Steve"];
 
+// Lane / bar colour per team member: "blue" | "purple" | "green" | "grey".
+const TEAM_COLOURS = {
+  Jordan: "blue",
+  Ben: "purple",
+  Steve: "green",
+};
+
 // Projects with owners: ["Unassigned"] appear in this understated lane at the bottom.
 const UNASSIGNED = "Unassigned";
 const UNASSIGNED_LANE_LABEL = "Shared / Unassigned";
+const UNASSIGNED_COLOUR = "grey";
 
 const PROJECTS = [
   // ---- Ongoing (full year) ----------------------------------------------
@@ -250,6 +258,9 @@ const MONTH_NAMES = [
   "July", "August", "September", "October", "November", "December",
 ];
 
+// Projects spanning at least this many months render as thinner "ongoing" bars.
+const ONGOING_MIN_MONTHS = 9;
+
 const STATUS_CLASS = {
   "In Progress": "in-progress",
   Planned: "planned",
@@ -379,9 +390,11 @@ function sharedWith(project, laneOwner) {
 function renderBar(project, rowIndex, laneOwner) {
   const span = project.end - project.start + 1;
   const statusClass = STATUS_CLASS[project.status];
+  const sizeClass = span >= ONGOING_MIN_MONTHS ? " bar--ongoing" : span === 1 ? " bar--short" : "";
+
   // A div (not <button>) so the label can stay sticky while scrolling; keyboard
   // support is added in setupPopover.
-  const bar = el("div", `bar bar--${statusClass}${span === 1 ? " bar--short" : ""}`);
+  const bar = el("div", `bar bar--${statusClass}${sizeClass}`);
   bar.setAttribute("role", "button");
   bar.tabIndex = 0;
   bar.dataset.projectId = project.id;
@@ -397,27 +410,28 @@ function renderBar(project, rowIndex, laneOwner) {
     [project.name, project.category, project.status, formatTiming(project), shared].filter(Boolean).join(", ")
   );
 
-  const meta = el("span", "bar-category");
-  meta.append(document.createTextNode(project.category));
-  if (shared) meta.append(el("span", "bar-shared", ` · ${shared}`));
-
-  const dot = el("span", `status-dot status-dot--${statusClass}`);
-  dot.title = project.status;
-
-  bar.append(el("span", "bar-name", project.name), meta, dot);
+  // Name only – category, owners, status and description are in the popover.
+  const name = el("span", "bar-name");
+  if (project.status === "Complete") name.append(el("span", "bar-check", "\u2713"));
+  name.append(document.createTextNode(project.name));
+  bar.append(name);
   return bar;
 }
 
 function renderLane(lane, projects, currentMonth) {
-  const row = el("div", `roadmap-row lane${lane.understated ? " lane--understated" : ""}`);
+  const row = el("div", `roadmap-row lane tone-${lane.colour}${lane.understated ? " lane--understated" : ""}`);
   row.setAttribute("role", "row");
 
   // Sticky name column
   const label = el("div", "lane-label");
   label.setAttribute("role", "rowheader");
-  label.append(el("span", "lane-name", lane.label));
   const count = projects.length;
-  label.append(el("span", "lane-count", count ? `${count} project${count === 1 ? "" : "s"}` : "No active projects"));
+  const id = el("div", "lane-id");
+  id.append(
+    el("span", "lane-name", lane.label),
+    el("span", "lane-count", count ? `${count} project${count === 1 ? "" : "s"}` : "No active projects")
+  );
+  label.append(id);
   row.append(label);
 
   // Track: one project per row, so each lane grows to fit its own projects.
@@ -456,14 +470,14 @@ function renderRoadmap(projects) {
   roadmap.append(renderMonthHeader(currentMonth));
 
   TEAM.forEach((name) => {
-    roadmap.append(renderLane({ owner: name, label: name }, inLane(name), currentMonth));
+    roadmap.append(renderLane({ owner: name, label: name, colour: TEAM_COLOURS[name] || "grey" }, inLane(name), currentMonth));
   });
 
   // Understated lane for projects without a confirmed owner; hidden when empty.
   const unassigned = inLane(UNASSIGNED);
   if (unassigned.length) {
     roadmap.append(
-      renderLane({ owner: UNASSIGNED, label: UNASSIGNED_LANE_LABEL, understated: true }, unassigned, currentMonth)
+      renderLane({ owner: UNASSIGNED, label: UNASSIGNED_LANE_LABEL, colour: UNASSIGNED_COLOUR, understated: true }, unassigned, currentMonth)
     );
   }
 
@@ -502,7 +516,7 @@ function setupPopover(projects) {
 
     const status = document.getElementById("popover-status");
     status.replaceChildren(
-      el("span", `status-dot status-dot--${STATUS_CLASS[project.status]}`),
+      el("span", `status-swatch status-swatch--${STATUS_CLASS[project.status]}`),
       document.createTextNode(project.status)
     );
   }

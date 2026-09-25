@@ -14,13 +14,15 @@
   --subtle: #9ca0a6;
   --line: #e7e7e2;
   --line-strong: #d8d8d2;
+  --grid-line: #f1f1ed;     /* very light month guides */
+  --complete-bg: #f0f0ee;
+  --complete-border: #dcdcd7;
 
-  /* Single HIVIS accent (safety orange) */
+  /* HIVIS accent (safety orange) – brand mark and current month only */
   --accent: #e5661a;
   --accent-ink: #b34a0c;
-  --accent-tint: #fdf1e8;
   --accent-border: #f3c9ab;
-  --now-column: rgba(229, 102, 26, 0.045);
+  --now-column: rgba(229, 102, 26, 0.03);
 
   /* Layout */
   --label-width: 156px;
@@ -58,7 +60,7 @@ body {
 .page {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 48px 32px 56px;
+  padding: 40px 32px 56px;
 }
 
 /* --------------------------------------------------------------------------
@@ -66,7 +68,7 @@ body {
    -------------------------------------------------------------------------- */
 
 .page-header {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .brand-mark {
@@ -74,7 +76,7 @@ body {
   height: 4px;
   border-radius: 2px;
   background: var(--accent);
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .page-title {
@@ -93,7 +95,7 @@ body {
 }
 
 .page-updated {
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   color: var(--subtle);
   font-size: 12px;
   font-weight: 500;
@@ -108,8 +110,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 28px;
-  padding: 14px 0 22px;
-  margin-bottom: 24px;
+  padding: 10px 0 18px;
+  margin-bottom: 22px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -123,7 +125,7 @@ body {
 
 .summary-item strong {
   color: var(--ink);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -150,7 +152,7 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 12px 24px;
-  padding: 16px 20px;
+  padding: 14px 20px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -186,11 +188,44 @@ body {
 }
 
 .legend-now {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 11px;
   border-radius: 3px;
   background: var(--now-column);
   border: 1px solid var(--accent-border);
+}
+
+/* Status swatches (legend + popover) – neutral, so they read across all team colours */
+.status-swatch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 16px;
+  height: 11px;
+  border-radius: 3px;
+  font-size: 8px;
+  line-height: 1;
+}
+
+.status-swatch--in-progress {
+  background: #eceef1;
+  border: 1px solid #aeb4bc;
+}
+
+.status-swatch--planned {
+  background: var(--surface);
+  border: 1px dashed #aeb4bc;
+}
+
+.status-swatch--complete {
+  background: var(--complete-bg);
+  border: 1px solid var(--complete-border);
+  color: var(--muted);
+}
+
+.status-swatch--complete::before {
+  content: "\2713";
 }
 
 /* Horizontal scroll wrapper: months never get crushed */
@@ -221,7 +256,7 @@ body {
   left: 0;
   z-index: 3;
   background: var(--surface);
-  border-right: 1px solid var(--line);
+  border-right: 1px solid var(--grid-line);
 }
 
 .roadmap-corner {
@@ -247,7 +282,7 @@ body {
 }
 
 .month + .month {
-  border-left: 1px solid var(--line);
+  border-left: 1px solid var(--grid-line);
 }
 
 .month.is-past {
@@ -270,6 +305,39 @@ body {
   letter-spacing: 0.12em;
 }
 
+/* --- Team colours ---
+   Each lane gets a tone class (set from TEAM_COLOURS in script.js).
+   --tone: accent stripe / hover   --tone-bg: bar fill
+   --tone-border: bar border       --tone-ink: bar text */
+
+.tone-blue {
+  --tone: #5b7fb3;
+  --tone-bg: #eef3fa;
+  --tone-border: #c3d2e7;
+  --tone-ink: #27405f;
+}
+
+.tone-purple {
+  --tone: #8a73b8;
+  --tone-bg: #f4f1fa;
+  --tone-border: #d5cbe8;
+  --tone-ink: #45356a;
+}
+
+.tone-green {
+  --tone: #5a9577;
+  --tone-bg: #eef6f1;
+  --tone-border: #c2dccd;
+  --tone-ink: #2b5540;
+}
+
+.tone-grey {
+  --tone: #9ca0a6;
+  --tone-bg: #f3f3f1;
+  --tone-border: #d9d9d4;
+  --tone-ink: #4a4e54;
+}
+
 /* --- Swimlanes --- */
 
 .lane + .lane {
@@ -277,17 +345,23 @@ body {
 }
 
 .lane-label {
+  padding: 20px 20px;
+}
+
+/* Name + count with a small colour accent matching the lane's bars */
+.lane-id {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 18px 20px;
+  padding-left: 11px;
+  border-left: 3px solid var(--tone);
 }
 
 .lane-name {
   color: var(--ink);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
   text-transform: uppercase;
 }
 
@@ -303,110 +377,98 @@ body {
   grid-column: 2 / -1;
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  row-gap: 6px;
-  padding: 14px 0;
+  row-gap: 10px;
+  padding: 18px 0;
   position: relative;
 }
 
-/* Vertical month guides + current month highlight, one per column */
+/* Vertical month guides + current month highlight, one per column.
+   No horizontal lines between project rows. */
 .track-col {
   grid-row: 1 / -1;
-  margin: -14px 0; /* bleed through the track padding so lines are continuous */
+  margin: -18px 0; /* bleed through the track padding so lines are continuous */
 }
 
 .track-col + .track-col {
-  border-left: 1px solid var(--line);
+  border-left: 1px solid var(--grid-line);
 }
 
 .track-col.is-current {
   background: var(--now-column);
 }
 
-/* --- Project bars --- */
+/* --- Project bars ---
+   Name only; category, owners, status and description live in the popover.
+   Status is shown by fill and border style rather than an indicator. */
 
 .bar {
   position: relative;
-  z-index: 1;
+  z-index: 1; /* above month guides and the NOW highlight */
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-width: 0;
-  min-height: 46px;
-  margin: 0 6px;
-  padding: 6px 26px 6px 12px;
-  border: 1px solid var(--accent-border);
-  border-left: 3px solid var(--accent);
-  border-radius: var(--radius-sm);
-  background: var(--accent-tint);
-  color: var(--charcoal);
-  font: inherit;
-  text-align: left;
+  min-height: 42px;
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid var(--tone-border);
+  border-radius: 7px;
+  background: var(--tone-bg);
+  color: var(--tone-ink);
   cursor: pointer;
-  transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .bar:hover,
 .bar.is-active {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
+  border-color: var(--tone);
+  box-shadow: 0 1px 4px rgba(20, 22, 25, 0.08);
 }
 
 .bar:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--tone);
   outline-offset: 2px;
 }
 
 .bar-name {
   display: -webkit-box;
   overflow: hidden;
-  color: var(--ink);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
   line-height: 1.3;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   line-clamp: 2;
-}
-
-.bar-category {
-  margin-top: 2px;
-  overflow: hidden;
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.09em;
-  text-overflow: ellipsis;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-/* Keep a long bar's text in view while the roadmap scrolls sideways */
-.bar-name,
-.bar-category {
+  /* Keep a long bar's name in view while the roadmap scrolls sideways */
   position: sticky;
   left: calc(var(--label-width) + 16px);
   align-self: flex-start; /* shrink to content so there is room to slide */
   max-width: 100%;
 }
 
-.bar-shared {
-  color: var(--subtle);
+.bar-check {
+  margin-right: 5px;
+  font-weight: 600;
+}
+
+/* Ongoing (most / all of the year): thinner activity bar, single line */
+.bar--ongoing {
+  min-height: 32px;
+  height: 32px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.bar--ongoing .bar-name {
   font-weight: 500;
-  letter-spacing: 0;
-  text-transform: none;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
 }
 
-.bar .status-dot {
-  position: absolute;
-  top: 9px;
-  right: 10px;
-}
-
-/* One-month bars: tighter padding, smaller name wrapping onto up to 3 lines,
-   status dot moved to the bottom corner to free up width. */
+/* One-month bars: smaller name wrapping onto up to 3 lines */
 .bar--short {
   margin: 0 4px;
-  padding: 6px 8px;
+  padding: 5px 7px;
 }
 
 .bar--short .bar-name {
@@ -417,67 +479,25 @@ body {
   hyphens: auto;
 }
 
-.bar--short .bar-category {
-  padding-right: 12px;
-}
-
-.bar--short .status-dot {
-  top: auto;
-  right: 8px;
-  bottom: 9px;
-}
-
-/* Planned: outlined, quieter */
+/* Planned: white with dashed border */
 .bar--planned {
-  border: 1px dashed var(--line-strong);
-  border-left: 3px solid var(--subtle);
   background: var(--surface);
+  border-style: dashed;
+  border-color: color-mix(in srgb, var(--tone) 55%, white);
 }
 
-/* Complete: neutral grey, de-emphasised */
+/* Complete: muted grey with a small check */
 .bar--complete {
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--charcoal);
-  background: #f3f3f0;
-}
-
-.bar--complete .bar-name {
+  background: var(--complete-bg);
+  border-color: var(--complete-border);
   color: var(--muted);
-}
-
-/* --- Status dots --- */
-
-.status-dot {
-  display: inline-block;
-  flex: none;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.status-dot--in-progress {
-  background: var(--accent);
-  box-shadow: 0 0 0 3px rgba(229, 102, 26, 0.18);
-}
-
-.status-dot--planned {
-  background: var(--surface);
-  border: 1.5px solid var(--subtle);
-}
-
-.status-dot--complete {
-  background: var(--charcoal);
 }
 
 /* --- Shared / Unassigned lane (understated) --- */
 
-.lane--understated {
-  border-top-style: dashed;
-}
-
 .lane--understated .lane-label,
 .lane--understated .lane-track {
-  background-color: #fbfbf9;
+  background-color: #fcfcfa;
 }
 
 .lane--understated .lane-name {
@@ -494,11 +514,11 @@ body {
   z-index: 1;
   display: flex;
   align-items: center;
-  min-height: 48px;
-  margin: 0 6px;
+  min-height: 42px;
+  margin: 0 5px;
   padding: 0 16px;
   border: 1px dashed var(--line-strong);
-  border-radius: var(--radius-sm);
+  border-radius: 7px;
   color: var(--subtle);
   font-size: 13px;
 }
@@ -552,7 +572,7 @@ body {
 
 .popover-category {
   margin: 0;
-  color: var(--accent-ink);
+  color: var(--muted);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;

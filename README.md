@@ -11,6 +11,7 @@ Edit the data blocks at the top of `script.js` only:
 
 - `SITE_CONFIG` – "Updated" label, highlighted month (`currentMonth`, 1–12), year.
 - `TEAM` – marketing team swimlanes, in display order (these are counted as team members).
+- `TEAM_COLOURS` – lane/bar colour per team member (`"blue"`, `"purple"`, `"green"`, `"grey"`).
 - `PROJECTS` – one entry per unique project: `id`, `name`, `owners` (e.g. `["Ben", "Steve"]`, or `["Unassigned"]`), `startMonth` / `endMonth` (1–12), `category`, `status` (`"In Progress"`, `"Planned"`, `"Complete"`), `description`.
 - `PENDING_PROJECTS` – projects waiting on an owner or dates; not shown until moved into `PROJECTS`.
 
