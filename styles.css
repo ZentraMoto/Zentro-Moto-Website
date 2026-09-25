@@ -1,0 +1,615 @@
+/* ==========================================================================
+   HIVIS Marketing Roadmap
+   --------------------------------------------------------------------------
+   Design tokens live in :root. To re-skin the page, change these values only.
+   ========================================================================== */
+
+:root {
+  /* Neutrals */
+  --bg: #f6f6f3;            /* off-white page background */
+  --surface: #ffffff;
+  --ink: #141619;           /* headings */
+  --charcoal: #2c2f34;      /* body text */
+  --muted: #6b6f76;
+  --subtle: #9ca0a6;
+  --line: #e7e7e2;
+  --line-strong: #d8d8d2;
+
+  /* Single HIVIS accent (safety orange) */
+  --accent: #e5661a;
+  --accent-ink: #b34a0c;
+  --accent-tint: #fdf1e8;
+  --accent-border: #f3c9ab;
+  --now-column: rgba(229, 102, 26, 0.045);
+
+  /* Layout */
+  --label-width: 156px;
+  --month-min: 88px;
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 2px rgba(20, 22, 25, 0.04), 0 1px 1px rgba(20, 22, 25, 0.03);
+  --shadow-md: 0 8px 28px rgba(20, 22, 25, 0.10), 0 2px 6px rgba(20, 22, 25, 0.05);
+
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--charcoal);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px 32px 56px;
+}
+
+/* --------------------------------------------------------------------------
+   1. Header
+   -------------------------------------------------------------------------- */
+
+.page-header {
+  margin-bottom: 20px;
+}
+
+.brand-mark {
+  width: 28px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--accent);
+  margin-bottom: 18px;
+}
+
+.page-title {
+  margin: 0;
+  color: var(--ink);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.page-subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.page-updated {
+  margin: 10px 0 0;
+  color: var(--subtle);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   2. Summary row
+   -------------------------------------------------------------------------- */
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  padding: 14px 0 22px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.summary-item {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.summary-item strong {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.summary-item + .summary-item {
+  padding-left: 28px;
+  border-left: 1px solid var(--line-strong);
+}
+
+/* --------------------------------------------------------------------------
+   3. Roadmap card
+   -------------------------------------------------------------------------- */
+
+.roadmap-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.roadmap-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.roadmap-heading {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.legend-divider {
+  width: 1px;
+  height: 14px;
+  background: var(--line-strong);
+}
+
+.legend-now {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: var(--now-column);
+  border: 1px solid var(--accent-border);
+}
+
+/* Horizontal scroll wrapper: months never get crushed */
+.roadmap-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.roadmap {
+  min-width: calc(var(--label-width) + 12 * var(--month-min));
+}
+
+/* Shared 13-column grid: 1 label column + 12 equal month columns */
+.roadmap-row {
+  display: grid;
+  grid-template-columns: var(--label-width) repeat(12, minmax(var(--month-min), 1fr));
+}
+
+/* --- Month header --- */
+
+.roadmap-head {
+  border-bottom: 1px solid var(--line);
+}
+
+.roadmap-corner,
+.lane-label {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  background: var(--surface);
+  border-right: 1px solid var(--line);
+}
+
+.roadmap-corner {
+  display: flex;
+  align-items: flex-end;
+  padding: 0 20px 10px;
+  color: var(--subtle);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.month {
+  position: relative;
+  padding: 22px 0 10px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.month + .month {
+  border-left: 1px solid var(--line);
+}
+
+.month.is-past {
+  color: var(--subtle);
+}
+
+.month.is-current {
+  background: var(--now-column);
+  color: var(--accent-ink);
+}
+
+.month-now-tag {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+/* --- Swimlanes --- */
+
+.lane + .lane {
+  border-top: 1px solid var(--line);
+}
+
+.lane-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 18px 20px;
+}
+
+.lane-name {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lane-count {
+  margin-top: 2px;
+  color: var(--subtle);
+  font-size: 12px;
+}
+
+/* The track spans all 12 month columns and is itself a 12-column grid,
+   so project bars can be placed with grid-column start / end. */
+.lane-track {
+  grid-column: 2 / -1;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  row-gap: 8px;
+  padding: 14px 0;
+  position: relative;
+}
+
+/* Vertical month guides + current month highlight, one per column */
+.track-col {
+  grid-row: 1 / -1;
+  margin: -14px 0; /* bleed through the track padding so lines are continuous */
+}
+
+.track-col + .track-col {
+  border-left: 1px solid var(--line);
+}
+
+.track-col.is-current {
+  background: var(--now-column);
+}
+
+/* --- Project bars --- */
+
+.bar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  min-height: 48px;
+  margin: 0 6px;
+  padding: 7px 26px 7px 12px;
+  border: 1px solid var(--accent-border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  background: var(--accent-tint);
+  color: var(--charcoal);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+
+.bar:hover,
+.bar.is-active {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.bar:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.bar-name {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.bar-category {
+  margin-top: 2px;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.bar .status-dot {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+}
+
+/* Planned: outlined, quieter */
+.bar--planned {
+  border: 1px dashed var(--line-strong);
+  border-left: 3px solid var(--subtle);
+  background: var(--surface);
+}
+
+/* Complete: neutral grey, de-emphasised */
+.bar--complete {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--charcoal);
+  background: #f3f3f0;
+}
+
+.bar--complete .bar-name {
+  color: var(--muted);
+}
+
+/* --- Status dots --- */
+
+.status-dot {
+  display: inline-block;
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-dot--in-progress {
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(229, 102, 26, 0.18);
+}
+
+.status-dot--planned {
+  background: var(--surface);
+  border: 1.5px solid var(--subtle);
+}
+
+.status-dot--complete {
+  background: var(--charcoal);
+}
+
+/* --- Empty lane --- */
+
+.lane-empty {
+  grid-column: 1 / -1;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  margin: 0 6px;
+  padding: 0 16px;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--subtle);
+  font-size: 13px;
+}
+
+.lane-empty-text {
+  position: sticky;
+  left: calc(var(--label-width) + 16px); /* stays readable while scrolling */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lane-empty-text::before {
+  content: "";
+  width: 12px;
+  height: 1.5px;
+  background: var(--line-strong);
+}
+
+/* --------------------------------------------------------------------------
+   4. Popover
+   -------------------------------------------------------------------------- */
+
+.popover {
+  position: fixed;
+  z-index: 50;
+  width: 320px;
+  max-width: calc(100vw - 24px);
+  padding: 16px 18px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  animation: popover-in 0.12s ease-out;
+}
+
+.popover[hidden] {
+  display: none;
+}
+
+@keyframes popover-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.popover-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popover-category {
+  margin: 0;
+  color: var(--accent-ink);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.popover-close {
+  display: none; /* only shown when the popover is pinned by a click */
+  width: 24px;
+  height: 24px;
+  margin: -4px -6px -4px 0;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--subtle);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.popover-close:hover {
+  background: var(--bg);
+  color: var(--charcoal);
+}
+
+.popover.is-pinned .popover-close {
+  display: block;
+}
+
+.popover-title {
+  margin: 6px 0 12px;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.popover-meta {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: 4px 22px;
+  margin: 0 0 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.popover-meta dt {
+  color: var(--subtle);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.popover-meta dd {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 1px 0 0;
+  color: var(--charcoal);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.popover-description {
+  margin: 0;
+  color: var(--charcoal);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.page-footer {
+  margin-top: 14px;
+  color: var(--subtle);
+  font-size: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   Smaller screens: tighten spacing, roadmap scrolls horizontally
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  :root {
+    --label-width: 120px;
+  }
+
+  .page {
+    padding: 32px 16px 40px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .summary-item + .summary-item {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .lane-label,
+  .roadmap-corner {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar,
+  .popover {
+    transition: none;
+    animation: none;
+  }
+}

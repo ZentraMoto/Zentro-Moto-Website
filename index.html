@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HIVIS Marketing Roadmap</title>
+  <meta name="description" content="Marketing projects, campaigns and initiatives across the year." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+
+    <!-- 1. Header -->
+    <header class="page-header">
+      <div class="brand-mark" aria-hidden="true"></div>
+      <h1 class="page-title">HIVIS Marketing Roadmap</h1>
+      <p class="page-subtitle">Marketing projects, campaigns and initiatives across the year.</p>
+      <p class="page-updated" id="updated-label"></p>
+    </header>
+
+    <!-- 2. Summary row (populated from SITE_CONFIG in script.js) -->
+    <section class="summary" id="summary" aria-label="Summary"></section>
+
+    <!-- 3. Roadmap -->
+    <section class="roadmap-card" aria-labelledby="roadmap-heading">
+      <div class="roadmap-toolbar">
+        <h2 class="roadmap-heading" id="roadmap-heading">
+          <span id="roadmap-year"></span> Roadmap
+        </h2>
+        <ul class="legend" aria-label="Legend">
+          <li><span class="status-dot status-dot--in-progress"></span>In Progress</li>
+          <li><span class="status-dot status-dot--planned"></span>Planned</li>
+          <li><span class="status-dot status-dot--complete"></span>Complete</li>
+          <li class="legend-divider" aria-hidden="true"></li>
+          <li><span class="legend-now"></span>This month</li>
+        </ul>
+      </div>
+
+      <div class="roadmap-scroll" id="roadmap-scroll">
+        <div class="roadmap" id="roadmap" role="table" aria-label="Marketing roadmap by team member and month">
+          <!-- Rendered by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      Hover or click a project to see details.
+    </footer>
+  </main>
+
+  <!-- Project details popover (single shared instance) -->
+  <div class="popover" id="popover" role="dialog" aria-modal="false" aria-labelledby="popover-title" hidden>
+    <div class="popover-head">
+      <p class="popover-category" id="popover-category"></p>
+      <button class="popover-close" id="popover-close" type="button" aria-label="Close details">&times;</button>
+    </div>
+    <h3 class="popover-title" id="popover-title"></h3>
+    <dl class="popover-meta">
+      <div><dt>Owner</dt><dd id="popover-owner"></dd></div>
+      <div><dt>Timing</dt><dd id="popover-timing"></dd></div>
+      <div><dt>Status</dt><dd id="popover-status"></dd></div>
+    </dl>
+    <p class="popover-description" id="popover-description"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
