@@ -58,6 +58,17 @@ const PROJECTS = [
       "Ongoing improvement of product information, content and marketing messaging across the HIVIS website.",
   },
   {
+    id: "ultimate-vehicle-wraps-content",
+    name: "Ultimate Vehicle Wraps – Imagery & Posts",
+    owners: ["Jordan"],
+    startMonth: 1,
+    endMonth: 12,
+    category: "CONTENT",
+    status: "In Progress",
+    description:
+      "Ongoing creation and management of imagery, social media posts and marketing content for Ultimate Vehicle Wraps throughout the year.",
+  },
+  {
     id: "google-ads",
     name: "Google Ads Campaign",
     owners: ["Steve"],
