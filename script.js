@@ -87,6 +87,29 @@ const PROJECTS = [
     description: "Ongoing Google Ads campaign management and optimisation throughout the year.",
   },
 
+  {
+    id: "b2b-platform-epicor",
+    name: "B2B Platform & Epicor Integration",
+    owners: ["Ben"],
+    startMonth: 1,
+    endMonth: 12,
+    category: "WEBSITE / SYSTEMS",
+    status: "In Progress",
+    description:
+      "Ongoing setup, maintenance and integration of the B2B platform with Epicor throughout the year.",
+  },
+  {
+    id: "hivis-website-bau",
+    name: "HIVIS.com BAU Content & Maintenance",
+    owners: ["Ben"],
+    startMonth: 1,
+    endMonth: 12,
+    category: "WEBSITE",
+    status: "In Progress",
+    description:
+      "Ongoing business-as-usual updates and maintenance across HIVIS.com, including products, blogs and category content.",
+  },
+
   // ---- Started earlier in the year --------------------------------------
   {
     id: "hivis-tech",
@@ -101,12 +124,46 @@ const PROJECTS = [
   {
     id: "website-epicor",
     name: "Website Epicor Integration",
-    owners: ["Ben", "Steve"],
+    owners: ["Steve"], // Ben's side superseded by "b2b-platform-epicor".
     startMonth: 7,
     endMonth: 9,
     category: "WEBSITE",
     status: "In Progress",
     description: "Integration work between the HIVIS website and Epicor.",
+  },
+
+  {
+    id: "click-and-collect-ben",
+    name: "Click & Collect",
+    owners: ["Ben"],
+    startMonth: 3,
+    endMonth: 10,
+    category: "DIGITAL / ECOMMERCE",
+    status: "In Progress",
+    description:
+      "Development, implementation and ongoing support of the Click & Collect offering.",
+  },
+  {
+    id: "b2b-quote-procedures",
+    name: "B2B Quote Handling & Procedures",
+    owners: ["Ben"],
+    startMonth: 6,
+    endMonth: 11,
+    category: "PROCESS",
+    status: "In Progress",
+    description:
+      "Develop and refine B2B quote handling processes, procedures and supporting workflows.",
+  },
+  {
+    id: "hivis-direct-setup",
+    name: "HIVIS Direct Setup & Launch",
+    owners: ["Ben"],
+    startMonth: 8,
+    endMonth: 10,
+    category: "DIGITAL / PROCESS",
+    status: "In Progress",
+    description:
+      "Initial setup and launch of HIVIS Direct, including procedures, workflows and automation.",
   },
 
   // ---- Current (September – October) ------------------------------------
@@ -174,6 +231,40 @@ const PROJECTS = [
     status: "In Progress",
     description:
       "Create training material to help Customer Service walk customers through HIVIS Direct from login through quoting and ordering.",
+  },
+
+  {
+    id: "mining-website-focus",
+    name: "Mining Website Focus",
+    owners: ["Ben"],
+    startMonth: 9,
+    endMonth: 10,
+    category: "WEBSITE / CAMPAIGN",
+    status: "In Progress",
+    description:
+      "Improve the mining-focused content, messaging and product presentation across HIVIS.com.",
+  },
+  {
+    id: "hivis-homepage-redesign",
+    name: "HIVIS.com Homepage Redesign",
+    owners: ["Ben"],
+    startMonth: 9,
+    endMonth: 10,
+    category: "WEBSITE",
+    status: "In Progress",
+    description:
+      "Redesign and improve the HIVIS.com homepage to improve clarity, navigation and product presentation.",
+  },
+  {
+    id: "catalogue-email-capture",
+    name: "Catalogue Download Email Capture",
+    owners: ["Ben"],
+    startMonth: 9,
+    endMonth: 10,
+    category: "LEAD GENERATION",
+    status: "In Progress",
+    description:
+      "Capture customer email details when catalogues are downloaded and automatically add eligible contacts to the Klaviyo marketing list.",
   },
 
   // ---- Upcoming (October onwards) ---------------------------------------
