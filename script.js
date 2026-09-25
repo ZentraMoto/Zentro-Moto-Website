@@ -311,7 +311,7 @@ const PROJECTS = [
   {
     id: "conference-lgp-iqa",
     name: "Conference Marketing – LGP & IQA",
-    owners: [UNASSIGNED], // Owner not yet confirmed.
+    owners: ["Steve"],
     startMonth: 10,
     endMonth: 10,
     category: "EVENTS",
