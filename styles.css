@@ -303,7 +303,7 @@ body {
   grid-column: 2 / -1;
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  row-gap: 8px;
+  row-gap: 6px;
   padding: 14px 0;
   position: relative;
 }
@@ -331,9 +331,9 @@ body {
   flex-direction: column;
   justify-content: center;
   min-width: 0;
-  min-height: 48px;
+  min-height: 46px;
   margin: 0 6px;
-  padding: 7px 26px 7px 12px;
+  padding: 6px 26px 6px 12px;
   border: 1px solid var(--accent-border);
   border-left: 3px solid var(--accent);
   border-radius: var(--radius-sm);
@@ -380,10 +380,51 @@ body {
   white-space: nowrap;
 }
 
+/* Keep a long bar's text in view while the roadmap scrolls sideways */
+.bar-name,
+.bar-category {
+  position: sticky;
+  left: calc(var(--label-width) + 16px);
+  align-self: flex-start; /* shrink to content so there is room to slide */
+  max-width: 100%;
+}
+
+.bar-shared {
+  color: var(--subtle);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 .bar .status-dot {
   position: absolute;
   top: 9px;
   right: 10px;
+}
+
+/* One-month bars: tighter padding, smaller name wrapping onto up to 3 lines,
+   status dot moved to the bottom corner to free up width. */
+.bar--short {
+  margin: 0 4px;
+  padding: 6px 8px;
+}
+
+.bar--short .bar-name {
+  font-size: 11px;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.bar--short .bar-category {
+  padding-right: 12px;
+}
+
+.bar--short .status-dot {
+  top: auto;
+  right: 8px;
+  bottom: 9px;
 }
 
 /* Planned: outlined, quieter */
@@ -426,6 +467,23 @@ body {
 
 .status-dot--complete {
   background: var(--charcoal);
+}
+
+/* --- Shared / Unassigned lane (understated) --- */
+
+.lane--understated {
+  border-top-style: dashed;
+}
+
+.lane--understated .lane-label,
+.lane--understated .lane-track {
+  background-color: #fbfbf9;
+}
+
+.lane--understated .lane-name {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
 }
 
 /* --- Empty lane --- */

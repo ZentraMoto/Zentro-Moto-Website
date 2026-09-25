@@ -7,13 +7,14 @@ A static, single-page dashboard (`index.html`, `styles.css`, `script.js`) showin
 
 ### Monthly update
 
-Edit the top of `script.js` only:
+Edit the data blocks at the top of `script.js` only:
 
-- `SITE_CONFIG` – "Updated" label, highlighted month (`currentMonth`), summary row values.
-- `TEAM` – swimlanes, in display order.
-- `PROJECTS` – one entry per bar: `name`, `owner` (a `TEAM` id), `startMonth` / `endMonth` (`"JAN"`–`"DEC"`), `category`, `status` (`"In Progress"`, `"Planned"`, `"Complete"`), `description`.
+- `SITE_CONFIG` – "Updated" label, highlighted month (`currentMonth`, 1–12), year.
+- `TEAM` – marketing team swimlanes, in display order (these are counted as team members).
+- `PROJECTS` – one entry per unique project: `id`, `name`, `owners` (e.g. `["Ben", "Steve"]`, or `["Unassigned"]`), `startMonth` / `endMonth` (1–12), `category`, `status` (`"In Progress"`, `"Planned"`, `"Complete"`), `description`.
+- `PENDING_PROJECTS` – projects waiting on an owner or dates; not shown until moved into `PROJECTS`.
 
-Overlapping projects in a lane stack automatically. A lane with no projects shows "No current roadmap projects added". Invalid entries are skipped with a warning in the browser console.
+A shared project is entered once and appears in each owner's lane; the "Active Projects" figure counts unique In Progress projects. Bars span their months automatically and are ordered long-running → current → upcoming. `Unassigned` projects appear in a "Shared / Unassigned" lane at the bottom, which is hidden when empty. Invalid entries are skipped with a warning in the browser console.
 
 ### Deploy
 
