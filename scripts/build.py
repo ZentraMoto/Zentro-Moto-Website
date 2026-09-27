@@ -589,8 +589,8 @@ def build_home():
         </div>
         <div class="timeline-step">
           <div class="timeline-num-wrap"><span class="timeline-num">02</span></div>
-          <h3>Buy or reserve</h3>
-          <p>Purchase an available bike or reserve an incoming / order-in bike.</p>
+          <h3>Place your order</h3>
+          <p>Choose your model and colour, then pay securely at checkout.</p>
         </div>
         <div class="timeline-step">
           <div class="timeline-num-wrap"><span class="timeline-num">03</span></div>
