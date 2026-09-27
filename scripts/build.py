@@ -297,7 +297,7 @@ def head(title, description, canonical=""):
 NAV_ITEMS = [
     ("Bikes", "bikes.html", "bikes"),
     ("About", "about.html", "about"),
-    ("Support", "support.html", "support"),
+    ("FAQ", "support.html", "support"),
     ("Contact", "contact.html", "contact"),
 ]
 
