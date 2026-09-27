@@ -1360,23 +1360,21 @@ def faq(q, a, link=None):
 
 def build_support():
     ordering = "\n".join([
-        faq("What does “Incoming” mean?", "Incoming means the bike is part of a batch that has already been ordered from our supplier and is on its way to Zentro Moto. Where available, an estimated arrival timeframe will be shown on the product page."),
-        faq("What does “Available to Order” mean?", "Available to Order means the bike is not currently held in stock or already incoming, but Zentro Moto can source it through our international wholesale supply network. Once your order is placed, we arrange sourcing and keep you updated throughout the process."),
-        faq("How do reservations work?", "Some incoming or order-in bikes may be available to reserve with a deposit rather than full payment upfront. The deposit amount, remaining balance and relevant reservation terms will be clearly shown before you place the order.",
-            link=("VIEW RESERVATION TERMS", "legal-reservation-terms.html")),
-        faq("How does the weekly batch system work?", "Zentro Moto consolidates customer orders into supplier batches rather than holding large volumes of local stock. Orders placed before Sunday are allocated to the next available batch, while orders placed after the cut-off move into the following batch cycle. This leaner model helps reduce overheads and allows us to pass more of the savings directly on to customers. We&rsquo;ll keep you updated throughout the process, with the estimated delivery timeframe shown at the time of purchase."),
+        faq("How does the batch-order system work?", "Instead of holding large volumes of local stock, Zentro Moto groups customer orders into consolidated supplier batches. Choose your bike and colour, place your order online, and we organise the sourcing and delivery. This leaner model helps keep overheads lower and prices more competitive."),
+        faq("Do I pay in full when I order?", "Yes. Orders are paid in full at checkout to secure your bike in the next available batch. You’ll receive confirmation when your order is placed and updates as it progresses."),
+        faq("How long will my bike take to arrive?", "Estimated delivery is generally around 4–6 weeks, depending on supplier availability, freight and customs clearance. We’ll keep you updated throughout the process."),
+        faq("Why are Zentro Moto prices lower?", "Our batch-order model means we don’t need to carry large amounts of showroom stock or traditional dealership overhead. That allows us to operate leaner and pass more of the savings on to customers."),
     ])
     delivery = "\n".join([
-        faq("Do you deliver Australia-wide?", "Yes. Zentro Moto ships bikes securely in crates to eligible locations across Australia. Freight pricing and delivery details are provided during the ordering process.",
-            link=("SHIPPING INFORMATION", "shipping.html")),
-        faq("Does the bike arrive assembled?", "The bikes arrive approximately 90% assembled from Surron and are shipped securely in their crate. Final assembly is still required before riding, typically including fitting the handlebars, attaching the front wheel and installing items such as the front fender. Assembly requirements can vary slightly by model, so the bike should be correctly assembled and checked before use."),
-        faq("Are the bikes road legal?", "No. The Hyper Bee, Light Bee X, Light Bee 2.0 and Ultra Bee sold by Zentro Moto are supplied for off-road use only and are not street legal."),
+        faq("Do you deliver Australia-wide?", "Yes. Zentro Moto delivers crated bikes across Australia. Delivery costs and availability may vary depending on your location."),
+        faq("Does the bike arrive assembled?", "Bikes arrive approximately 90% assembled in their factory crate. Final assembly typically includes items such as the handlebars, front wheel and front fender, depending on the model."),
+        faq("Are the bikes road legal?", "No. The bikes supplied by Zentro Moto are sold for off-road use only and are not ADR-approved for registration or public-road use in Australia."),
     ])
     warranty_support = "\n".join([
-        faq("Are the bikes genuine Surron products?", "Yes. Zentro Moto supplies genuine Surron motorcycles sourced directly from Surron in Chongqing, China, with VIN identification, documented specifications and the required battery/DG documentation."),
-        faq("What warranty is included?", "Bikes are supplied with a 12-month factory warranty covering core components including the battery, controller, motor and frame, subject to the applicable warranty terms and exclusions. Your rights under Australian Consumer Law also continue to apply where applicable.",
-            link=("WARRANTY & RETURNS", "warranty.html")),
-        faq("What after-sales support is available?", "Zentro Moto provides direct after-sales support and can assist with sourcing genuine replacement parts where required. Parts availability and lead times can vary depending on the component. Warranty and Australian Consumer Law claims are handled directly through Zentro Moto."),
+        faq("Are the bikes genuine Surron products?", "Yes. Zentro Moto supplies genuine Surron motorcycles through direct, traceable factory supply. Bikes are VIN identified and supplied with the relevant product and battery documentation."),
+        faq("What warranty is included?", "Bikes are supplied with a 12-month factory warranty covering core components including the battery, controller, motor and frame, subject to the applicable warranty terms and exclusions."),
+        faq("What happens if I have a warranty issue?", "Contact Zentro Moto directly and we’ll guide you through the warranty process. We remain your first point of contact and will work with the supplier where required to assess and resolve the claim."),
+        faq("Can you help with replacement parts?", "Yes. Zentro Moto can assist with sourcing genuine replacement parts where required. Availability and lead times can vary depending on the component."),
     ])
 
     body = f"""    <section class="page-hero container">
