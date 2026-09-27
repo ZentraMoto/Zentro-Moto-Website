@@ -1360,7 +1360,7 @@ def faq(q, a, link=None):
 
 def build_support():
     ordering = "\n".join([
-        faq("Are the bikes genuine Surron products?", "Yes. Zentro Moto supplies genuine Surron motorcycles through direct, traceable factory supply. Bikes are VIN identified and supplied with the relevant product and battery documentation."),
+        faq("Are the bikes genuine Surron products?", "<p style=\"margin:0;\">Yes. Zentro Moto supplies genuine Surron motorcycles through direct, traceable factory supply. Each bike is VIN identified and supplied with the relevant product and battery documentation.</p><p style=\"margin:14px 0 0;\">We understand buyers want confidence in exactly where their bike comes from, so our Surrons are sourced directly from Surron’s factory in Chongqing, China, with a clear and traceable supply path.</p>"),
         faq("How does the batch-order system work?", "Instead of holding large volumes of local stock, Zentro Moto groups customer orders into consolidated supplier batches. Choose your bike and colour, place your order online, and we organise the sourcing and delivery. This leaner model helps keep overheads lower and prices more competitive."),
         faq("Do I pay in full when I order?", "Yes. Orders are paid in full at checkout to secure your bike in the next available batch. You’ll receive confirmation when your order is placed and updates as it progresses."),
         faq("How long will my bike take to arrive?", "Estimated delivery is generally around 4–6 weeks, depending on supplier availability, freight and customs clearance. We’ll keep you updated throughout the process."),
