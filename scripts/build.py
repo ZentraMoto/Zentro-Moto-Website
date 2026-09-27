@@ -1360,6 +1360,7 @@ def faq(q, a, link=None):
 
 def build_support():
     ordering = "\n".join([
+        faq("Are the bikes genuine Surron products?", "Yes. Zentro Moto supplies genuine Surron motorcycles through direct, traceable factory supply. Bikes are VIN identified and supplied with the relevant product and battery documentation."),
         faq("How does the batch-order system work?", "Instead of holding large volumes of local stock, Zentro Moto groups customer orders into consolidated supplier batches. Choose your bike and colour, place your order online, and we organise the sourcing and delivery. This leaner model helps keep overheads lower and prices more competitive."),
         faq("Do I pay in full when I order?", "Yes. Orders are paid in full at checkout to secure your bike in the next available batch. You’ll receive confirmation when your order is placed and updates as it progresses."),
         faq("How long will my bike take to arrive?", "Estimated delivery is generally around 4–6 weeks, depending on supplier availability, freight and customs clearance. We’ll keep you updated throughout the process."),
@@ -1371,10 +1372,8 @@ def build_support():
         faq("Are the bikes road legal?", "No. The bikes supplied by Zentro Moto are sold for off-road use only and are not ADR-approved for registration or public-road use in Australia."),
     ])
     warranty_support = "\n".join([
-        faq("Are the bikes genuine Surron products?", "Yes. Zentro Moto supplies genuine Surron motorcycles through direct, traceable factory supply. Bikes are VIN identified and supplied with the relevant product and battery documentation."),
         faq("What warranty is included?", "Bikes are supplied with a 12-month factory warranty covering core components including the battery, controller, motor and frame, subject to the applicable warranty terms and exclusions."),
         faq("What happens if I have a warranty issue?", "Contact Zentro Moto directly and we’ll guide you through the warranty process. We remain your first point of contact and will work with the supplier where required to assess and resolve the claim."),
-        faq("Can you help with replacement parts?", "Yes. Zentro Moto can assist with sourcing genuine replacement parts where required. Availability and lead times can vary depending on the component."),
     ])
 
     body = f"""    <section class="page-hero container">
