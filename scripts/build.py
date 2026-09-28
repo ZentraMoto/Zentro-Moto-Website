@@ -20,6 +20,14 @@ INDEPENDENT_STATEMENT = "Zentro Moto is an independent Australian retailer and i
 FOOTER_DISCLOSURE = "Zentro Moto is an independent retailer and is not an authorised distributor or representative of Surron."
 PRICE_PLACEHOLDER = "$X,XXX"
 
+# Remaining capacity in the next consolidated batch isn't tracked by any
+# order/inventory system in this prototype, so there is no real number to
+# show yet. This is a single, clearly editable placeholder to wire up to
+# real batch-capacity data before launch — never an invented scarcity
+# figure — and it flows into the purchase-area urgency line on every
+# product page via order_urgency_html() below.
+BATCH_SPOTS_REMAINING_PLACEHOLDER = "X"
+
 BIKES = [
     {
         "id": "hyper-bee",
@@ -892,12 +900,13 @@ def build_product(bike):
 
 def order_urgency_html():
     """Shared compact order-urgency strip — one clear message, directly
-    above the primary CTA on every product page. The days-left figure is
-    filled in client-side from the visitor's own clock (see
-    initBatchCountdown() in main.js), never a static/stale number."""
-    return """          <div class="order-urgency">
-            <p class="order-urgency-title">Order by Sunday<span data-countdown-days-left></span></p>
-            <p class="order-urgency-sub">Next consolidated batch &middot; Estimated delivery 4&ndash;6 weeks</p>
+    above the primary CTA on every product page. The spots-remaining
+    figure is a single named placeholder (BATCH_SPOTS_REMAINING_PLACEHOLDER),
+    not an invented scarcity number — there is no order/inventory system
+    in this prototype to compute the real per-batch capacity from."""
+    return f"""          <div class="order-urgency">
+            <p class="order-urgency-title">Next batch &middot; {BATCH_SPOTS_REMAINING_PLACEHOLDER} spots remaining</p>
+            <p class="order-urgency-sub">Order before Sunday to secure your place. Estimated delivery 4&ndash;6 weeks.</p>
           </div>"""
 
 
