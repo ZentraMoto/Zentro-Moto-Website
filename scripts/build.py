@@ -468,23 +468,9 @@ def trust_strip_html():
 
 # Homepage-only bike card: a distinct, more editorial treatment than the
 # bordered grid card used on the Bikes page and product cross-links (kept
-# untouched via bike_card() above). Category labels and one-line
-# descriptions here are homepage-specific per request.
-HOME_SIZE_LABELS = {
-    "hyper-bee": "Compact",
-    "light-bee-x": "Lightweight",
-    "light-bee-2": "Lightweight",
-    "ultra-bee": "Full-Size",
-}
-
-HOME_ONE_LINERS = {
-    "hyper-bee": "The compact, playful way into electric riding.",
-    "light-bee-x": "Lightweight off-road performance with 10 kW of peak power and an agile 59 kg chassis.",
-    "light-bee-2": "The versatile all-rounder for everyday riding.",
-    "ultra-bee": "The full-size flagship for maximum performance.",
-}
-
-
+# untouched via bike_card() above), but the category, description and CTA
+# wording match the Bikes page exactly (bike['size'] / bike['one_liner'] /
+# "VIEW <NAME>") per request.
 def home_bike_card(bike):
     # Uses the -profile shot (already 4:5) rather than the square -card
     # image, so object-fit: cover doesn't crop the baked-in placeholder
@@ -493,13 +479,13 @@ def home_bike_card(bike):
           <a class="spotlight-media" href="{bike['url']}">
             <img src="{img(bike['slug'] + '-profile')}" alt="{bike['name']} placeholder image" loading="lazy" />
           </a>
-          <div class="spotlight-eyebrow">{HOME_SIZE_LABELS[bike['id']]}</div>
+          <div class="spotlight-eyebrow">{bike['size']}</div>
           <h3 class="spotlight-name">{bike['name']}</h3>
           <div class="spotlight-meta">
             <span class="spotlight-price">{PRICE_PLACEHOLDER}</span>
           </div>
-          <p class="spotlight-desc">{HOME_ONE_LINERS[bike['id']]}</p>
-          <a class="btn btn-secondary spotlight-cta" href="{bike['url']}">VIEW BIKE</a>
+          <p class="spotlight-desc">{bike['one_liner']}</p>
+          <a class="btn btn-secondary spotlight-cta" href="{bike['url']}">VIEW {bike['name'].upper()}</a>
         </article>"""
 
 
