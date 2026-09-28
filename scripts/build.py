@@ -329,7 +329,7 @@ def header_html(active="", announce=None):
   </header>"""
 
 
-def footer_html(shipping_label="Shipping &amp; Collection", location_label="Newcastle, NSW"):
+def footer_html():
     return f"""  <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
@@ -347,10 +347,10 @@ def footer_html(shipping_label="Shipping &amp; Collection", location_label="Newc
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Support</h4>
+          <h4>Help</h4>
           <ul>
-            <li><a href="support.html">Support</a></li>
-            <li><a href="shipping.html">{shipping_label}</a></li>
+            <li><a href="support.html">FAQ</a></li>
+            <li><a href="shipping.html">Shipping &amp; Delivery</a></li>
             <li><a href="warranty.html">Warranty &amp; Returns</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
@@ -359,16 +359,16 @@ def footer_html(shipping_label="Shipping &amp; Collection", location_label="Newc
           <h4>Company</h4>
           <ul>
             <li><a href="about.html">About Zentro Moto</a></li>
-            <li><a href="about.html#location">{location_label}</a></li>
+            <li><a href="about.html#location">Newcastle, NSW</a></li>
             <li><a href="about.html#business-details">ABN</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Legal</h4>
           <ul>
-            <li><a href="legal-terms.html">Terms</a></li>
-            <li><a href="legal-privacy.html">Privacy</a></li>
-            <li><a href="legal-reservation-terms.html">Reservation Terms</a></li>
+            <li><a href="legal-terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="legal-privacy.html">Privacy Policy</a></li>
+            <li><a href="legal-reservation-terms.html">Warranty Terms</a></li>
           </ul>
         </div>
       </div>
@@ -447,20 +447,20 @@ def trust_strip_html():
     return f"""  <section class="trust-strip">
     <div class="trust-grid container">
       <div class="trust-item">
-        <h3>Genuine Bikes</h3>
+        <h3>Genuine Surron</h3>
         <p>Authentic Surron products.</p>
+      </div>
+      <div class="trust-item">
+        <h3>Direct Factory Supply</h3>
+        <p>Clear, traceable sourcing.</p>
       </div>
       <div class="trust-item">
         <h3>12-Month Warranty</h3>
         <p>Battery, controller, motor and frame.</p>
       </div>
       <div class="trust-item">
-        <h3>After-Sales Support</h3>
-        <p>Direct support after your purchase.</p>
-      </div>
-      <div class="trust-item">
         <h3>Australia-wide Delivery</h3>
-        <p>Crated delivery available nationwide.</p>
+        <p>Crated delivery nationwide.</p>
       </div>
     </div>
   </section>"""
@@ -533,7 +533,7 @@ def build_home():
           <h2 class="h2">Why buy through Zentro.</h2>
         </div>
 
-        <div class="split">
+        <div class="split home-benefit-row">
           <div>
             <h3 class="h3">Better value</h3>
             <p class="text-body" style="margin-top:14px; max-width:34em;">Our consolidated batch-order model keeps overheads lower, allowing us to pass more of the savings directly on to you.</p>
@@ -543,7 +543,7 @@ def build_home():
           </div>
         </div>
 
-        <div class="split" style="margin-top:72px;">
+        <div class="split home-benefit-row" style="margin-top:52px;">
           <div class="split-media">
             <img src="{img('home-choice')}" alt="More choice placeholder image" />
           </div>
@@ -553,7 +553,7 @@ def build_home():
           </div>
         </div>
 
-        <div class="split" style="margin-top:72px;">
+        <div class="split home-benefit-row" style="margin-top:52px;">
           <div>
             <h3 class="h3">Genuine. Traceable. Properly sourced.</h3>
             <p class="text-body" style="margin-top:14px; max-width:34em;">Genuine Surron motorcycles supplied through direct, traceable factory supply, with VIN identification and relevant product and battery documentation.</p>
@@ -574,26 +574,23 @@ def build_home():
         <div class="timeline-step">
           <div class="timeline-num-wrap"><span class="timeline-num">01</span></div>
           <h3>Choose your bike</h3>
-          <p>Pick the model and paint colour that suits you.</p>
+          <p>Pick your model and paint colour.</p>
         </div>
         <div class="timeline-step">
           <div class="timeline-num-wrap"><span class="timeline-num">02</span></div>
           <h3>Place your order</h3>
-          <p>Choose your model and colour, then pay securely at checkout.</p>
+          <p>Pay securely at checkout.</p>
         </div>
         <div class="timeline-step">
           <div class="timeline-num-wrap"><span class="timeline-num">03</span></div>
-          <h3>We handle the sourcing</h3>
-          <p>We arrange sourcing and keep you updated.</p>
+          <h3>We handle the rest</h3>
+          <p>We arrange sourcing, freight and keep you updated.</p>
         </div>
         <div class="timeline-step">
           <div class="timeline-num-wrap"><span class="timeline-num">04</span></div>
           <h3>Receive your bike</h3>
-          <p>Your bike is delivered Australia-wide in its crate.</p>
+          <p>Delivered Australia-wide in its factory crate.</p>
         </div>
-      </div>
-      <div style="margin-top:40px;">
-        <a class="btn btn-primary" href="bikes.html">SHOP BIKES</a>
       </div>
     </section>
 
@@ -639,7 +636,7 @@ def build_home():
         </details>
       </div>
       <div style="margin-top:28px;">
-        <a class="btn-link" href="support.html">VISIT SUPPORT &rarr;</a>
+        <a class="btn-link" href="support.html">VIEW ALL FAQS &rarr;</a>
       </div>
     </section>
 
@@ -1277,15 +1274,10 @@ def build_about():
         <a class="btn btn-primary" href="contact.html">CONTACT ZENTRO MOTO</a>
       </div>
     </section>"""
-    about_footer = footer_html(
-        shipping_label="Shipping Information",
-        location_label="Based in Newcastle, NSW &middot; Australia-wide delivery",
-    )
     write("about.html", page(
         "About",
         "Zentro Moto is a focused Australian retailer supplying genuine Surron electric motorcycles Australia-wide.",
         "about", body,
-        footer=about_footer,
     ))
 
 

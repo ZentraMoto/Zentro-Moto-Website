@@ -662,6 +662,12 @@ summary:focus-visible {
 }
 .split-media img { width: 100%; height: 100%; object-fit: cover; }
 
+/* Homepage "Why buy through Zentro" alternating rows — tighter than a
+   standard .split: less column gap and a shorter image, so each row
+   reads as compact rather than a full feature section. */
+.home-benefit-row { gap: 40px; }
+.home-benefit-row .split-media { aspect-ratio: 16 / 9; }
+
 /* ----------------------------------- FAQ -------------------------------------- */
 .faq-list { border-top: var(--border); }
 .faq-item {
