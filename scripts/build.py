@@ -540,37 +540,40 @@ def build_home():
       </div>
     </section>
 
-    <!-- 06 Why Zentro Moto -->
+    <!-- 06 Why buy through Zentro -->
     <section class="section section--grey">
       <div class="container">
         <div class="section-head">
-          <h2 class="h2">A simpler way to buy.</h2>
+          <h2 class="h2">Why buy through Zentro.</h2>
         </div>
-        <div class="reasons">
-          <div class="reason-card">
-            <span class="reason-num">01</span>
-            <h3>Genuine. Traceable. Properly sourced.</h3>
-            <p>Genuine Surron motorcycles sourced directly from Surron in Chongqing, China, with VIN identification, documented specifications, battery/DG paperwork and direct after-sales support.</p>
+
+        <div class="split">
+          <div>
+            <h3 class="h3">Better value</h3>
+            <p class="text-body" style="margin-top:14px; max-width:34em;">Our consolidated batch-order model keeps overheads lower, allowing us to pass more of the savings directly on to you.</p>
           </div>
-          <div class="reason-card">
-            <span class="reason-num">02</span>
-            <h3>Better value</h3>
-            <p>By consolidating customer orders into supplier batches instead of holding large volumes of local stock, Zentro Moto keeps overheads lower and passes more of the savings directly on to customers.</p>
+          <div class="split-media">
+            <img src="{img('home-value')}" alt="Better value placeholder image" />
           </div>
-          <div class="reason-card">
-            <span class="reason-num">03</span>
-            <h3>More choice</h3>
-            <p>Choose the model and paint colour you actually want, rather than being limited to local showroom stock.</p>
+        </div>
+
+        <div class="split" style="margin-top:72px;">
+          <div class="split-media">
+            <img src="{img('home-choice')}" alt="More choice placeholder image" />
           </div>
-          <div class="reason-card">
-            <span class="reason-num">04</span>
-            <h3>Clear availability</h3>
-            <p>Know whether each bike is in stock, incoming or available to order.</p>
+          <div>
+            <h3 class="h3">More choice</h3>
+            <p class="text-body" style="margin-top:14px; max-width:34em;">Choose the model and paint colour you actually want, rather than being limited to local showroom stock.</p>
           </div>
-          <div class="reason-card">
-            <span class="reason-num">05</span>
-            <h3>Support after purchase</h3>
-            <p>Local contact, 12-month factory warranty on core components, and direct after-sales support.</p>
+        </div>
+
+        <div class="split" style="margin-top:72px;">
+          <div>
+            <h3 class="h3">Genuine. Traceable. Properly sourced.</h3>
+            <p class="text-body" style="margin-top:14px; max-width:34em;">Genuine Surron motorcycles supplied through direct, traceable factory supply, with VIN identification and relevant product and battery documentation.</p>
+          </div>
+          <div class="split-media">
+            <img src="{img('home-sourcing')}" alt="Genuine, traceable supply placeholder image" />
           </div>
         </div>
       </div>
@@ -579,7 +582,7 @@ def build_home():
     <!-- 07 How buying works -->
     <section class="section container" id="how-it-works">
       <div class="section-head">
-        <h2 class="h2">Simple from order to ride.</h2>
+        <h2 class="h2">From order to ride.</h2>
       </div>
       <div class="timeline">
         <div class="timeline-step">
@@ -611,14 +614,14 @@ def build_home():
     <!-- 08 Delivery -->
     <section class="section section--black">
       <div class="container split">
+        <div class="split-media">
+          <img src="{img('bikes-hero')}" alt="Australia-wide delivery placeholder image" />
+        </div>
         <div>
           <span class="eyebrow" style="color:rgba(255,255,255,0.6);">Delivery</span>
           <h2 class="h2">Australia-wide crated delivery.</h2>
           <p class="lede" style="color:rgba(255,255,255,0.75); margin:20px 0 28px;">Your bike is shipped securely in a crate to eligible locations across Australia.</p>
           <a class="btn btn-primary btn-on-black" href="shipping.html">SHIPPING INFORMATION</a>
-        </div>
-        <div class="split-media">
-          <img src="{img('bikes-hero')}" alt="Australia-wide delivery placeholder image" />
         </div>
       </div>
     </section>

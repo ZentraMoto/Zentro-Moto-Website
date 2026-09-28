@@ -102,4 +102,12 @@ with open(f"{OUT}/about-hero.svg", "w") as f:
 with open(f"{OUT}/about-delivery.svg", "w") as f:
     f.write(svg("Zentro Moto", "Delivery", 1200, 900, big=True))
 
+# Homepage "Why buy through Zentro" alternating rows (4:3 to match .split-media)
+with open(f"{OUT}/home-value.svg", "w") as f:
+    f.write(svg("Zentro Moto", "Better Value", 1200, 900, big=True))
+with open(f"{OUT}/home-choice.svg", "w") as f:
+    f.write(svg("Zentro Moto", "More Choice", 1200, 900, big=True))
+with open(f"{OUT}/home-sourcing.svg", "w") as f:
+    f.write(svg("Zentro Moto", "Genuine Sourcing", 1200, 900, big=True))
+
 print("done", len(os.listdir(OUT)), "files")
