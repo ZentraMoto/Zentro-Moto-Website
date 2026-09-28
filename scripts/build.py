@@ -507,7 +507,7 @@ def build_home():
     <section class="hero hero--home">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <h1 class="h1">Your Surron. Your colour.<br />A better price.</h1>
+          <h1 class="h1">Your Surron.<br />Your colour.<br />A better price.</h1>
           <p class="lede">A simpler way to buy a genuine Surron, with direct supply and Australia-wide delivery.</p>
           <div class="hero-ctas">
             <a class="btn btn-accent btn-lg" href="bikes.html" style="font-weight:600;">CHOOSE YOUR BIKE</a>
