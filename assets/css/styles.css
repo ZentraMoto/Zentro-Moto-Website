@@ -17,8 +17,8 @@
 
   /* Single accent colour, reserved for the single highest-intent primary
      action on a page (see .btn-accent) — never used decoratively. */
-  --yellow: #e0b400;
-  --yellow-dark: #c29e00;
+  --yellow: #fafa33;
+  --yellow-dark: #d4d42b;
 
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
