@@ -606,8 +606,7 @@ def build_home():
         <div>
           <span class="eyebrow" style="color:rgba(255,255,255,0.6);">Delivery</span>
           <h2 class="h2">Australia-wide crated delivery.</h2>
-          <p class="lede" style="color:rgba(255,255,255,0.75); margin:20px 0 28px;">Your bike is shipped securely in a crate to eligible locations across Australia.</p>
-          <a class="btn btn-primary btn-on-black" href="shipping.html">SHIPPING INFORMATION</a>
+          <p class="lede" style="color:rgba(255,255,255,0.75); margin:20px 0 0;">Your bike is shipped securely in a crate to eligible locations across Australia.</p>
         </div>
       </div>
     </section>
