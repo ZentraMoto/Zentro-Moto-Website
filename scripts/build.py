@@ -510,7 +510,7 @@ def build_home():
           <h1 class="h1">Your Surron. Your colour.<br />A better price.</h1>
           <p class="lede">A simpler way to buy a genuine Surron, with direct supply and Australia-wide delivery.</p>
           <div class="hero-ctas">
-            <a class="btn btn-accent btn-lg" href="bikes.html">CHOOSE YOUR BIKE</a>
+            <a class="btn btn-accent btn-lg" href="bikes.html" style="font-weight:600;">CHOOSE YOUR BIKE</a>
             <a class="btn btn-secondary btn-lg" href="#how-it-works">HOW IT WORKS</a>
           </div>
         </div>
@@ -541,7 +541,7 @@ def build_home():
         <h2 class="h2">Next batch closes Sunday.</h2>
         <p class="text-sm" style="font-weight:700; margin-top:14px;">{BATCH_SPOTS_REMAINING_PLACEHOLDER} allocation spots remaining</p>
         <p class="lede" style="margin:12px auto 28px;">Order before Sunday to secure a place in the next consolidated shipment. Estimated delivery: 4&ndash;6 weeks.</p>
-        <a class="btn btn-accent btn-lg" href="bikes.html">CHOOSE YOUR BIKE</a>
+        <a class="btn btn-accent btn-lg" href="bikes.html" style="font-weight:600;">CHOOSE YOUR BIKE</a>
       </div>
     </section>
 
