@@ -1032,15 +1032,14 @@ summary:focus-visible {
 /* Included list */
 .included-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px 40px;
+  grid-template-columns: 1fr;
 }
 .included-list li {
   display: flex;
   align-items: baseline;
   gap: 10px;
   font-size: 0.9375rem;
-  padding: 12px 0;
+  padding: 10px 0;
   border-bottom: var(--border);
 }
 .included-list li .dot {

@@ -1094,11 +1094,9 @@ def build_master_product(bike, *, category_label, short_description, performance
         </div>
         <ul class="included-list">
           <li><span class="dot"></span> {bike['name']}</li>
-          <li><span class="dot"></span> Battery</li>
-          <li><span class="dot"></span> Charger</li>
-          <li><span class="dot"></span> Documentation</li>
-          <li><span class="dot"></span> Included factory accessories</li>
-          <li><span class="dot"></span> Delivered crated &mdash; final assembly required</li>
+          <li><span class="dot"></span> Battery &amp; charger</li>
+          <li><span class="dot"></span> Product documents</li>
+          <li><span class="dot"></span> Factory accessories</li>
         </ul>
       </div>
     </section>
