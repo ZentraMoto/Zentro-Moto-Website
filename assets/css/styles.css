@@ -639,6 +639,15 @@ summary:focus-visible {
   line-height: 1.5;
   margin-bottom: 16px;
 }
+/* Fixed-width CTA, pinned to the bottom of the (equal-height, flex-column)
+   card so all four buttons land on the same baseline regardless of
+   whether the description above wraps to one or two lines. */
+.spotlight-cta {
+  width: 150px;
+  height: 48px;
+  padding: 0 16px;
+  margin-top: auto;
+}
 
 /* --------------------------------- Split panel ------------------------------- */
 .split {
