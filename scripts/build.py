@@ -535,13 +535,16 @@ def build_home():
     </section>
 
     <!-- 05b Next batch urgency -->
-    <section class="section section--tight">
+    <section class="batch-urgency-section">
       <div class="container section-head--center">
         <span class="eyebrow">Next consolidated batch</span>
-        <h2 class="h2">Next batch closes Sunday.</h2>
-        <p class="text-sm" style="font-weight:700; margin-top:14px;">{BATCH_SPOTS_REMAINING_PLACEHOLDER} allocation spots remaining</p>
-        <p class="lede" style="margin:12px auto 28px;">Order before Sunday to secure a place in the next consolidated shipment. Estimated delivery: 4&ndash;6 weeks.</p>
-        <a class="btn btn-accent btn-lg" href="bikes.html" style="font-weight:600;">CHOOSE YOUR BIKE</a>
+        <span class="batch-badge">{BATCH_SPOTS_REMAINING_PLACEHOLDER} spots left</span>
+        <h2 class="h2">{BATCH_SPOTS_REMAINING_PLACEHOLDER} spots left in Sunday&rsquo;s batch.</h2>
+        <p class="lede" style="margin:10px auto 2px;">Order before Sunday &mdash; or before the remaining places are filled.</p>
+        <p class="text-sm" style="color:var(--grey-600);">Estimated delivery: 4&ndash;6 weeks</p>
+        <div style="margin-top:22px;">
+          <a class="btn btn-accent btn-lg" href="bikes.html" style="font-weight:600;">CHOOSE YOUR BIKE</a>
+        </div>
       </div>
     </section>
 

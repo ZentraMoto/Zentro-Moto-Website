@@ -682,6 +682,24 @@ summary:focus-visible {
 .home-benefit-row { gap: 40px; }
 .home-benefit-row .split-media { aspect-ratio: 16 / 9; }
 
+/* Homepage batch-urgency block — compact, live-status feel rather than a
+   full promotional section; the yellow spots-left badge is the strongest
+   visual element, everything else stays black/neutral and tightly
+   grouped underneath it. */
+.batch-urgency-section { padding: 36px 0 40px; }
+.batch-badge {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--black);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border-radius: 999px;
+  margin: 14px 0 12px;
+}
+
 /* ----------------------------------- FAQ -------------------------------------- */
 .faq-list { border-top: var(--border); }
 .faq-item {
