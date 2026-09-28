@@ -916,8 +916,7 @@ def order_urgency_html():
           </div>"""
 
 
-def build_master_product(bike, *, category_label, short_description, performance, intro_heading, intro_body, specs, paint_colours,
-                          assembly_body="Bikes are supplied crated and require assembly before use."):
+def build_master_product(bike, *, category_label, short_description, performance, intro_heading, intro_body, specs, paint_colours):
     """Shared master template used by all four product pages (Hyper Bee,
     Light Bee X, Light Bee 2.0, Ultra Bee). Keeping this as one function —
     rather than separate hand-written builders per bike — is what
@@ -1087,34 +1086,10 @@ def build_master_product(bike, *, category_label, short_description, performance
       </div>
     </section>
 
-    <!-- Section 5: Warranty & parts support -->
-    <section class="section container">
-      <div class="section-head">
-        <h2 class="h2">Support after your purchase.</h2>
-      </div>
-      <div class="info-cols">
-        <div class="info-col">
-          <h3>{WARRANTY_HEADLINE}</h3>
-          <p>{WARRANTY_BODY}</p>
-        </div>
-        <div class="info-col">
-          <h3>{PARTS_HEADLINE}</h3>
-          <p>{PARTS_BODY}</p>
-        </div>
-        <div class="info-col">
-          <h3>{ACL_HEADLINE}</h3>
-          <p>{ACL_BODY}</p>
-        </div>
-      </div>
-      <div style="margin-top:32px;">
-        <a class="btn-link" href="warranty.html">VIEW WARRANTY &amp; RETURNS &rarr;</a>
-      </div>
-    </section>
-
-    <!-- Section 6: What's included -->
-    <section class="section section--grey">
+    <!-- Section 5: What's included -->
+    <section class="section section--tight section--grey">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head" style="margin-bottom:20px;">
           <h2 class="h2">What&rsquo;s included.</h2>
         </div>
         <ul class="included-list">
@@ -1123,33 +1098,33 @@ def build_master_product(bike, *, category_label, short_description, performance
           <li><span class="dot"></span> Charger</li>
           <li><span class="dot"></span> Documentation</li>
           <li><span class="dot"></span> Included factory accessories</li>
-          <li><span class="dot"></span> Delivered crated &mdash; assembly required</li>
+          <li><span class="dot"></span> Delivered crated &mdash; final assembly required</li>
         </ul>
       </div>
     </section>
 
-    <!-- Section 7: Delivery & support -->
+    <!-- Section 6: Delivery, warranty & support -->
     <section class="section container">
       <div class="section-head">
-        <h2 class="h2">Delivery &amp; support.</h2>
+        <h2 class="h2">Delivery, warranty &amp; support.</h2>
       </div>
       <div class="info-cols">
         <div class="info-col">
-          <h3>Australia-wide crated delivery</h3>
-          <p>Your {bike['name']} is shipped securely in a crate to eligible locations across Australia.</p>
+          <h3>Delivery</h3>
+          <p>Australia-wide crated delivery. Bikes arrive approximately 90% assembled, with final assembly required.</p>
         </div>
         <div class="info-col">
-          <h3>Assembly required</h3>
-          <p>{assembly_body}</p>
+          <h3>12-Month Warranty</h3>
+          <p>Factory warranty covering the battery, controller, motor and frame, subject to warranty terms and exclusions.</p>
         </div>
         <div class="info-col">
           <h3>Support</h3>
-          <p>Questions after purchase are handled directly through Zentro Moto.</p>
+          <p>Zentro Moto is your first point of contact for questions and warranty claims after purchase.</p>
         </div>
       </div>
       <div style="margin-top:32px; display:flex; gap:28px; flex-wrap:wrap;">
-        <a class="btn-link" href="shipping.html">SHIPPING INFORMATION</a>
-        <a class="btn-link" href="warranty.html">WARRANTY &amp; RETURNS</a>
+        <a class="btn-link" href="shipping.html">SHIPPING INFORMATION &rarr;</a>
+        <a class="btn-link" href="warranty.html">WARRANTY &amp; RETURNS &rarr;</a>
       </div>
     </section>
 
@@ -1159,7 +1134,7 @@ def build_master_product(bike, *, category_label, short_description, performance
         <h2 class="h3">Explore the range.</h2>
       </div>
       <div class="bike-grid">
-{chr(10).join(bike_card(b) for b in other_bikes)}
+{chr(10).join(bike_card(b, show_badge=False) for b in other_bikes)}
       </div>
     </section>"""
     write(bike["url"], page(
@@ -1194,7 +1169,6 @@ def build_light_bee_x():
         intro_body="The MY26 Light Bee X builds on Surron's lightweight off-road platform with stronger performance and updated rider technology. A 10 kW power system, 295 Nm of rear-wheel torque and a 59 kg ready-to-ride weight keep it fast, agile and easy to control across off-road terrain.",
         specs=LIGHT_BEE_X_SPECS,
         paint_colours=["White", "Purple", "Black", "Green"],
-        assembly_body="Bikes arrive approximately 90% assembled from Surron. Final assembly typically includes fitting the handlebars, attaching the front wheel and installing items such as the fender.",
     )
 
 
