@@ -34,11 +34,11 @@ BIKES = [
         "one_liner": "The compact, playful entry point into the Surron electric line-up.",
         "intro": "Hyper Bee is the smallest bike in the Zentro Moto range — a compact, electric-powered ride built for fun, easy handling and everyday accessibility. It’s the natural starting point for riders who want genuine Surron engineering in the most approachable size.",
         "features": [
-            ("8 kW Electric Performance", "Up to 8 kW of peak power and 185 Nm of torque at the wheel for responsive acceleration."),
-            ("Three Adjustable Riding Modes", "Three riding modes plus reverse allow the bike's response to be adjusted to the rider and conditions."),
-            ("Removable 58V Battery", "The 58V/22Ah lithium-ion battery is removable, with an approximate 20–80% charging time of 2.5 hours."),
-            ("Adjustable Suspension", "35 mm inverted front suspension with 170 mm travel and adjustable rebound and compression damping."),
-            ("Rider Safety & Remote Control", "Remote power control, magnetic emergency shut-off and tilt protection provide additional rider-management features."),
+            ("8 kW Electric Performance", "Up to 8 kW of peak power and 185 Nm of wheel torque for responsive acceleration."),
+            ("Three Adjustable Riding Modes", "Three riding modes plus reverse let you match the bike's response to rider and conditions."),
+            ("Removable 58V Battery", "Removable 58V/22Ah lithium-ion battery with a 20–80% charge time of around 2.5 hours."),
+            ("Adjustable Suspension", "35 mm inverted front suspension with 170 mm travel and adjustable rebound/compression damping."),
+            ("Rider Safety & Remote Control", "Remote power control, magnetic emergency shut-off and tilt protection add extra rider safety."),
         ],
     },
     {
@@ -54,11 +54,11 @@ BIKES = [
         "one_liner": "Lightweight off-road performance with 10 kW of peak power and an agile 59 kg chassis.",
         "intro": "The MY26 Light Bee X builds on Surron's lightweight off-road platform with stronger performance and updated rider technology. A 10 kW power system, 295 Nm of rear-wheel torque and a 59 kg ready-to-ride weight keep it fast, agile and easy to control across off-road terrain.",
         "features": [
-            ("10 kW Power System", "The latest electric powertrain delivers up to 10 kW of peak power and 295 Nm of rear-wheel torque for stronger, more responsive acceleration."),
-            ("Lightweight 59 kg Chassis", "At just 59 kg ready to ride, the Light Bee X retains the lightweight, agile handling that has defined the platform."),
-            ("72V Removable Battery", "The removable 72V / 35Ah lithium-ion battery provides up to 75 km of manufacturer-claimed range at 40 km/h, with approximately two-hour charging from 20–80%."),
-            ("Adjustable Off-Road Suspension", "Fully adjustable KKE suspension provides 200 mm of front travel and 210 mm of rear wheel travel for controlled off-road performance."),
-            ("Advanced Rider Technology", "Surron Wheelie Control, app connectivity, adjustable throttle response, regenerative braking and electronic rider-assistance features add greater control and customisation."),
+            ("10 kW Power System", "Up to 10 kW peak power and 295 Nm of rear-wheel torque for stronger acceleration and off-road performance."),
+            ("Lightweight 59 kg Chassis", "A lightweight platform designed for agile handling and easier control."),
+            ("72V Removable Battery", "72V / 35Ah removable battery with up to 75 km manufacturer-claimed range at 40 km/h."),
+            ("Adjustable Off-Road Suspension", "KKE suspension with 200 mm front travel and 210 mm rear wheel travel."),
+            ("Advanced Rider Technology", "Wheelie control, app connectivity, adjustable throttle response and regenerative braking."),
         ],
     },
     {
@@ -74,11 +74,11 @@ BIKES = [
         "one_liner": "The mid-size all-rounder, built for riders who want more from every ride.",
         "intro": "Light Bee 2.0 sits in the middle of the Zentro Moto range — a lightweight, electric-powered motorcycle built to go further and do more than the Hyper Bee, without stepping up to full size. It suits riders who want a capable, versatile everyday bike.",
         "features": [
-            ("24 kW EVO-2 Power System", "The EVO-2 powertrain delivers up to 24 kW of peak power and 410 Nm of wheel torque for strong, responsive acceleration."),
-            ("Semi-Solid-State Battery", "A 78.54V / 45Ah, 3.53 kWh battery delivers up to 108 km of manufacturer-claimed range at 40 km/h and approximately two-hour charging from 20–80%."),
-            ("Seven Riding Modes", "E, D, S, M, T, R and L modes give the rider a wide range of control, including a customisable M mode."),
-            ("Performance Suspension", "KKE suspension provides 240 mm of front and rear wheel travel for greater control across demanding off-road terrain."),
-            ("Advanced Rider Control", "Surron Wheelie Control, Auto Hold, traction control and adjustable regenerative braking provide additional control across different riding conditions."),
+            ("24 kW EVO-2 Power System", "Up to 24 kW of peak power and 410 Nm of wheel torque for strong, responsive acceleration."),
+            ("Semi-Solid-State Battery", "78.54V / 45Ah semi-solid-state battery with up to 108 km of manufacturer-claimed range at 40 km/h."),
+            ("Seven Riding Modes", "Seven riding modes, including a customisable M mode, for a wide range of control."),
+            ("Performance Suspension", "KKE suspension with 240 mm of front and rear travel for demanding off-road terrain."),
+            ("Advanced Rider Control", "Wheelie control, Auto Hold, traction control and adjustable regenerative braking for greater control."),
         ],
     },
     {
@@ -94,11 +94,11 @@ BIKES = [
         "one_liner": "The full-size flagship, built for riders who want maximum performance.",
         "intro": "Ultra Bee is the largest and most capable bike in the Zentro Moto range — a full-size electric motorcycle built for riders who want the most performance Surron offers. It’s the flagship choice for serious everyday and off-road riding.",
         "features": [
-            ("24.5 kW Next-Generation Power", "The latest Hairpin motor system delivers up to 24.5 kW of peak power and 520 Nm of torque for strong, responsive acceleration."),
-            ("74V / 60Ah High-Performance Battery", "The removable 4.44 kWh lithium-ion battery provides manufacturer-claimed range of up to 115 km at 50 km/h, with approximately 2.5-hour charging from 20–80%."),
-            ("Advanced Riding Modes & Traction Control", "Eco, Daily, Sports, Reverse, Turbo and Crawl modes are supported by adjustable traction control, regenerative braking and throttle response."),
-            ("Performance Suspension & Brakes", "KKE suspension provides 240 mm of front and rear wheel travel, paired with four-piston hydraulic brakes and 240 mm wave discs."),
-            ("Connected Rider Technology", "Surron App connectivity supports bike status monitoring, GPS information, parameter adjustment and over-the-air software updates, alongside Surron Wheelie Control."),
+            ("24.5 kW Next-Generation Power", "Hairpin motor system delivering up to 24.5 kW of peak power and 520 Nm of torque."),
+            ("74V / 60Ah High-Performance Battery", "Removable 74V / 60Ah battery with up to 115 km of manufacturer-claimed range at 50 km/h."),
+            ("Advanced Riding Modes & Traction Control", "Six riding modes with adjustable traction control, regenerative braking and throttle response."),
+            ("Performance Suspension & Brakes", "KKE suspension with 240 mm of front and rear travel, paired with four-piston hydraulic brakes."),
+            ("Connected Rider Technology", "App connectivity for status monitoring, GPS, parameter adjustment and over-the-air updates."),
         ],
     },
 ]
@@ -1026,12 +1026,11 @@ def build_master_product(bike, *, category_label, short_description, performance
           <p class="value-note">Batch ordering keeps our overheads lower, allowing us to pass more of the savings directly on to you.</p>
 
           <ul class="trust-notes">
-            <li><span class="dot"></span> Genuine Surron &middot; Direct Chongqing supply</li>
-            <li><span class="dot"></span> 12-month factory warranty on core components</li>
-            <li><span class="dot"></span> After-sales support</li>
+            <li><span class="dot"></span> Genuine Surron &middot; Direct factory supply</li>
+            <li><span class="dot"></span> 12-month factory warranty</li>
             <li><span class="dot"></span> Australia-wide crated delivery</li>
           </ul>
-          <p class="trust-subline">VIN identified &middot; Documented specifications &middot; UN38.3 / battery documentation</p>
+          <p class="trust-subline">VIN identified &middot; Documented specifications &middot; Battery documentation</p>
         </div>
       </div>
     </section>
@@ -1062,7 +1061,7 @@ def build_master_product(bike, *, category_label, short_description, performance
     <section class="section container">
       <div class="section-head">
         <span class="eyebrow">Key features</span>
-        <h2 class="h2">What makes it different.</h2>
+        <h2 class="h2">Performance highlights.</h2>
       </div>
       <div class="feature-list">
 {features_html}
@@ -1150,7 +1149,7 @@ def build_hyper_bee():
         short_description=bike["one_liner"],
         performance=HYPER_BEE_PERFORMANCE,
         intro_heading="Compact size. Serious performance.",
-        intro_body="The Hyper Bee is Surron's compact off-road electric motorcycle, combining a lightweight 39 kg chassis with up to 8 kW of peak power. Adjustable riding modes, a removable battery and rider-assistance features make it suited to younger riders progressing from their first motorcycle through to more experienced off-road riding.",
+        intro_body="The Hyper Bee is Surron's compact off-road electric motorcycle, built for approachable, confidence-building riding. Adjustable riding modes and rider-assistance features make it a natural step up for younger or newer riders progressing into off-road use.",
         specs=HYPER_BEE_SPECS,
         paint_colours=["Blue", "Yellow", "Green"],
     )
@@ -1164,7 +1163,7 @@ def build_light_bee_x():
         short_description="The iconic lightweight Surron, upgraded with stronger power, rider technology and off-road performance.",
         performance=LIGHT_BEE_X_PERFORMANCE,
         intro_heading="The Light Bee, evolved.",
-        intro_body="The MY26 Light Bee X builds on Surron's lightweight off-road platform with stronger performance and updated rider technology. A 10 kW power system, 295 Nm of rear-wheel torque and a 59 kg ready-to-ride weight keep it fast, agile and easy to control across off-road terrain.",
+        intro_body="The Light Bee X builds on Surron's lightweight off-road platform with stronger performance and updated rider technology, keeping it fast, agile and easy to control across off-road terrain.",
         specs=LIGHT_BEE_X_SPECS,
         paint_colours=["White", "Purple", "Black", "Green"],
     )
@@ -1178,7 +1177,7 @@ def build_light_bee_2():
         short_description="Next-generation lightweight electric performance, built for serious off-road riding.",
         performance=LIGHT_BEE_2_PERFORMANCE,
         intro_heading="Lightweight. Rebuilt for serious performance.",
-        intro_body="The Light Bee 2.0 is a ground-up reinvention of Surron's lightweight off-road platform. With up to 24 kW of peak power, 410 Nm of wheel torque and a 65 kg chassis, it combines serious electric performance with the agile character the Light Bee is known for.",
+        intro_body="The Light Bee 2.0 is a ground-up reinvention of Surron's lightweight off-road platform, combining serious electric performance with the agile character the Light Bee is known for.",
         specs=LIGHT_BEE_2_SPECS,
         paint_colours=["Brown", "Black", "White", "Green"],
     )
@@ -1192,7 +1191,7 @@ def build_ultra_bee():
         short_description="Full-size electric performance with serious power, suspension and rider technology.",
         performance=ULTRA_BEE_PERFORMANCE,
         intro_heading="Full-size power. Precise control.",
-        intro_body="The Ultra Bee brings Surron's electric performance into a larger, more capable off-road platform. With up to 24.5 kW of peak power, 520 Nm of torque and advanced rider-control technology, it is built for riders wanting stronger performance, greater stability and serious off-road capability.",
+        intro_body="The Ultra Bee brings Surron's electric performance into a larger, more capable off-road platform, built for riders wanting stronger performance, greater stability and serious off-road capability.",
         specs=ULTRA_BEE_SPECS,
         paint_colours=["Black"],
     )
