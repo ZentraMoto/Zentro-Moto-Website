@@ -890,6 +890,12 @@ summary:focus-visible {
   gap: 8px;
   flex-wrap: wrap;
 }
+.variant-notice {
+  margin-top: 10px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--black);
+}
 .swatch {
   display: inline-flex;
   align-items: center;

@@ -147,40 +147,56 @@
     var groups = document.querySelectorAll("[data-variant-group]");
     groups.forEach(function (group) {
       var swatches = group.querySelectorAll(".swatch");
+      var notice = group.querySelector("[data-variant-notice]");
       swatches.forEach(function (sw) {
         sw.addEventListener("click", function () {
           swatches.forEach(function (s) {
             s.setAttribute("aria-pressed", "false");
           });
           sw.setAttribute("aria-pressed", "true");
-          var buyBtn = document.querySelector("[data-action='add-to-cart']");
+          var buyBtn = document.querySelector("[data-action='secure-checkout']");
           if (buyBtn) buyBtn.setAttribute("data-variant", sw.textContent.trim());
+          if (notice) notice.hidden = true;
         });
       });
     });
   }
 
-  /* ------------------------------- Add to cart --------------------------------- */
-  function initAddToCart() {
-    var buttons = document.querySelectorAll("[data-action='add-to-cart']");
+  /* ---------------------- Secure checkout (skip cart page) ---------------------- */
+  // Prototype stand-in only: this project has no connected Shopify store
+  // (no shop domain / Storefront API credentials anywhere in the codebase),
+  // so there is no real Shopify checkout URL to redirect to. This instead
+  // writes the single selected bike + variant straight to the same
+  // "last order" hand-off the cart page's own checkout button already
+  // uses, and skips cart.html entirely — matching the requested
+  // select colour -> button -> checkout flow within what this prototype
+  // can actually do. A live build would replace this with a real
+  // Storefront API / Buy Button checkout redirect.
+  function initSecureCheckout() {
+    var buttons = document.querySelectorAll("[data-action='secure-checkout']");
     buttons.forEach(function (btn) {
       btn.addEventListener("click", function () {
+        var group = document.querySelector("[data-variant-group]");
+        if (group && !group.querySelector(".swatch[aria-pressed='true']")) {
+          var notice = group.querySelector("[data-variant-notice]");
+          if (notice) notice.hidden = false;
+          group.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+
         var variant = btn.getAttribute("data-variant") || "Standard";
-        addToCart({
+        writeCart([{
           id: btn.getAttribute("data-product-id"),
           name: btn.getAttribute("data-product-name"),
           variant: variant,
           price: btn.getAttribute("data-price"),
           image: btn.getAttribute("data-image"),
-          action: btn.textContent.trim()
-        });
-        var original = btn.textContent;
-        btn.textContent = "ADDED — VIEW CART";
-        btn.classList.add("is-added");
-        window.setTimeout(function () {
-          btn.textContent = original;
-          btn.classList.remove("is-added");
-        }, 1800);
+          action: btn.textContent.trim(),
+          qty: 1
+        }]);
+        window.localStorage.setItem("zentro_last_order_items", JSON.stringify(readCart()));
+        writeCart([]);
+        window.location.href = "checkout-confirmation.html";
       });
     });
   }
@@ -199,10 +215,10 @@
     window.addEventListener("resize", sync);
     sync();
 
-    var barBtn = bar.querySelector("[data-action='add-to-cart']");
+    var barBtn = bar.querySelector("[data-action='secure-checkout']");
     if (barBtn) {
       barBtn.addEventListener("click", function () {
-        var mainBtn = document.querySelector(".buy-actions [data-action='add-to-cart']");
+        var mainBtn = document.querySelector(".buy-actions [data-action='secure-checkout']");
         if (mainBtn) mainBtn.click();
       });
     }
@@ -333,7 +349,7 @@
     initHeader();
     initGallery();
     initVariants();
-    initAddToCart();
+    initSecureCheckout();
     initMobileBuyBar();
     renderCartPage();
     initCheckoutButton();

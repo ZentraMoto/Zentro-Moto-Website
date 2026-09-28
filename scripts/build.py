@@ -37,7 +37,7 @@ BIKES = [
         "size": "Smallest",
         "availability": "batch",
         "availability_label": "AVAILABLE FOR NEXT BATCH",
-        "primary_action": "PLACE ORDER",
+        "primary_action": "SECURE YOUR BIKE",
         "action_kind": "place-order",
         "one_liner": "The compact, playful entry point into the Surron electric line-up.",
         "intro": "Hyper Bee is the smallest bike in the Zentro Moto range — a compact, electric-powered ride built for fun, easy handling and everyday accessibility. It’s the natural starting point for riders who want genuine Surron engineering in the most approachable size.",
@@ -57,7 +57,7 @@ BIKES = [
         "size": "Lightweight",
         "availability": "batch",
         "availability_label": "AVAILABLE FOR NEXT BATCH",
-        "primary_action": "PLACE ORDER",
+        "primary_action": "SECURE YOUR BIKE",
         "action_kind": "place-order",
         "one_liner": "Lightweight off-road performance with 10 kW of peak power and an agile 59 kg chassis.",
         "intro": "The MY26 Light Bee X builds on Surron's lightweight off-road platform with stronger performance and updated rider technology. A 10 kW power system, 295 Nm of rear-wheel torque and a 59 kg ready-to-ride weight keep it fast, agile and easy to control across off-road terrain.",
@@ -77,7 +77,7 @@ BIKES = [
         "size": "Mid-size",
         "availability": "batch",
         "availability_label": "AVAILABLE FOR NEXT BATCH",
-        "primary_action": "PLACE ORDER",
+        "primary_action": "SECURE YOUR BIKE",
         "action_kind": "place-order",
         "one_liner": "The mid-size all-rounder, built for riders who want more from every ride.",
         "intro": "Light Bee 2.0 sits in the middle of the Zentro Moto range — a lightweight, electric-powered motorcycle built to go further and do more than the Hyper Bee, without stepping up to full size. It suits riders who want a capable, versatile everyday bike.",
@@ -97,7 +97,7 @@ BIKES = [
         "size": "Largest",
         "availability": "batch",
         "availability_label": "AVAILABLE FOR NEXT BATCH",
-        "primary_action": "PLACE ORDER",
+        "primary_action": "SECURE YOUR BIKE",
         "action_kind": "place-order",
         "one_liner": "The full-size flagship, built for riders who want maximum performance.",
         "intro": "Ultra Bee is the largest and most capable bike in the Zentro Moto range — a full-size electric motorcycle built for riders who want the most performance Surron offers. It’s the flagship choice for serious everyday and off-road riding.",
@@ -955,6 +955,7 @@ def build_master_product(bike, *, category_label, short_description, performance
             <div class="swatch-row">
 {swatches_html}
             </div>
+            <p class="variant-notice" data-variant-notice hidden>Please choose a colour before continuing.</p>
           </div>"""
         else:
             paint_colour_html = f"""          <div class="variant-block">
@@ -1022,7 +1023,7 @@ def build_master_product(bike, *, category_label, short_description, performance
 
           <div class="buy-actions">
             <button type="button" class="btn btn-accent btn-lg btn-block"
-              data-action="add-to-cart"
+              data-action="secure-checkout"
               data-product-id="{bike['id']}"
               data-product-name="{bike['name']}"
               data-price="{PRICE_PLACEHOLDER}"
@@ -1049,7 +1050,7 @@ def build_master_product(bike, *, category_label, short_description, performance
         <div class="mobile-buy-bar-name">{bike['name']}</div>
         <div class="mobile-buy-bar-price">{PRICE_PLACEHOLDER}</div>
       </div>
-      <button type="button" class="btn btn-accent" data-action="add-to-cart">{bike['primary_action']}</button>
+      <button type="button" class="btn btn-accent" data-action="secure-checkout">{bike['primary_action']}</button>
     </div>
 
     <!-- Performance strip -->
