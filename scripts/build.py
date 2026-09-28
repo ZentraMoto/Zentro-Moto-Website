@@ -510,7 +510,7 @@ def build_home():
           <h1 class="h1">Your Surron. Your colour.<br />A better price.</h1>
           <p class="lede">A simpler way to get the right Surron at a better price, with direct factory supply and Australia-wide delivery.</p>
           <div class="hero-ctas">
-            <a class="btn btn-primary btn-lg" href="bikes.html">CHOOSE YOUR BIKE</a>
+            <a class="btn btn-accent btn-lg" href="bikes.html">CHOOSE YOUR BIKE</a>
             <a class="btn btn-secondary btn-lg" href="#how-it-works">HOW IT WORKS</a>
           </div>
         </div>
@@ -1007,7 +1007,7 @@ def build_master_product(bike, *, category_label, short_description, performance
 {order_urgency_html()}
 
           <div class="buy-actions">
-            <button type="button" class="btn btn-primary btn-lg btn-block"
+            <button type="button" class="btn btn-accent btn-lg btn-block"
               data-action="add-to-cart"
               data-product-id="{bike['id']}"
               data-product-name="{bike['name']}"
@@ -1035,7 +1035,7 @@ def build_master_product(bike, *, category_label, short_description, performance
         <div class="mobile-buy-bar-name">{bike['name']}</div>
         <div class="mobile-buy-bar-price">{PRICE_PLACEHOLDER}</div>
       </div>
-      <button type="button" class="btn btn-primary" data-action="add-to-cart">{bike['primary_action']}</button>
+      <button type="button" class="btn btn-accent" data-action="add-to-cart">{bike['primary_action']}</button>
     </div>
 
     <!-- Performance strip -->
