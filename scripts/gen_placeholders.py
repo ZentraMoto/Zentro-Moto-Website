@@ -32,7 +32,9 @@ def svg(model, shot, w, h, big=False, watermark_size=42, id_suffix="", border=Tr
     ty_model = h - 78
     tag_y = 34
     border_rect = f'<rect x="0.75" y="0.75" width="{w-1.5}" height="{h-1.5}" fill="none" stroke="#D8D6CF" stroke-width="1.5"/>' if border else ""
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-label="{model} placeholder image, {shot}">
+    aria_label = f"{model} placeholder image, {shot}" if shot else f"{model} placeholder image"
+    shot_text = f'\n  <text x="{tx}" y="{ty_label}" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="2" fill="#8A8880">{shot.upper()}</text>' if shot else ""
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-label="{aria_label}">
   <rect width="{w}" height="{h}" fill="#EEEDE9"/>
   {border_rect}
   <g transform="translate({cx - 300*scale},{cy - 300*scale}) scale({scale})">
@@ -40,8 +42,7 @@ def svg(model, shot, w, h, big=False, watermark_size=42, id_suffix="", border=Tr
   </g>
   <text x="{tx}" y="{tag_y}" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="2" fill="#8A8880">PLACEHOLDER IMAGE</text>
   <line x1="{tx}" y1="{tag_y+10}" x2="{tx+150}" y2="{tag_y+10}" stroke="#D8D6CF" stroke-width="1"/>
-  <text x="{tx}" y="{ty_model}" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="{28 if big else 22}" letter-spacing="1" fill="#1A1A18">{model.upper()}</text>
-  <text x="{tx}" y="{ty_label}" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="2" fill="#8A8880">{shot.upper()}</text>
+  <text x="{tx}" y="{ty_model}" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="{28 if big else 22}" letter-spacing="1" fill="#1A1A18">{model.upper()}</text>{shot_text}
 </svg>'''
 
 MODELS = ["Hyper Bee", "Light Bee X", "Light Bee 2.0", "Ultra Bee"]
@@ -94,9 +95,10 @@ with open(f"{OUT}/home-hero-action.svg", "w") as f:
 with open(f"{OUT}/bikes-hero.svg", "w") as f:
     f.write(svg("Zentro Moto", "Bikes Hero", 1920, 900, big=True))
 
-# About page hero (right column, 4:3 to match .split-media exactly)
+# About page hero (right column, 4:3 to match .split-media exactly).
+# No shot caption — just the brand wordmark, to keep the hero image clean.
 with open(f"{OUT}/about-hero.svg", "w") as f:
-    f.write(svg("Zentro Moto", "About Hero", 1200, 900, big=True))
+    f.write(svg("Zentro Moto", "", 1200, 900, big=True))
 
 # About page delivery section (right column, 4:3 to match .split-media exactly)
 with open(f"{OUT}/about-delivery.svg", "w") as f:
