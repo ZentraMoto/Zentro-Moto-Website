@@ -499,7 +499,7 @@ def home_bike_card(bike):
             <span class="spotlight-price">{PRICE_PLACEHOLDER}</span>
           </div>
           <p class="spotlight-desc">{HOME_ONE_LINERS[bike['id']]}</p>
-          <a class="btn-link" href="{bike['url']}">VIEW {bike['name'].upper()}</a>
+          <a class="btn btn-secondary" href="{bike['url']}">VIEW BIKE</a>
         </article>"""
 
 
