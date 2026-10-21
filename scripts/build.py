@@ -19,6 +19,7 @@ ACL_BODY = "Any factory warranty is in addition to rights that may apply under t
 INDEPENDENT_STATEMENT = "Zentro Moto is an independent Australian retailer and is not an authorised Australian Surron distributor or representative."
 FOOTER_DISCLOSURE = "Zentro Moto is an independent retailer and is not an authorised distributor or representative of Surron."
 PRICE_PLACEHOLDER = "$X,XXX"
+SAVINGS_MESSAGE = "Save $1,500 vs AU dealer pricing"
 
 # Remaining capacity in the next consolidated batch isn't tracked by any
 # order/inventory system in this prototype, so there is no real number to
@@ -479,6 +480,17 @@ def trust_strip_html():
 # untouched via bike_card() above), but the category, description and CTA
 # wording match the Bikes page exactly (bike['size'] / bike['one_liner'] /
 # "VIEW <NAME>") per request.
+def savings_line_html(prominent=False):
+    cls = "savings-line savings-line--prominent" if prominent else "savings-line"
+    return (
+        f'<p class="{cls}">'
+        '<svg class="savings-check" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" focusable="false">'
+        '<path d="M3 8.5L6.5 12L13 4.5" fill="none" stroke="currentColor" stroke-width="2" '
+        'stroke-linecap="round" stroke-linejoin="round"/></svg>'
+        f"{SAVINGS_MESSAGE}</p>"
+    )
+
+
 def home_bike_card(bike):
     # Uses the -profile shot (already 4:5) rather than the square -card
     # image, so object-fit: cover doesn't crop the baked-in placeholder
@@ -492,6 +504,7 @@ def home_bike_card(bike):
           <div class="spotlight-meta">
             <span class="spotlight-price">{PRICE_PLACEHOLDER}</span>
           </div>
+          {savings_line_html()}
           <p class="spotlight-desc">{bike['one_liner']}</p>
           <a class="btn btn-secondary spotlight-cta" href="{bike['url']}">VIEW {bike['name'].upper()}</a>
         </article>"""
@@ -1014,6 +1027,7 @@ def build_master_product(bike, *, category_label, short_description, performance
           <span class="eyebrow">{category_label} &middot; Zentro Moto</span>
           <h1 class="h2">{bike['name']}</h1>
           <div class="buy-price">{PRICE_PLACEHOLDER}</div>
+          {savings_line_html(prominent=True)}
           <p class="buy-desc">{short_description}</p>
           <p class="text-sm" style="font-weight:700; margin-bottom:24px;">Off-road use only &middot; Not street legal</p>
 

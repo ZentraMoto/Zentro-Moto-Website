@@ -20,6 +20,10 @@
   --yellow: #ffdf00;
   --yellow-dark: #d9be00;
 
+  /* Semantic savings/success colour for price-savings messaging only — not
+     a second decorative accent, never used on buttons, nav or CTAs. */
+  --savings-green: #2e6b45;
+
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
 
@@ -646,6 +650,24 @@ summary:focus-visible {
 .spotlight-price {
   font-size: 1.25rem;
   font-weight: 700;
+}
+.savings-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--savings-green);
+  margin: 0 0 14px;
+}
+.savings-check {
+  flex-shrink: 0;
+  color: var(--savings-green);
+}
+.savings-line--prominent {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  margin: 0 0 18px;
 }
 .spotlight-desc {
   font-size: 0.875rem;
